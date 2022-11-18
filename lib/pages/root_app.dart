@@ -1,3 +1,5 @@
+import 'package:doangtnm/widgets/header_home_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:doangtnm/pages/home_page.dart';
 import 'package:doangtnm/theme/colors.dart';
@@ -19,7 +21,10 @@ class _RootAppState extends State<RootApp> {
     );
   }
   Widget getBody(){
-    return IndexedStack(
+    return
+      Stack( children:
+          <Widget>[
+      IndexedStack(
       index: pageIndex,
       children: <Widget>[
         HomePage(),
@@ -52,7 +57,17 @@ class _RootAppState extends State<RootApp> {
           ),),
         )
       ],
-    );
+    ),
+          Container(
+            padding: EdgeInsets.only(top: 30),
+              child:
+          Align(
+            alignment: Alignment.topCenter,
+              child:
+          HeaderHomePage())
+          )
+          ]
+      );
   }
 
   Widget getFooter() {
@@ -76,14 +91,14 @@ class _RootAppState extends State<RootApp> {
             return bottomItems[index]['isIcon'] ? 
             InkWell(
               onTap: (){
-                selectedTab(index);
+                selectTab(index);
               },
                           child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Icon(
                    bottomItems[index]['icon'],
-                    color: white ,
+                    color:index==pageIndex? white:Colors.grey ,
                   ),
                   SizedBox(
                     height: 5,
@@ -99,7 +114,7 @@ class _RootAppState extends State<RootApp> {
             ) : 
             InkWell(
               onTap: (){
-                selectedTab(index);
+                selectTab(index);
               },
               child: UploadIcon()
               );
@@ -108,9 +123,10 @@ class _RootAppState extends State<RootApp> {
       ),
     );
   }
-  selectedTab(index){
+  selectTab(index){
     setState(() {
       pageIndex = index;
+      if(pageIndex!=0){}
     });
   }
 }

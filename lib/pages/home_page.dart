@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:doangtnm/constant/data_json.dart';
 import 'package:doangtnm/theme/colors.dart';
-import 'package:doangtnm/widgets/header_home_page.dart';
 import 'package:doangtnm/widgets/column_social_icon.dart';
 import 'package:doangtnm/widgets/left_panel.dart';
 import 'package:doangtnm/widgets/tik_tok_icons.dart';
@@ -20,7 +19,7 @@ class _HomePageState extends State<HomePage>
     // TODO: implement initState
     super.initState();
 
-    _tabController = TabController(length: items.length, vsync: this);
+    _tabController = TabController(length: videoitems.length, vsync: this);
   }
 
   @override
@@ -41,18 +40,18 @@ class _HomePageState extends State<HomePage>
       quarterTurns: 1,
       child: TabBarView(
         controller: _tabController,
-        children: List.generate(items.length, (index) {
+        children: List.generate(videoitems.length, (index) {
           return VideoPlayerItem(
-            videoUrl: items[index]['videoUrl'],
+            videoUrl: videoitems[index]['videoUrl'],
             size: size,
-            name: items[index]['name'],
-            caption: items[index]['caption'],
-            songName: items[index]['songName'],
-            profileImg: items[index]['profileImg'],
-            likes: items[index]['likes'],
-            comments: items[index]['comments'],
-            shares: items[index]['shares'],
-            albumImg: items[index]['albumImg'],
+            name: videoitems[index]['name'],
+            caption: videoitems[index]['caption'],
+            songName: videoitems[index]['songName'],
+            profileImg: videoitems[index]['profileImg'],
+            likes: videoitems[index]['likes'],
+            comments: videoitems[index]['comments'],
+            shares: videoitems[index]['shares'],
+            albumImg: videoitems[index]['albumImg'],
           );
         }),
       ),
@@ -167,7 +166,6 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          HeaderHomePage(),
                           Expanded(
                               child: Row(
                             children: <Widget>[

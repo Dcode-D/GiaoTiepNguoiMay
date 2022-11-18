@@ -15,7 +15,7 @@ class HeaderHomePage extends StatelessWidget {
           "Following",
           style: TextStyle(
             color: white.withOpacity(0.7),
-            fontSize: 16,
+            fontSize: 20,
           ),
         ),
         SizedBox(
@@ -25,7 +25,7 @@ class HeaderHomePage extends StatelessWidget {
           "|",
           style: TextStyle(
             color: white.withOpacity(0.3),
-            fontSize: 17,
+            fontSize: 20,
           ),
         ),
         SizedBox(
@@ -34,7 +34,7 @@ class HeaderHomePage extends StatelessWidget {
         Text(
           "For You",
           style: TextStyle(
-              color: white, fontSize: 17, fontWeight: FontWeight.w500),
+              color: white, fontSize: 20, fontWeight: FontWeight.w500),
         )
       ],
     );
