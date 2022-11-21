@@ -1,3 +1,4 @@
+import 'package:doangtnm/pages/profile_page.dart';
 import 'package:doangtnm/widgets/header_home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -49,23 +50,9 @@ class _RootAppState extends State<RootApp> {
             fontWeight: FontWeight.bold
           ),),
         ),
-        Center(
-          child: Text("Profile",style: TextStyle(
-            color: black,
-            fontSize: 20,
-            fontWeight: FontWeight.bold
-          ),),
-        )
+        ProfileScreen()
       ],
     ),
-          Container(
-            padding: EdgeInsets.only(top: 30),
-              child:
-          Align(
-            alignment: Alignment.topCenter,
-              child:
-          HeaderHomePage())
-          )
           ]
       );
   }

@@ -1,3 +1,4 @@
+import 'package:doangtnm/widgets/LikeComponent.dart';
 import 'package:flutter/material.dart';
 import 'package:doangtnm/constant/data_json.dart';
 import 'package:doangtnm/theme/colors.dart';
@@ -5,6 +6,8 @@ import 'package:doangtnm/widgets/column_social_icon.dart';
 import 'package:doangtnm/widgets/left_panel.dart';
 import 'package:doangtnm/widgets/tik_tok_icons.dart';
 import 'package:video_player/video_player.dart';
+
+import '../widgets/header_home_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -36,7 +39,10 @@ class _HomePageState extends State<HomePage>
 
   Widget getBody() {
     var size = MediaQuery.of(context).size;
-    return RotatedBox(
+    return
+      Stack(
+    children:<Widget>[
+      RotatedBox(
       quarterTurns: 1,
       child: TabBarView(
         controller: _tabController,
@@ -55,7 +61,17 @@ class _HomePageState extends State<HomePage>
           );
         }),
       ),
-    );
+    ),
+      Container(
+          padding: EdgeInsets.only(top: 30),
+          child:
+          Align(
+              alignment: Alignment.topCenter,
+              child:
+              HeaderHomePage())
+      )
+    ]
+      );
   }
 }
 
@@ -230,7 +246,7 @@ class RightPanel extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 getProfile(profileImg),
-                getIcons(TikTokIcons.heart, likes, 35.0),
+                LikeComponent(likes: likes),
                 getIcons(TikTokIcons.chat_bubble, comments, 35.0),
                 getIcons(TikTokIcons.reply, shares, 25.0),
                 getAlbum(albumImg)
