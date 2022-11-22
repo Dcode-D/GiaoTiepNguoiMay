@@ -3,16 +3,16 @@ import 'package:doangtnm/widgets/tik_tok_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({
+class OtherProfileScreen extends StatefulWidget {
+  const OtherProfileScreen({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
+  State<OtherProfileScreen> createState() => _OtherProfileScreenState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateMixin{
+class _OtherProfileScreenState extends State<OtherProfileScreen> with TickerProviderStateMixin{
 
   late TabController tabController;
   @override
@@ -26,10 +26,16 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading: const Icon(
-          Icons.person_add_alt_1_outlined,
+        leading:
+        InkWell(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child:
+        Icon(
+          Icons.arrow_back,
           color: Colors.black,
-        ),
+        )),
         actions: const [
 
           Icon(Icons.more_horiz,
@@ -52,7 +58,7 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ClipOval(
-                    child: Image.asset("assets/images/cat.jpg",height: 100,width: 100,fit: BoxFit.fill,)
+                    child: Image.asset("assets/images/cat4.jpg",height: 100,width: 100,fit: BoxFit.fill,)
                 )
               ],
             ),
@@ -204,7 +210,7 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                           crossAxisSpacing: 2,
                         ),
                         itemBuilder: (context, index) {
-                          return Image.asset("assets/images/cat.jpg",fit: BoxFit.cover,);
+                          return Image.asset("assets/images/cat3.jpg",fit: BoxFit.cover,);
                         },
                       ),
                       GridView.builder(
@@ -217,7 +223,7 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                           crossAxisSpacing: 2,
                         ),
                         itemBuilder: (context, index) {
-                          return Image.asset("assets/images/cat.jpg",fit: BoxFit.cover,);
+                          return Image.asset("assets/images/cat2.jpg",fit: BoxFit.cover,);
                         },
                       )
                     ]
