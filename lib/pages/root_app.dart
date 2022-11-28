@@ -1,3 +1,4 @@
+import 'package:doangtnm/pages/commentpage.dart';
 import 'package:doangtnm/pages/profile_page.dart';
 import 'package:doangtnm/widgets/header_home_page.dart';
 import 'package:flutter/cupertino.dart';
@@ -6,6 +7,7 @@ import 'package:doangtnm/pages/home_page.dart';
 import 'package:doangtnm/theme/colors.dart';
 import 'package:doangtnm/widgets/tik_tok_icons.dart';
 import 'package:doangtnm/widgets/upload_icon.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 class RootApp extends StatefulWidget {
   @override
@@ -23,6 +25,9 @@ class _RootAppState extends State<RootApp> {
   }
   Widget getBody(){
     return
+    MaterialApp(
+        builder: FlutterSmartDialog.init(),
+        home:
       Stack( children:
           <Widget>[
       IndexedStack(
@@ -30,10 +35,10 @@ class _RootAppState extends State<RootApp> {
       children: <Widget>[
         HomePage(),
         Center(
-          child: Text("Discover",style: TextStyle(
-            color: black,
-            fontSize: 20,
-            fontWeight: FontWeight.bold
+          child: Text("discovery",style: TextStyle(
+              color: black,
+              fontSize: 20,
+              fontWeight: FontWeight.bold
           ),),
         ),
         Center(
@@ -54,7 +59,8 @@ class _RootAppState extends State<RootApp> {
       ],
     ),
           ]
-      );
+      )
+    );
   }
 
   Widget getFooter() {

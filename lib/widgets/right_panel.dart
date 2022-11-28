@@ -1,6 +1,10 @@
+import 'package:doangtnm/pages/commentpage.dart';
 import 'package:doangtnm/widgets/profile_image.dart';
 import 'package:doangtnm/widgets/tik_tok_icons.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
+import 'package:share_plus/share_plus.dart';
 
 import 'LikeComponent.dart';
 import 'column_social_icon.dart';
@@ -39,8 +43,27 @@ class RightPanel extends StatelessWidget {
                   children: <Widget>[
                     ProfileImage(imgurl: profileImg),
                     LikeComponent(likes: likes),
-                    getIcons(TikTokIcons.chat_bubble, comments, 35.0),
-                    getIcons(TikTokIcons.reply, shares, 25.0),
+                    InkWell(
+                        onTap: (){
+                          SmartDialog.show(builder: (_){
+                            return
+                            Container(
+                              margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/10),
+                                child:
+                              commentPage()
+                            );
+                          },
+                          alignment: Alignment.bottomCenter,
+                          );
+                        },
+                        child:
+                    getIcons(TikTokIcons.chat_bubble, comments, 35.0)),
+                    InkWell(
+                        onTap: (){
+                          Share.share("something");
+                        },
+                        child:
+                          getIcons(TikTokIcons.reply, shares, 25.0)),
                     getAlbum(albumImg)
                   ],
                 ))

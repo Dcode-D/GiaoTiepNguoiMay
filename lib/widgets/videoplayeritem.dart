@@ -66,7 +66,7 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
 
   }
   Widget isPlaying(){
-    return _videoController!.value.isPlaying && !isShowPlaying  ? Container() : Icon(Icons.play_arrow,size: 80,color: white.withOpacity(0.5),);
+    return _videoController!.value.isPlaying && !isShowPlaying  ? Container() : Icon(Icons.play_arrow,size: 80,color: white.withOpacity(0.7),);
   }
 
   @override

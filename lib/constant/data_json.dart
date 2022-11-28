@@ -34,3 +34,51 @@ List videoitems = [
   },
  
 ];
+
+List CommentList = [
+  {"userName":"user1",
+    "content":"good video",
+   "avatarUrl":"assets/images/cat2.jpg",
+    "likes":"300"
+  },
+  {"userName":"user2",
+    "content":"haha",
+    "avatarUrl":"assets/images/cat2.jpg",
+    "likes":"234"
+  },
+  {"userName":"user2",
+    "content":"hahasdfasdfasdfawefwaefasdfiuahsdiofjoaisdjfoiasdmfkasdmfkmaoiwejfoiajsdoifjasidfkiksdfa",
+    "avatarUrl":"assets/images/cat2.jpg",
+    "likes":"756"
+  },
+  {"userName":"user2",
+    "content":"hahasdfasdfasdfawefwaefasdfiuahsdiofjoaisdjfoiasdmfkasdmfkmaoiwejfoiajsdoifjasidfkiksdfa",
+    "avatarUrl":"assets/images/cat2.jpg",
+    "likes":"756"
+  },
+  {"userName":"user2",
+    "content":"hahasdfasdfasdfawefwaefasdfiuahsdiofjoaisdjfoiasdmfkasdmfkmaoiwejfoiajsdoifjasidfkiksdfa",
+    "avatarUrl":"assets/images/cat2.jpg",
+    "likes":"756"
+  },
+  {"userName":"user2",
+    "content":"hahasdfasdfasdfawefwaefasdfiuahsdiofjoaisdjfoiasdmfkasdmfkmaoiwejfoiajsdoifjasidfkiksdfa",
+    "avatarUrl":"assets/images/cat2.jpg",
+    "likes":"756"
+  },
+  {"userName":"user2",
+    "content":"hahasdfasdfasdfawefwaefasdfiuahsdiofjoaisdjfoiasdmfkasdmfkmaoiwejfoiajsdoifjasidfkiksdfa",
+    "avatarUrl":"assets/images/cat2.jpg",
+    "likes":"756"
+  },
+  {"userName":"user2",
+    "content":"hahasdfasdfasdfawefwaefasdfiuahsdiofjoaisdjfoiasdmfkasdmfkmaoiwejfoiajsdoifjasidfkiksdfa",
+    "avatarUrl":"assets/images/cat2.jpg",
+    "likes":"756"
+  },
+  {"userName":"user2",
+    "content":"hahasdfasdfasdfawefwaefasdfiuahsdiofjoaisdjfoiasdmfkasdmfkmaoiwejfoiajsdoifjasidfkiksdfa",
+    "avatarUrl":"assets/images/cat2.jpg",
+    "likes":"756"
+  }
+];
