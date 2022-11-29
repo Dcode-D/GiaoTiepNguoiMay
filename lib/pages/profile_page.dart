@@ -1,4 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:doangtnm/pages/FollowingAccountPage.dart';
+import 'package:doangtnm/pages/followeraccountsPage.dart';
 import 'package:doangtnm/widgets/tik_tok_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -71,6 +73,25 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                InkWell(
+                    onTap: (){
+                      Navigator.push(context, PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) => followingList(),
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                          const begin = Offset(1.0, 0.0);
+                          const end = Offset.zero;
+                          const curve = Curves.ease;
+
+                          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+                          return SlideTransition(
+                            position: animation.drive(tween),
+                            child: child,
+                          );
+                        },
+                      ));
+                    },
+                    child:
                 Column(
                   children: [
                     Text(
@@ -88,6 +109,7 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                       ),
                     ),
                   ],
+                )
                 ),
                 Container(
                   color: Colors.black54,
@@ -97,6 +119,25 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                     horizontal: 15,
                   ),
                 ),
+                InkWell(
+                    onTap: (){
+                      Navigator.push(context, PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) => followerList(),
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                          const begin = Offset(1.0, 0.0);
+                          const end = Offset.zero;
+                          const curve = Curves.ease;
+
+                          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+                          return SlideTransition(
+                            position: animation.drive(tween),
+                            child: child,
+                          );
+                        },
+                      ));
+                    },
+                    child:
                 Column(
                   children: [
                     Text(
@@ -114,6 +155,7 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                       ),
                     ),
                   ],
+                )
                 ),
                 Container(
                   color: Colors.black54,

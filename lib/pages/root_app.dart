@@ -1,5 +1,8 @@
+import 'package:doangtnm/pages/FollowingAccountPage.dart';
 import 'package:doangtnm/pages/commentpage.dart';
+import 'package:doangtnm/pages/followeraccountsPage.dart';
 import 'package:doangtnm/pages/profile_page.dart';
+import 'package:doangtnm/widgets/followaccount.dart';
 import 'package:doangtnm/widgets/header_home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +38,7 @@ class _RootAppState extends State<RootApp> {
       children: <Widget>[
         HomePage(),
         Center(
-          child: Text("discovery",style: TextStyle(
+          child: Text("Discovery",style: TextStyle(
               color: black,
               fontSize: 20,
               fontWeight: FontWeight.bold

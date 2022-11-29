@@ -82,3 +82,29 @@ List CommentList = [
     "likes":"756"
   }
 ];
+
+List listfollowers =[
+
+  {"userName":"cat",
+  "imageUrl":"assets/images/cat2.jpg"},
+  {"userName":"cataiusdf",
+    "imageUrl":"assets/images/cat4.jpg"},
+  {"userName":"dog",
+    "imageUrl":"assets/images/cat3.jpg"},
+  {"userName":"dog",
+    "imageUrl":"assets/images/cat3.jpg"},
+  {"userName":"dog",
+    "imageUrl":"assets/images/cat3.jpg"},
+  {"userName":"dog",
+    "imageUrl":"assets/images/cat3.jpg"},
+  {"userName":"dog",
+    "imageUrl":"assets/images/cat3.jpg"},
+  {"userName":"dog",
+    "imageUrl":"assets/images/cat3.jpg"},
+  {"userName":"dog",
+    "imageUrl":"assets/images/cat3.jpg"},
+  {"userName":"dog",
+    "imageUrl":"assets/images/cat3.jpg"},
+  {"userName":"dog",
+    "imageUrl":"assets/images/cat3.jpg"},
+];

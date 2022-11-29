@@ -15,6 +15,22 @@ class commentPage extends StatelessWidget{
           onTap: (){FocusScope.of(context).requestFocus(new FocusNode());},
           child:
       Stack(children:[
+
+        Container(
+            margin: EdgeInsets.only(top: 5),
+            child:
+        Align(
+            alignment: Alignment.topCenter,
+            child:
+            SizedBox(
+              width: size.width/4,height: 5,child:
+        Container(
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(3),
+          color: Colors.grey),
+          // padding: EdgeInsets.only(left: size.width/3, right: size.width/3),
+        ),
+        )
+        )),
       SingleChildScrollView(
         child: SizedBox(
           width: size.width,
