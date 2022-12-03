@@ -1,7 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doangtnm/widgets/tik_tok_icons.dart';
+import 'package:doangtnm/widgets/video_thumbnail.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'FollowingAccountPage.dart';
+import 'followeraccountsPage.dart';
 
 class OtherProfileScreen extends StatefulWidget {
   const OtherProfileScreen({
@@ -23,7 +27,9 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> with TickerProv
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return
+
+      Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading:
@@ -77,23 +83,43 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> with TickerProv
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Column(
-                  children: [
-                    Text(
-                      "100",
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 5),
-                    const Text(
-                      'Following',
-                      style: TextStyle(
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
+                InkWell(
+                    onTap: (){
+                      Navigator.push(context, PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) => followingList(),
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                          const begin = Offset(1.0, 0.0);
+                          const end = Offset.zero;
+                          const curve = Curves.ease;
+
+                          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+                          return SlideTransition(
+                            position: animation.drive(tween),
+                            child: child,
+                          );
+                        },
+                      ));
+                    },
+                    child:
+                    Column(
+                      children: [
+                        Text(
+                          "100",
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 5),
+                        const Text(
+                          'Following',
+                          style: TextStyle(
+                            fontSize: 14,
+                          ),
+                        ),
+                      ],
+                    )
                 ),
                 Container(
                   color: Colors.black54,
@@ -103,23 +129,43 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> with TickerProv
                     horizontal: 15,
                   ),
                 ),
-                Column(
-                  children: [
-                    Text(
-                      '250',
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 5),
-                    const Text(
-                      'Followers',
-                      style: TextStyle(
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
+                InkWell(
+                    onTap: (){
+                      Navigator.push(context, PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) => followerList(),
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                          const begin = Offset(1.0, 0.0);
+                          const end = Offset.zero;
+                          const curve = Curves.ease;
+
+                          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+                          return SlideTransition(
+                            position: animation.drive(tween),
+                            child: child,
+                          );
+                        },
+                      ));
+                    },
+                    child:
+                    Column(
+                      children: [
+                        Text(
+                          '250',
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 5),
+                        const Text(
+                          'Followers',
+                          style: TextStyle(
+                            fontSize: 14,
+                          ),
+                        ),
+                      ],
+                    )
                 ),
                 Container(
                   color: Colors.black54,
@@ -210,7 +256,7 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> with TickerProv
                           crossAxisSpacing: 2,
                         ),
                         itemBuilder: (context, index) {
-                          return Image.asset("assets/images/cat3.jpg",fit: BoxFit.cover,);
+                          return VideoThumbnail("assets/images/cat3.jpg", "2.3M");
                         },
                       ),
                       GridView.builder(
@@ -223,7 +269,7 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> with TickerProv
                           crossAxisSpacing: 2,
                         ),
                         itemBuilder: (context, index) {
-                          return Image.asset("assets/images/cat2.jpg",fit: BoxFit.cover,);
+                          return VideoThumbnail("assets/images/cat4.jpg", "3M");
                         },
                       )
                     ]
@@ -232,6 +278,7 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> with TickerProv
           ],
         ),
       ),
-    );
+
+      );
   }
 }

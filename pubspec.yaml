@@ -41,6 +41,8 @@ dependencies:
   share_plus: ^6.3.0
   timeago: ^3.3.0
   flutter_smart_dialog: ^4.7.1
+  readmore: ^2.2.0
+  event_bus: ^2.0.0
 
 dev_dependencies:
   flutter_test:

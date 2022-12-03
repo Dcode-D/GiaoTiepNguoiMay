@@ -24,7 +24,7 @@ class followingList extends StatelessWidget{
                   color: Colors.black,
                 )),
             title: Text(
-              "Followers",
+              "Following",
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.black,

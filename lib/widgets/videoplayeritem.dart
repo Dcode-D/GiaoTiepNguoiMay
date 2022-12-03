@@ -1,4 +1,6 @@
+import 'package:doangtnm/events/showmore_event.dart';
 import 'package:doangtnm/widgets/right_panel.dart';
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
@@ -39,11 +41,17 @@ class VideoPlayerItem extends StatefulWidget {
 class _VideoPlayerItemState extends State<VideoPlayerItem> {
   VideoPlayerController? _videoController;
   bool isShowPlaying = false;
+  late EventBus eventbus;
+  bool ishowingmore = false;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    eventbus = new EventBus();
+    eventbus.on<ShowmoreEvent>().listen((event) {setState(() {
+      ishowingmore= event.isshowingmore;
+    });});
 
     _videoController = VideoPlayerController.asset(widget.videoUrl)
       ..initialize().then((value) {
@@ -95,11 +103,15 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
                       VideoPlayer(_videoController!),
                       Center(
                         child: Container(
-                          decoration: BoxDecoration(
-                          ),
                           child: isPlaying(),
                         ),
-                      )
+                      ),
+                      ishowingmore?
+
+                      Container(
+                        color: Colors.black.withOpacity(0.5),
+                      ):
+                      Container()
                     ],
                   ),
                 ),
@@ -116,11 +128,13 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
                           Expanded(
                               child: Row(
                                 children: <Widget>[
+
                                   LeftPanel(
                                     size: widget.size,
                                     name: "${widget.name}",
                                     caption: "${widget.caption}",
                                     songName: "${widget.songName}",
+                                    eventBus: eventbus,
                                   ),
                                   RightPanel(
                                     size: widget.size,

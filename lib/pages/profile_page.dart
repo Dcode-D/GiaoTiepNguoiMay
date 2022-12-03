@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doangtnm/pages/FollowingAccountPage.dart';
 import 'package:doangtnm/pages/followeraccountsPage.dart';
 import 'package:doangtnm/widgets/tik_tok_icons.dart';
+import 'package:doangtnm/widgets/video_thumbnail.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -206,7 +207,7 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                     // }
                   },
                   child: Text(
-                    "follow/unfollow",
+                    "Settings",
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
@@ -246,7 +247,7 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                           crossAxisSpacing: 2,
                         ),
                         itemBuilder: (context, index) {
-                          return Image.asset("assets/images/cat.jpg",fit: BoxFit.cover,);
+                          return VideoThumbnail("assets/images/cat1.jpg", "1.5M");
                         },
                       ),
                       GridView.builder(
@@ -259,7 +260,7 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                           crossAxisSpacing: 2,
                         ),
                         itemBuilder: (context, index) {
-                          return Image.asset("assets/images/cat.jpg",fit: BoxFit.cover,);
+                          return VideoThumbnail("assets/images/cat5.jpg", "1.3M");
                         },
                       )
                     ]

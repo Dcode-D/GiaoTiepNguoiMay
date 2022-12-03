@@ -1,19 +1,26 @@
+import 'package:doangtnm/events/showmore_event.dart';
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:doangtnm/theme/colors.dart';
+import 'package:readmore/readmore.dart';
 
 class LeftPanel extends StatelessWidget {
   final String name;
   final String caption;
   final String songName;
-  const LeftPanel({
+  bool isshowingmore = false;
+  LeftPanel({
      Key? key,
     required this.size,
     required this.name,
     required this.caption,
     required this.songName,
+    required this.eventBus
   }) : super(key: key);
 
+  late EventBus eventBus;
   final Size size;
+
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +40,22 @@ class LeftPanel extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          Text(
+          Container(
+              constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height*0.7),
+              child:
+          SingleChildScrollView(
+            child:
+          ReadMoreText(
             caption,
-            style: TextStyle(color: white),
+            trimMode: TrimMode.Line,
+            trimLines: 3,
+            style: TextStyle(color: white,fontSize: 14),
+            callback: (value){
+              eventBus.fire(ShowmoreEvent(!value));
+              print(value);
+            },
+          )
+          )
           ),
           SizedBox(
             height: 5,
@@ -50,7 +70,7 @@ class LeftPanel extends StatelessWidget {
               Flexible(
                 child: Text(
                   songName,
-                  style: TextStyle(color: white, height: 1.5),
+                  style: TextStyle(color: white, height: 1.5,fontSize: 12),
                 ),
               )
             ],

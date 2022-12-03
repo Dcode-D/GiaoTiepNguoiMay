@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:readmore/readmore.dart';
 import 'package:timeago/timeago.dart' as tago;
 
 import '../pages/other_profile_page.dart';
@@ -73,13 +74,24 @@ class commnetitemstate extends State<commentItem>{
             Align(
                 alignment: Alignment.topLeft,
                 child:
-            Text(
+            ReadMoreText(
               widget.cmt,
+              trimLines: 4,
+              trimMode: TrimMode.Line,
               style: const TextStyle(
                 fontSize: 17,
                 color: Colors.black,
                 fontWeight: FontWeight.w400,
               ),
+              colorClickableText: Colors.pink,
+              moreStyle: const TextStyle(
+                fontSize: 17,
+                color: Colors.blue
+              ),
+              lessStyle:const TextStyle(
+                fontSize: 17,
+                color: Colors.blue
+              ) ,
             )),
           ],
         ),
