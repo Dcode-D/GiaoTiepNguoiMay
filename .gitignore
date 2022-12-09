@@ -352,4 +352,3 @@ lint/tmp/
 #Flutter build runner
 *.config.dart
 *.g.dart
-/lib/generated_plugin_registrant.dart

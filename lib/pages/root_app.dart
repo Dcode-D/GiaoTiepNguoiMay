@@ -1,5 +1,6 @@
 import 'package:doangtnm/pages/FollowingAccountPage.dart';
 import 'package:doangtnm/pages/commentpage.dart';
+import 'package:doangtnm/pages/discovery_page.dart';
 import 'package:doangtnm/pages/followeraccountsPage.dart';
 import 'package:doangtnm/pages/profile_page.dart';
 import 'package:doangtnm/widgets/followaccount.dart';
@@ -37,13 +38,7 @@ class _RootAppState extends State<RootApp> {
       index: pageIndex,
       children: <Widget>[
         HomePage(),
-        Center(
-          child: Text("Discovery",style: TextStyle(
-              color: black,
-              fontSize: 20,
-              fontWeight: FontWeight.bold
-          ),),
-        ),
+        DiscoveryPage(),
         Center(
           child: Text("Upload",style: TextStyle(
             color: black,
