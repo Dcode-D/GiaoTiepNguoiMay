@@ -1,3 +1,4 @@
+import 'package:doangtnm/widgets/SearchingDelegate.dart';
 import 'package:doangtnm/widgets/video_thumbnail.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ class DiscoveryPage extends StatelessWidget{
     var listvideotag = ["#trending","#Lunar new year","#rabit","#Theanh69","#New_year_style"];
     return
         Scaffold(
+          resizeToAvoidBottomInset: false,
           appBar: AppBar(
             backgroundColor: Colors.white,
             leading: Icon(Icons.public,color: Colors.black,),
@@ -20,7 +22,10 @@ class DiscoveryPage extends StatelessWidget{
             ),
             ),
             actions: [
-              Icon(Icons.search,color: Colors.black,size: 27,),
+              IconButton(onPressed: (){
+                showSearch(context: context, delegate: SearchingDelegate());
+              }, icon: Icon(Icons.search,color: Colors.black,size: 27,))
+              ,
               SizedBox(width: MediaQuery.of(context).size.width/30,)
             ],
           ),

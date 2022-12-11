@@ -32,7 +32,9 @@ class VideoThumbnail extends StatelessWidget{
                 child:
             Stack(
               children: [
-                Image.asset(imgUrl,fit: BoxFit.fill,height: double.infinity,width: double.infinity,),
+                Positioned.fill(child:
+                Image.asset(imgUrl,fit: BoxFit.fill,height: double.infinity,width: double.infinity,)
+                ),
                 Align(
                   alignment: Alignment.bottomLeft,
                   child:

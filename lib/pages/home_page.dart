@@ -63,10 +63,10 @@ class _HomePageState extends State<HomePage>
         }),
       ),
     ),
-      Row(children:[
-      TextButton(onPressed: (){_tabController!.animateTo(_tabController!.index-1);}, child: Text("Up")),
-      TextButton(onPressed: (){_tabController!.animateTo(_tabController!.index+1);}, child: Text("Down")),
-      ]),
+      // Row(children:[
+      // TextButton(onPressed: (){_tabController!.animateTo(_tabController!.index-1);}, child: Text("Up")),
+      // TextButton(onPressed: (){_tabController!.animateTo(_tabController!.index+1);}, child: Text("Down")),
+      // ]),
       Container(
           padding: EdgeInsets.only(top: 30),
           child:

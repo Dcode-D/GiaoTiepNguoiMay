@@ -23,6 +23,7 @@ class _RootAppState extends State<RootApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: getBody(),
       bottomNavigationBar: getFooter(),
     );
