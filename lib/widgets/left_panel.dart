@@ -1,4 +1,5 @@
 import 'package:doangtnm/events/showmore_event.dart';
+import 'package:doangtnm/widgets/song_text.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:doangtnm/theme/colors.dart';
@@ -60,20 +61,11 @@ class LeftPanel extends StatelessWidget {
           SizedBox(
             height: 5,
           ),
-          Row(
-            children: <Widget>[
-              Icon(
-                Icons.music_note,
-                color: white,
-                size: 15,
-              ),
-              Flexible(
-                child: Text(
-                  songName,
-                  style: TextStyle(color: white, height: 1.5,fontSize: 12),
-                ),
-              )
-            ],
+
+          Container(
+            margin: EdgeInsets.only(left: 0),
+            child:
+            SongText(songname: songName,),
           )
         ],
       ),
