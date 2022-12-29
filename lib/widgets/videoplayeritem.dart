@@ -1,3 +1,4 @@
+import 'package:doangtnm/events/remote_showmore_event.dart';
 import 'package:doangtnm/events/showmore_event.dart';
 import 'package:doangtnm/widgets/right_panel.dart';
 import 'package:event_bus/event_bus.dart';
@@ -107,10 +108,17 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
                         ),
                       ),
                       ishowingmore?
-
+                  InkWell(
+                      onTap: (){
+                        eventbus.fire(new RemoteShowMoreEvent(true));
+                      },
+                      child:
                       Container(
+                        width: double.infinity,
+                        height: double.infinity,
                         color: Colors.black.withOpacity(0.5),
-                      ):
+                      )
+                  ):
                       Container()
                     ],
                   ),

@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doangtnm/pages/FollowingAccountPage.dart';
+import 'package:doangtnm/pages/edit_profile_page.dart';
 import 'package:doangtnm/pages/followeraccountsPage.dart';
 import 'package:doangtnm/widgets/tik_tok_icons.dart';
 import 'package:doangtnm/widgets/video_thumbnail.dart';
@@ -219,11 +220,25 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
               child: Center(
                 child: InkWell(
                   onTap: () {
-                    // if (widget.uid == authController.user.uid) {
-                    //   authController.signOut();
-                    // } else {
-                    //   controller.followUser();
-                    // }
+                    Navigator.of(context).push(PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) =>
+                          EditProfilePage(),
+                      transitionsBuilder: (context, animation,
+                          secondaryAnimation, child) {
+                        const begin = Offset(1.0, 0.0);
+                        const end = Offset.zero;
+                        const curve = Curves.ease;
+
+                        var tween = Tween(begin: begin, end: end).chain(
+                            CurveTween(curve: curve));
+
+                        return SlideTransition(
+                          position: animation.drive(tween),
+                          child: child,
+                        );
+                      },
+                    )
+                    );
                   },
                   child: Text(
                     "Edit profile",

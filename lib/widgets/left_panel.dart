@@ -1,14 +1,17 @@
+import 'package:doangtnm/events/remote_showmore_event.dart';
 import 'package:doangtnm/events/showmore_event.dart';
+import 'package:doangtnm/widgets/customreadmore.dart';
 import 'package:doangtnm/widgets/song_text.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:doangtnm/theme/colors.dart';
-import 'package:readmore/readmore.dart';
+
 
 class LeftPanel extends StatelessWidget {
   final String name;
   final String caption;
   final String songName;
+  late final CustomReadmore myreadmore;
   bool isshowingmore = false;
   LeftPanel({
      Key? key,
@@ -19,12 +22,24 @@ class LeftPanel extends StatelessWidget {
     required this.eventBus
   }) : super(key: key);
 
-  late EventBus eventBus;
+  EventBus eventBus;
   final Size size;
 
 
   @override
   Widget build(BuildContext context) {
+    myreadmore = CustomReadmore(
+      caption,
+      trimMode: TrimMode.Line,
+      trimLines: 3,
+      style: TextStyle(color: white,fontSize: 14),
+      callback: (value){
+        eventBus.fire(ShowmoreEvent(!value));
+        print(value);
+      },
+      textEventBus: this.eventBus,
+    );
+
     return Container(
       width: size.width * 0.8,
       height: size.height,
@@ -46,16 +61,8 @@ class LeftPanel extends StatelessWidget {
               child:
           SingleChildScrollView(
             child:
-          ReadMoreText(
-            caption,
-            trimMode: TrimMode.Line,
-            trimLines: 3,
-            style: TextStyle(color: white,fontSize: 14),
-            callback: (value){
-              eventBus.fire(ShowmoreEvent(!value));
-              print(value);
-            },
-          )
+          myreadmore,
+
           )
           ),
           SizedBox(
