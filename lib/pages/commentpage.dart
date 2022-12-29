@@ -10,6 +10,7 @@ class commentPage extends StatelessWidget{
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Colors.black.withOpacity(0),
       resizeToAvoidBottomInset: true,
       body:
           Dismissible(
@@ -27,7 +28,7 @@ class commentPage extends StatelessWidget{
           child: Column(
             children: [
               Container(
-                  margin: EdgeInsets.only(top: 5),
+                decoration:BoxDecoration(color: Colors.white),
                   child:
                   Align(
                       alignment: Alignment.topCenter,
@@ -41,17 +42,28 @@ class commentPage extends StatelessWidget{
                       ),
                       )
                   )),
-              SizedBox(height: 10,),
+
               Expanded(
-                child:  ListView.builder(
+
+                child:
+                Container(
+                    decoration: BoxDecoration(color: Colors.white),
+                    child:
+                ListView.builder(
                   physics: BouncingScrollPhysics(),
                       itemCount: CommentList.length+1,
                       itemBuilder: (context, index)
                           {
                             return(index<CommentList.length)? commentItem(CommentList[index]["avatarUrl"], CommentList[index]["userName"], CommentList[index]["content"], "1d ago", CommentList[index]["likes"])
-                            :SizedBox(height: 200,);
+                            :
+                            Container(
+                              decoration: BoxDecoration(color: Colors.white),
+                              child:
+                            SizedBox(height: 200,)
+                            );
                           }
                 )
+              )
               ),
             ],
           ),
