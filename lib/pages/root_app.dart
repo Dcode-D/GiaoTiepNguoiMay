@@ -74,7 +74,7 @@ class _RootAppState extends State<RootApp> {
       width: double.infinity,
       decoration: BoxDecoration(color: Color.fromARGB(255, 240 , 240, 240)),
       child: Padding(
-        padding: const EdgeInsets.only(left: 15, right: 15,top: 10),
+        padding: const EdgeInsets.only(left: 5, right: 10,top: 5),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -90,12 +90,12 @@ class _RootAppState extends State<RootApp> {
                   Icon(
                    bottomItems[index]['icon'],
                     color:index==pageIndex? Color.fromARGB(255, 242, 113, 33):Colors.black ,
-                    size: 30.0,
+                    size: 40.0,
                   ),
                   Center(
                     child: Text(
                       bottomItems[index]['label'],
-                      style: TextStyle(color:index==pageIndex? Color.fromARGB(255, 242, 113, 33):Colors.black ,fontSize: 15),
+                      style: TextStyle(color:index==pageIndex? Color.fromARGB(255, 242, 113, 33):Colors.black ,fontSize: 10),
                     ),
                   )
                 ],

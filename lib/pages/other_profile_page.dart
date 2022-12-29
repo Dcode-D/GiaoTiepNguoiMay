@@ -20,6 +20,7 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> with TickerProv
 
   late TabController tabController;
   late ScrollController _scrollController;
+  bool isFollowing = false;
   @override
   void initState() {
     super.initState();
@@ -83,7 +84,7 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> with TickerProv
                         Padding(
                           padding: EdgeInsets.only(left: 0, top: 10, right: 0, bottom: 0),
                           child: Text(
-                            "@Mr.CatInLove",
+                            "@Mrs.WhiteCat",
                             style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold
@@ -218,30 +219,30 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> with TickerProv
                         const SizedBox(
                           height: 24,
                         ),
-                        Container(
-                          width: 130,
-                          height: 33,
-                          decoration: BoxDecoration(
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              isFollowing = !isFollowing;
+                            });
+                          },
+                          child: Container(
+                            width: 130,
+                            height: 33,
+                            decoration: BoxDecoration(
+                              color: isFollowing ? Color.fromARGB(255, 242, 113, 33) : Colors.transparent,
+                              borderRadius: BorderRadius.circular(5),
                               border: Border.all(
-                                color: Color.fromARGB(255, 242, 113, 33),
-                              ),
-                              borderRadius: BorderRadius.all(Radius.circular(5))
-                          ),
-                          child: Center(
-                            child: InkWell(
-                              onTap: () {
-                                // if (widget.uid == authController.user.uid) {
-                                //   authController.signOut();
-                                // } else {
-                                //   controller.followUser();
-                                // }
-                              },
+                                color:  Color.fromARGB(255, 242, 113, 33) ,
+                                width: 1,
+                              )
+                            ),
+                            child: Center(
                               child: Text(
-                                "Edit profile",
-                                style: const TextStyle(
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color.fromARGB(255, 242, 113, 33)
+                                isFollowing ? 'Follow' : 'Following',
+                                style: TextStyle(
+                                  color: isFollowing ? Colors.white : Color.fromARGB(255, 242, 113, 33),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),

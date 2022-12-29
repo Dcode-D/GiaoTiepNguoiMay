@@ -33,7 +33,7 @@ class DiscoveryPage extends StatelessWidget{
               ListView.builder(
                 itemBuilder: (context,index)=>
                 Container(
-                    margin: EdgeInsets.only(top: 5),
+                    margin: EdgeInsets.only(top: 10),
                     child:
                     HastagVideoList(listvideotag[index],"assets/images/cat"+index.toString()+".jpg")
                 ),

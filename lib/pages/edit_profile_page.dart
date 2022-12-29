@@ -31,103 +31,106 @@ class EditProfilePage extends StatelessWidget{
       ),
 
       //Screen body
-      body: Column(children: [
-        Align(
-          alignment: Alignment.topCenter,
-          child:
-        Container(
-          margin: EdgeInsets.only(top: 10),
-          height: 125,
-          width: 125,
-          decoration: BoxDecoration(
-            image: DecorationImage(image: Image.asset('assets/images/cat1.jpg').image,fit: BoxFit.fill),
-            shape: BoxShape.circle,
-          ),
-          child: Container(
-            height: double.infinity,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.black.withOpacity(0.5)
-            ),
-            child:Icon(Icons.camera_alt_outlined,size: 30,color: Colors.white,),
-          ),
-        )
-        ),
-        SizedBox(height: 5,),
-        Align(
-          alignment: Alignment.topCenter,
-          child: Text("Change photo",
-            style: TextStyle(
-              fontWeight: FontWeight.w500,
-              color: Colors.grey,
-              fontSize: 17
-            ),
-          ),
-        ),
-        Align(
-          alignment: Alignment.centerLeft,
-          child:
-              Container(
-                margin: EdgeInsets.only(left: 10, top: 10),
-                child:
-        Text("About you",
-          style: TextStyle(
-              fontWeight: FontWeight.w700,
-              color: Colors.grey,
-              fontSize: 17
-          ),
-        )
-              )
-        ),
-
-        infoItem(title: "Name", info: "Some shit"),
-        infoItem(title: "Username", info: "Heyhey"),
-        infoItem(title: "Email", info: "MeowMeow@gmail.com"),
-        infoItem(title: "Bio", info: "Add a bio"),
-        SizedBox(height: 20,),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text("Tictac.com/profile?id=meowmoew",style: TextStyle(
-              fontSize: 16
-            ),),
-            SizedBox(width: 10,),
-            Icon(Icons.copy,size: 20, color: Colors.black,),
-            SizedBox(width: 5,)
-          ],
-        ),
-        SizedBox(height: 20,),
-        Container(
-          width: MediaQuery.of(context).size.width,
-          height: 2,
-          decoration: BoxDecoration(
-            color: Colors.grey.withOpacity(0.7),
-          ),
-        ),
-
-        Align(
-            alignment: Alignment.centerLeft,
-            child:
-            Container(
-                margin: EdgeInsets.only(left: 10, top: 20),
-                child:
-                Text("Social",
+      body:
+          SingleChildScrollView(
+            child:       Column(children: [
+              Align(
+                  alignment: Alignment.topCenter,
+                  child:
+                  Container(
+                    margin: EdgeInsets.only(top: 10),
+                    height: 125,
+                    width: 125,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(image: Image.asset('assets/images/cat1.jpg').image,fit: BoxFit.fill),
+                      shape: BoxShape.circle,
+                    ),
+                    child: Container(
+                      height: double.infinity,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.black.withOpacity(0.5)
+                      ),
+                      child:Icon(Icons.camera_alt_outlined,size: 30,color: Colors.white,),
+                    ),
+                  )
+              ),
+              SizedBox(height: 5,),
+              Align(
+                alignment: Alignment.topCenter,
+                child: Text("Change photo",
                   style: TextStyle(
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w500,
                       color: Colors.grey,
                       fontSize: 17
                   ),
-                )
-            )
-        ),
-        
-        SizedBox(height: 15,),
-        infoItem(title: "Instagram", info: "Add instagram"),
-        infoItem(title: "Youtube", info: "Add youtube"),
-        
-      ],
-      ),
+                ),
+              ),
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child:
+                  Container(
+                      margin: EdgeInsets.only(left: 10, top: 10),
+                      child:
+                      Text("About you",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            color: Colors.grey,
+                            fontSize: 17
+                        ),
+                      )
+                  )
+              ),
+
+              infoItem(title: "Name", info: "Some shit"),
+              infoItem(title: "Username", info: "Heyhey"),
+              infoItem(title: "Email", info: "MeowMeow@gmail.com"),
+              infoItem(title: "Bio", info: "Add a bio"),
+              SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text("Tictac.com/profile?id=meowmoew",style: TextStyle(
+                      fontSize: 16
+                  ),),
+                  SizedBox(width: 10,),
+                  Icon(Icons.copy,size: 20, color: Colors.black,),
+                  SizedBox(width: 5,)
+                ],
+              ),
+              SizedBox(height: 20,),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 2,
+                decoration: BoxDecoration(
+                  color: Colors.grey.withOpacity(0.7),
+                ),
+              ),
+
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child:
+                  Container(
+                      margin: EdgeInsets.only(left: 10, top: 20),
+                      child:
+                      Text("Social",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            color: Colors.grey,
+                            fontSize: 17
+                        ),
+                      )
+                  )
+              ),
+
+              SizedBox(height: 15,),
+              infoItem(title: "Instagram", info: "Add instagram"),
+              infoItem(title: "Youtube", info: "Add youtube"),
+
+            ],
+            ),
+          )
     );
   }
 
