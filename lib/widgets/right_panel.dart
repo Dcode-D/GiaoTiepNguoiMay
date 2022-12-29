@@ -29,7 +29,9 @@ class RightPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    GlobalKey currentKey = GlobalKey();
     return Expanded(
+      key: currentKey,
       child: Container(
         height: size.height,
         child: Column(
@@ -45,24 +47,44 @@ class RightPanel extends StatelessWidget {
                     LikeComponent(likes: likes),
                     InkWell(
                         onTap: (){
-                          SmartDialog.show(
-                            animationTime: new Duration(milliseconds: 300),
-                            animationType: SmartAnimationType.centerScale_otherSlide,
-                            animationBuilder: (controller, child, param)=>
-                                SlideTransition(
-                                  position: Tween(begin: Offset(0, 1), end: Offset(0, 0))
-                                      .animate(CurvedAnimation(parent: controller, curve: Curves.easeIn)),
-                                  child: child,
-                                ),
-                            builder: (_){
-                            return
-                            Container(
-                              margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/10),
-                                child:
+                          // SmartDialog.show(
+                          //   animationTime: new Duration(milliseconds: 300),
+                          //   animationType: SmartAnimationType.centerScale_otherSlide,
+                          //   animationBuilder: (controller, child, param)=>
+                          //       SlideTransition(
+                          //         position: Tween(begin: Offset(0, 1), end: Offset(0, 0))
+                          //             .animate(CurvedAnimation(parent: controller, curve: Curves.easeIn)),
+                          //         child: child,
+                          //       ),
+                          //   builder: (_){
+                          //   return
+                          //   Container(
+                          //     margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/10),
+                          //       child:
+                          //     commentPage()
+                          //   );
+                          // },
+                          // alignment: Alignment.bottomCenter,
+                          // );
+
+                          showGeneralDialog(
+                            barrierLabel: "Close dialog",
+                            barrierColor: Colors.black.withOpacity(0.5),
+                            barrierDismissible: true,
+                              transitionDuration: Duration(milliseconds: 300),
+                              context: currentKey.currentContext!,
+                              pageBuilder: (buicontext,animation,animation2)=>
+                              Container(
+                                  margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/10),
+                                  child:
                               commentPage()
-                            );
-                          },
-                          alignment: Alignment.bottomCenter,
+                              ),
+                          transitionBuilder: (context,animation1,animation2,child){
+                            return
+                              SlideTransition(position: Tween(begin: Offset(0, 1), end: Offset(0, 0))
+                                      .animate(animation1),
+                              child: child,);
+                          }
                           );
                         },
                         child:

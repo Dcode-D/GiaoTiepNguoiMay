@@ -9,14 +9,15 @@ class commentPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    Key currentKey = new GlobalKey();
     return Scaffold(
       backgroundColor: Colors.black.withOpacity(0),
       resizeToAvoidBottomInset: true,
       body:
           Dismissible(
-            key: GlobalKey(),
+            key: currentKey,
             direction: DismissDirection.down,
-            onDismissed: (_)=>SmartDialog.dismiss(),
+            onDismissed: (_)=>Navigator.of(context).pop(),
             child:
       GestureDetector(
           onTap: (){FocusScope.of(context).requestFocus(new FocusNode());},
