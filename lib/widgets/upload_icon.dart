@@ -7,47 +7,14 @@ class UploadIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return
+      Padding(padding: EdgeInsets.only(left: 0,top: 0,right: 0,bottom:0),
+      child: Container(
+        margin: EdgeInsets.only(left: 0,top: 0,right: 0,bottom:0),
       width: 50,
       height: 35,
-      child: Stack(
-        children: <Widget>[
-          Positioned(
-            left: 0,
-                              child: Container(
-              width: 40,
-              height: 35,
-              decoration: BoxDecoration(
-                color: secondary,
-                 borderRadius: BorderRadius.circular(8)
-              ),
-            ),
-          ),
-          Positioned(
-            right: 0,
-                              child: Container(
-              width: 40,
-              height: 35,
-              decoration: BoxDecoration(
-                color: primary,
-                 borderRadius: BorderRadius.circular(8)
-              ),
-            ),
-          ),
-          Positioned(
-            right: 5,
-                              child: Container(
-              width: 40,
-              height: 35,
-              decoration: BoxDecoration(
-                color: white,
-                borderRadius: BorderRadius.circular(8)
-              ),
-              child: Icon(Icons.add),
-            ),
-          )
-        ],
-      ),
-    );
+      child: Icon(
+       Icons.add_circle_rounded, color: Color.fromARGB(255, 242, 113, 33), size: 50),
+    ));
   }
 }

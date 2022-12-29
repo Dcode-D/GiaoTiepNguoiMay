@@ -22,15 +22,14 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> with TickerProv
   @override
   void initState() {
     super.initState();
-    tabController = TabController(length: 2, vsync: this, initialIndex: 0);
+    tabController = TabController(length: 2, vsync: this, initialIndex: 1);
   }
 
   @override
   Widget build(BuildContext context) {
-    return
-
-      Scaffold(
+    return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         backgroundColor: Colors.white,
         leading:
         InkWell(
@@ -43,13 +42,12 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> with TickerProv
           color: Colors.black,
         )),
         actions: const [
-
           Icon(Icons.more_horiz,
             color: Colors.black,),
           SizedBox(width: 5)
         ],
         title: Text(
-          "User Name",
+          "Mrs.WhiteCat",
           style: const TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.black,
@@ -63,16 +61,18 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> with TickerProv
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ClipOval(
-                    child: Image.asset("assets/images/cat4.jpg",height: 100,width: 100,fit: BoxFit.fill,)
+                Padding(padding: EdgeInsets.only(left: 0,top: 20,right: 0,bottom: 0),
+                child: ClipOval(
+                    child: Image.asset("assets/images/cat4.jpg",height: 100,width: 101,fit: BoxFit.fill,)
+                  )
                 )
               ],
             ),
             const SizedBox(
-              height: 15,
+              height: 10,
             ),
             Text(
-              "@User",
+              "@Mrs.WhiteCat",
               style: const TextStyle(
                 fontSize: 17,
               ),
@@ -116,17 +116,17 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> with TickerProv
                           'Following',
                           style: TextStyle(
                             fontSize: 14,
+                              color: Color.fromARGB(255, 120, 120, 120)
                           ),
                         ),
                       ],
                     )
                 ),
                 Container(
-                  color: Colors.black54,
                   width: 1,
                   height: 15,
                   margin: const EdgeInsets.symmetric(
-                    horizontal: 15,
+                    horizontal: 20,
                   ),
                 ),
                 InkWell(
@@ -162,17 +162,17 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> with TickerProv
                           'Followers',
                           style: TextStyle(
                             fontSize: 14,
+                              color: Color.fromARGB(255, 120, 120, 120)
                           ),
                         ),
                       ],
                     )
                 ),
                 Container(
-                  color: Colors.black54,
                   width: 1,
                   height: 15,
                   margin: const EdgeInsets.symmetric(
-                    horizontal: 15,
+                    horizontal: 30,
                   ),
                 ),
                 Column(
@@ -189,6 +189,7 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> with TickerProv
                       'Likes',
                       style: TextStyle(
                         fontSize: 14,
+                          color: Color.fromARGB(255, 120, 120, 120)
                       ),
                     ),
                   ],
@@ -196,15 +197,16 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> with TickerProv
               ],
             ),
             const SizedBox(
-              height: 15,
+              height: 24,
             ),
             Container(
-              width: 140,
-              height: 47,
+              width: 130,
+              height: 33,
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: Colors.black12,
+                  color: Color.fromARGB(255, 242, 113, 33),
                 ),
+                  borderRadius: BorderRadius.all(Radius.circular(5))
               ),
               child: Center(
                 child: InkWell(
@@ -216,26 +218,43 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> with TickerProv
                     // }
                   },
                   child: Text(
-                    "follow/unfollow",
+                    "Following",
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 242, 113, 33),
                     ),
                   ),
                 ),
               ),
             ),
-            const SizedBox(
-              height: 15,
+            Padding(padding: EdgeInsets.only(left: 0,top: 12,right: 0,bottom:5),
+                child: Center(
+                    child:Text (
+                      "Some description",
+                      style: const TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black
+                      ),
+                    )
+                )
             ),
             TabBar(
                 controller: tabController,
                 unselectedLabelColor: Colors.grey,
-                indicatorColor: Colors.black38,
-                labelColor: Colors.black,
+                indicator: UnderlineTabIndicator(
+                  borderSide: BorderSide(color: Color.fromARGB(255, 242, 113, 33), width: 5.0),
+                  insets: EdgeInsets.fromLTRB(65, 0.0, 65, 0),
+                ),
+                labelColor: Color.fromARGB(255, 242, 113, 33),
                 tabs: [
-                  Icon(Icons.video_collection),
-                  Icon(TikTokIcons.heart)
+                  Tab(
+                    icon: Icon(Icons.reorder),
+                  ),
+                  Tab(
+                      icon: Icon(Icons.lock_outline)
+                  )
                 ]),
             const SizedBox(
               height: 3,
@@ -251,9 +270,10 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> with TickerProv
                         itemCount: 10,
                         gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
+                          crossAxisCount: 3,
                           childAspectRatio: 1,
                           crossAxisSpacing: 2,
+                          mainAxisSpacing: 2,
                         ),
                         itemBuilder: (context, index) {
                           return VideoThumbnail("assets/images/cat3.jpg", "2.3M");
@@ -264,9 +284,10 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> with TickerProv
                         itemCount: 3,
                         gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
+                          crossAxisCount: 3,
                           childAspectRatio: 1,
                           crossAxisSpacing: 2,
+                          mainAxisSpacing: 2,
                         ),
                         itemBuilder: (context, index) {
                           return VideoThumbnail("assets/images/cat4.jpg", "3M");

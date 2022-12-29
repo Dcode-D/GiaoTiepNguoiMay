@@ -9,7 +9,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:doangtnm/pages/home_page.dart';
 import 'package:doangtnm/theme/colors.dart';
-import 'package:doangtnm/widgets/tik_tok_icons.dart';
 import 'package:doangtnm/widgets/upload_icon.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
@@ -64,18 +63,18 @@ class _RootAppState extends State<RootApp> {
 
   Widget getFooter() {
     List bottomItems = [
-      {"icon":TikTokIcons.home, "label": "Home", "isIcon": true},
-      {"icon": TikTokIcons.search, "label": "Discover", "isIcon": true},
-      {"icon": "", "label": "", "isIcon": false},
-      {"icon": TikTokIcons.messages, "label": "Inbox", "isIcon": true},
-      {"icon": TikTokIcons.profile, "label": "Me", "isIcon": true}
+      {"icon":Icons.home_outlined, "label": "Home", "isIcon": true},
+      {"icon":Icons.language_outlined, "label": "Discovery", "isIcon": true},
+      {"icon": Icons.add_circle_rounded, "label": "", "isIcon": false},
+      {"icon": Icons.live_tv_outlined, "label": "Live", "isIcon": true},
+      {"icon": Icons.person_outline_rounded, "label": "Profile", "isIcon": true}
     ];
     return Container(
-      height: 80,
+      height: 60,
       width: double.infinity,
-      decoration: BoxDecoration(color: appBgColor),
+      decoration: BoxDecoration(color: Color.fromARGB(255, 240 , 240, 240)),
       child: Padding(
-        padding: const EdgeInsets.only(left: 20, right: 20,top: 10),
+        padding: const EdgeInsets.only(left: 15, right: 15,top: 10),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -90,15 +89,13 @@ class _RootAppState extends State<RootApp> {
                 children: <Widget>[
                   Icon(
                    bottomItems[index]['icon'],
-                    color:index==pageIndex? white:Colors.grey ,
-                  ),
-                  SizedBox(
-                    height: 5,
+                    color:index==pageIndex? Color.fromARGB(255, 242, 113, 33):Colors.black ,
+                    size: 30.0,
                   ),
                   Center(
                     child: Text(
                       bottomItems[index]['label'],
-                      style: TextStyle(color: white, fontSize: 10),
+                      style: TextStyle(color:index==pageIndex? Color.fromARGB(255, 242, 113, 33):Colors.black ,fontSize: 15),
                     ),
                   )
                 ],
