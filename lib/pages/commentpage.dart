@@ -28,13 +28,14 @@ class commentPage extends StatelessWidget{
           child: Column(
             children: [
               Container(
+                height:10,
                 decoration:BoxDecoration(color: Colors.white),
                   child:
                   Align(
-                      alignment: Alignment.topCenter,
+                      alignment: Alignment.center,
                       child:
                       SizedBox(
-                        width: size.width/4,height: 5,child:
+                        width: size.width/4,height: 6,child:
                       Container(
                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(3),
                             color: Colors.grey),
