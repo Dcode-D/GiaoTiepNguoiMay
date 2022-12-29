@@ -13,7 +13,7 @@ class VideoThumbnail extends StatelessWidget{
               InkWell(
                 onTap: (){
 
-                  Navigator.push(context, PageRouteBuilder(
+                  Navigator.of(context, rootNavigator: true).push( PageRouteBuilder(
                     pageBuilder: (context, animation, secondaryAnimation) => VideoPage(),
                     transitionsBuilder: (context, animation, secondaryAnimation, child) {
                       const begin = Offset(1.0, 0.0);

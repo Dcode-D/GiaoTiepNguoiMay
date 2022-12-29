@@ -29,7 +29,8 @@ class _OtherProfileScreenState extends State<OtherProfileScreen> with TickerProv
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return
+      Scaffold(
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.white,
