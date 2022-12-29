@@ -23,7 +23,6 @@ class LikeState extends State<LikeComponent> with SingleTickerProviderStateMixin
     animationController = AnimationController(vsync: this, duration: Duration(microseconds: 30000));
     animation = CurvedAnimation(parent: animationController, curve: Curves.easeIn);
     animation.addListener(() {setState(() {
-
     });});
 
     animation.addStatusListener((status) {if(status==AnimationStatus.completed){
