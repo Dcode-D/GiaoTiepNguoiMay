@@ -29,12 +29,16 @@ class SearchingDelegate extends SearchDelegate<String>{
         query.isEmpty
         ?
             Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Flexible(child:
+                Flexible(
+                    flex: 2,
+                    child:
                 Container(
-                  constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height/2),
+                  constraints: BoxConstraints(maxHeight: MediaQuery.of(context).size.height),
                   child:
                 ListView.builder(
+                  physics: BouncingScrollPhysics(),
                   shrinkWrap: true,
                   itemBuilder: (context,index)=>
                   Container(
@@ -53,6 +57,12 @@ class SearchingDelegate extends SearchDelegate<String>{
                 )
                 )
                 ),
+                Flexible(
+                    flex: 1,
+                    child:
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                children:[
                 Container(
                   margin: EdgeInsets.only(top: 10),
     child:
@@ -83,6 +93,9 @@ class SearchingDelegate extends SearchDelegate<String>{
                 )
                 )
               ],
+            )
+                )
+                ]
             )
             :
             Container(
@@ -115,5 +128,5 @@ class SearchingDelegate extends SearchDelegate<String>{
 }
 
 List historyList = ["Phim hay","Vl conheo","Giap cham thoi","Ghe dit bu","Iem la bad girl","Meo rot duoi","ko choi 420 dau"];
-List maylikeList = ["Ba cu may man", "Anh tho sua ong nuoc","Happy new year","Nam moi voi may iem","Meo con","Giao tip nguoi thu ky"];
-List suggestList = ["Ba cu may man", "Anh tho sua ong nuoc","Happy new year","Quynh anh","Ae Hai phong hey hey","Vinahey","Idol","ANh nong dan"];
+List maylikeList = ["Ba cu may man", "Anh tho sua ong nuoc","Happy new year"];
+List suggestList = ["Ba cu may man", "Anh tho sua ong nuoc","Happy new year"];

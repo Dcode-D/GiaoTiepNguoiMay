@@ -18,10 +18,12 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateMixin{
 
   late TabController tabController;
+  late ScrollController _scrollController;
   @override
   void initState() {
     super.initState();
-    tabController = TabController(length: 2, vsync: this, initialIndex: 1);
+    tabController = TabController(length: 2, vsync: this, initialIndex: 0);
+    _scrollController = ScrollController();
   }
 
   @override
@@ -45,26 +47,37 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
       ),
       body: SafeArea(
         child:
+            NestedScrollView(
+              controller: _scrollController,
+    headerSliverBuilder:
+    (context,value) {
+      return <Widget>[
+      SliverToBoxAdapter(
+      child:
         Column(
           children: [
+
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(padding: EdgeInsets.only(left: 0,top: 20,right: 0,bottom: 0),
-                child: ClipOval(
-                    child: Image.asset("assets/images/cat.jpg",height: 100,width: 101,fit: BoxFit.fill,)
-                ))
+                Padding(padding: EdgeInsets.only(
+                    left: 0, top: 20, right: 0, bottom: 0),
+                    child: ClipOval(
+                        child: Image.asset("assets/images/cat.jpg", height: 100,
+                          width: 101,
+                          fit: BoxFit.fill,)
+                    ))
               ],
             ),
             Padding(
-                padding: EdgeInsets.only(left: 0,top: 10,right: 0,bottom:0),
-                child: Text(
-                  "@Mr.CatInLove",
-                  style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold
-                  ),
+              padding: EdgeInsets.only(left: 0, top: 10, right: 0, bottom: 0),
+              child: Text(
+                "@Mr.CatInLove",
+                style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold
                 ),
+              ),
             ),
             const SizedBox(
               height: 10,
@@ -73,15 +86,18 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 InkWell(
-                    onTap: (){
+                    onTap: () {
                       Navigator.push(context, PageRouteBuilder(
-                        pageBuilder: (context, animation, secondaryAnimation) => followingList(),
-                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                        pageBuilder: (context, animation, secondaryAnimation) =>
+                            followingList(),
+                        transitionsBuilder: (context, animation,
+                            secondaryAnimation, child) {
                           const begin = Offset(1.0, 0.0);
                           const end = Offset.zero;
                           const curve = Curves.ease;
 
-                          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                          var tween = Tween(begin: begin, end: end).chain(
+                              CurveTween(curve: curve));
 
                           return SlideTransition(
                             position: animation.drive(tween),
@@ -91,25 +107,25 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                       ));
                     },
                     child:
-                Column(
-                  children: [
-                    Text(
-                      "100",
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 5),
-                    const Text(
-                      'Following',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Color.fromARGB(255, 120, 120, 120)
-                      ),
-                    ),
-                  ],
-                )
+                    Column(
+                      children: [
+                        Text(
+                          "100",
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 5),
+                        const Text(
+                          'Following',
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Color.fromARGB(255, 120, 120, 120)
+                          ),
+                        ),
+                      ],
+                    )
                 ),
                 Container(
                   width: 1,
@@ -119,15 +135,18 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                   ),
                 ),
                 InkWell(
-                    onTap: (){
+                    onTap: () {
                       Navigator.push(context, PageRouteBuilder(
-                        pageBuilder: (context, animation, secondaryAnimation) => followerList(),
-                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                        pageBuilder: (context, animation, secondaryAnimation) =>
+                            followerList(),
+                        transitionsBuilder: (context, animation,
+                            secondaryAnimation, child) {
                           const begin = Offset(1.0, 0.0);
                           const end = Offset.zero;
                           const curve = Curves.ease;
 
-                          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                          var tween = Tween(begin: begin, end: end).chain(
+                              CurveTween(curve: curve));
 
                           return SlideTransition(
                             position: animation.drive(tween),
@@ -137,25 +156,25 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                       ));
                     },
                     child:
-                Column(
-                  children: [
-                    Text(
-                      '250',
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 5),
-                    const Text(
-                      'Followers',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Color.fromARGB(255, 120, 120, 120)
-                      ),
-                    ),
-                  ],
-                )
+                    Column(
+                      children: [
+                        Text(
+                          '250',
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 5),
+                        const Text(
+                          'Followers',
+                          style: TextStyle(
+                              fontSize: 14,
+                              color: Color.fromARGB(255, 120, 120, 120)
+                          ),
+                        ),
+                      ],
+                    )
                 ),
                 Container(
                   width: 1,
@@ -177,8 +196,8 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                     const Text(
                       'Likes',
                       style: TextStyle(
-                        fontSize: 14,
-                        color: Color.fromARGB(255, 120, 120, 120)
+                          fontSize: 14,
+                          color: Color.fromARGB(255, 120, 120, 120)
                       ),
                     ),
                   ],
@@ -192,10 +211,10 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
               width: 130,
               height: 33,
               decoration: BoxDecoration(
-                border: Border.all(
-                  color: Color.fromARGB(255, 242, 113, 33),
-                ),
-                borderRadius: BorderRadius.all(Radius.circular(5))
+                  border: Border.all(
+                    color: Color.fromARGB(255, 242, 113, 33),
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(5))
               ),
               child: Center(
                 child: InkWell(
@@ -209,37 +228,39 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                   child: Text(
                     "Edit profile",
                     style: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      color: Color.fromARGB(255, 242, 113, 33)
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        color: Color.fromARGB(255, 242, 113, 33)
                     ),
                   ),
                 ),
               ),
             ),
-            Padding(padding: EdgeInsets.only(left: 0,top: 12,right: 0,bottom:5),
-              child: Center(
-                  child:Text (
-                    "Some description",
-                    style: const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.normal,
-                        color: Colors.black
-                    ),
-                  )
-              )
+            Padding(
+                padding: EdgeInsets.only(left: 0, top: 12, right: 0, bottom: 5),
+                child: Center(
+                    child: Text(
+                      "Some description",
+                      style: const TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black
+                      ),
+                    )
+                )
             ),
             TabBar(
                 controller: tabController,
                 unselectedLabelColor: Colors.grey,
                 indicator: UnderlineTabIndicator(
-                  borderSide: BorderSide(color: Color.fromARGB(255, 242, 113, 33), width: 5.0),
+                  borderSide: BorderSide(
+                      color: Color.fromARGB(255, 242, 113, 33), width: 5.0),
                   insets: EdgeInsets.fromLTRB(65, 0.0, 65, 0),
                 ),
                 labelColor: Color.fromARGB(255, 242, 113, 33),
                 tabs: [
                   Tab(
-                      icon: Icon(Icons.reorder),
+                    icon: Icon(Icons.reorder),
                   ),
                   Tab(
                       icon: Icon(Icons.lock_outline)
@@ -248,46 +269,49 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
             const SizedBox(
               height: 3,
             ),
-            // video list
-            Expanded(
-                child:
-                TabBarView(
-                    controller: tabController,
-                    children:[
-                      GridView.builder(
-                        shrinkWrap: true,
-                        itemCount: 10,
-                        gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3,
-                          childAspectRatio: 1,
-                          crossAxisSpacing: 2,
-                          mainAxisSpacing: 2,
-                        ),
-
-                        itemBuilder: (context, index) {
-                          return VideoThumbnail("assets/images/cat1.jpg", "1.5M");
-                        },
-                      ),
-                      GridView.builder(
-                        shrinkWrap: true,
-                        itemCount: 3,
-                        gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3,
-                          childAspectRatio: 1,
-                          crossAxisSpacing: 2,
-                          mainAxisSpacing: 2,
-                        ),
-                        itemBuilder: (context, index) {
-                          return VideoThumbnail("assets/images/cat5.jpg", "1.3M");
-                        },
-                      )
-                    ]
-                )
-            )
           ],
-        ),
+        )
+      )
+      ];
+    },
+              body: TabBarView(
+                  physics: NeverScrollableScrollPhysics(),
+                  controller: tabController,
+                  children:[
+                    GridView.builder(
+                      physics: BouncingScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: 10,
+                      gridDelegate:
+                      const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        childAspectRatio: 1,
+                        crossAxisSpacing: 2,
+                        mainAxisSpacing: 2,
+                      ),
+
+                      itemBuilder: (context, index) {
+                        return VideoThumbnail("assets/images/cat1.jpg", "1.5M");
+                      },
+                    ),
+                    GridView.builder(
+                      physics: BouncingScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: 3,
+                      gridDelegate:
+                      const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        childAspectRatio: 1,
+                        crossAxisSpacing: 2,
+                        mainAxisSpacing: 2,
+                      ),
+                      itemBuilder: (context, index) {
+                        return VideoThumbnail("assets/images/cat5.jpg", "1.3M");
+                      },
+                    )
+                  ]
+              ),
+      )
       ),
     );
   }
