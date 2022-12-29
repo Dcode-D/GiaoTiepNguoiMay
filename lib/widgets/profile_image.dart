@@ -26,7 +26,7 @@ class ProfileImgState extends State<ProfileImage>{
         children: <Widget>[
           InkWell(
               onTap: (){
-                Navigator.push(context, PageRouteBuilder(
+                Navigator.of(context, rootNavigator: true).push(PageRouteBuilder(
                   pageBuilder: (context, animation, secondaryAnimation) => OtherProfileScreen(),
                   transitionsBuilder: (context, animation, secondaryAnimation, child) {
                     const begin = Offset(1.0, 0.0);

@@ -1,6 +1,7 @@
 import 'package:doangtnm/widgets/commentItem.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 import '../constant/data_json.dart';
 
@@ -8,48 +9,67 @@ class commentPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    Key currentKey = new GlobalKey();
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.black.withOpacity(0),
+      resizeToAvoidBottomInset: true,
       body:
+          Dismissible(
+            key: currentKey,
+            direction: DismissDirection.down,
+            onDismissed: (_)=>Navigator.of(context).pop(),
+            child:
       GestureDetector(
           onTap: (){FocusScope.of(context).requestFocus(new FocusNode());},
           child:
       Stack(children:[
-
-        Container(
-            margin: EdgeInsets.only(top: 5),
-            child:
-        Align(
-            alignment: Alignment.topCenter,
-            child:
-            SizedBox(
-              width: size.width/4,height: 5,child:
-        Container(
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(3),
-          color: Colors.grey),
-          // padding: EdgeInsets.only(left: size.width/3, right: size.width/3),
-        ),
-        )
-        )),
-      SingleChildScrollView(
-        child: SizedBox(
+      SizedBox(
           width: size.width,
           height: size.height,
           child: Column(
             children: [
+              Container(
+                height:10,
+                decoration:BoxDecoration(color: Colors.white),
+                  child:
+                  Align(
+                      alignment: Alignment.center,
+                      child:
+                      SizedBox(
+                        width: size.width/4,height: 6,child:
+                      Container(
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(3),
+                            color: Colors.grey),
+                        // padding: EdgeInsets.only(left: size.width/3, right: size.width/3),
+                      ),
+                      )
+                  )),
+
               Expanded(
-                child:  ListView.builder(
-                      itemCount: CommentList.length,
+
+                child:
+                Container(
+                    decoration: BoxDecoration(color: Colors.white),
+                    child:
+                ListView.builder(
+                  physics: BouncingScrollPhysics(),
+                      itemCount: CommentList.length+1,
                       itemBuilder: (context, index)
                           {
-                            return commentItem(CommentList[index]["avatarUrl"], CommentList[index]["userName"], CommentList[index]["content"], "1d ago", CommentList[index]["likes"]);
+                            return(index<CommentList.length)? commentItem(CommentList[index]["avatarUrl"], CommentList[index]["userName"], CommentList[index]["content"], "1d ago", CommentList[index]["likes"])
+                            :
+                            Container(
+                              decoration: BoxDecoration(color: Colors.white),
+                              child:
+                            SizedBox(height: 200,)
+                            );
                           }
                 )
+              )
               ),
             ],
           ),
         ),
-      ),
         Align(
             alignment: Alignment.bottomCenter,
             child:
@@ -98,6 +118,7 @@ class commentPage extends StatelessWidget{
         )
         ),
     ]
+    )
     )
     )
     );

@@ -88,7 +88,7 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
               children: [
                 InkWell(
                     onTap: () {
-                      Navigator.push(context, PageRouteBuilder(
+                      Navigator.of(context,rootNavigator: true).push( PageRouteBuilder(
                         pageBuilder: (context, animation, secondaryAnimation) =>
                             followingList(),
                         transitionsBuilder: (context, animation,
@@ -137,7 +137,7 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                 ),
                 InkWell(
                     onTap: () {
-                      Navigator.push(context, PageRouteBuilder(
+                      Navigator.of(context, rootNavigator: true).push( PageRouteBuilder(
                         pageBuilder: (context, animation, secondaryAnimation) =>
                             followerList(),
                         transitionsBuilder: (context, animation,
@@ -220,7 +220,7 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
               child: Center(
                 child: InkWell(
                   onTap: () {
-                    Navigator.of(context).push(PageRouteBuilder(
+                    Navigator.of(context, rootNavigator: true).push(PageRouteBuilder(
                       pageBuilder: (context, animation, secondaryAnimation) =>
                           EditProfilePage(),
                       transitionsBuilder: (context, animation,

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 import '../constant/data_json.dart';
 import '../widgets/videoplayeritem.dart';
@@ -34,6 +35,12 @@ class _VideoPageState extends State<VideoPage>
   Widget getBody() {
     var size = MediaQuery.of(context).size;
     return
+    Scaffold(
+
+    body:
+        MaterialApp(
+          builder: FlutterSmartDialog.init(),
+        home:
       Stack(
           children:<Widget>[
             RotatedBox(
@@ -71,6 +78,8 @@ class _VideoPageState extends State<VideoPage>
                 )
             )
           ]
+    )
+        )
     );
   }
 }

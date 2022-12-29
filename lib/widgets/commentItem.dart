@@ -25,7 +25,9 @@ class commnetitemstate extends State<commentItem>{
   Widget build(BuildContext context) {
     return
     Container(
-      decoration: BoxDecoration(border: Border(
+      decoration: BoxDecoration(
+          color: Colors.white,
+          border: Border(
         bottom: BorderSide(
           width: 1,
           color: Colors.grey

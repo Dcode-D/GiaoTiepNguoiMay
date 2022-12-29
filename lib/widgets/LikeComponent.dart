@@ -20,14 +20,16 @@ class LikeState extends State<LikeComponent> with SingleTickerProviderStateMixin
   @override
   void initState() {
     super.initState();
-    animationController = AnimationController(vsync: this, duration: Duration(microseconds: 1000));
+    animationController = AnimationController(vsync: this, duration: Duration(microseconds: 30000));
     animation = CurvedAnimation(parent: animationController, curve: Curves.easeIn);
     animation.addListener(() {setState(() {
-
     });});
 
     animation.addStatusListener((status) {if(status==AnimationStatus.completed){
-      ischanging = false;
+      animationController.reset();
+      setState(() {
+        ischanging = false;
+      });
     }});
   }
   @override
@@ -38,8 +40,9 @@ class LikeState extends State<LikeComponent> with SingleTickerProviderStateMixin
       onTap: (){setState(() {
         isliked = !isliked;
         ischanging = true;
-        animationController.forward();
-      });},
+      });
+      animationController.forward();
+        },
       child:(ischanging)?
       Transform.scale(
           scale: animation.value,
