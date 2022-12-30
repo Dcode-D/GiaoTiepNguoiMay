@@ -73,7 +73,7 @@ class RightPanel extends StatelessWidget {
                             barrierDismissible: true,
                               transitionDuration: Duration(milliseconds: 300),
                               context: currentKey.currentContext!,
-                              pageBuilder: (buicontext,animation,animation2)=>
+                              pageBuilder: (context,animation,animation2)=>
                               Container(
                                   margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/10),
                                   child:
@@ -88,7 +88,7 @@ class RightPanel extends StatelessWidget {
                           );
                         },
                         child:
-                    getIcons(TikTokIcons.chat_bubble, comments, 35.0)),
+                    getIcons(Icons.chat_outlined, comments, 30.0)),
                     InkWell(
                         onTap: (){
                           Share.share("something");

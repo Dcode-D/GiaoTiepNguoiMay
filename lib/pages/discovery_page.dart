@@ -58,12 +58,18 @@ class HastagVideoList extends StatelessWidget{
             Align(
               alignment: Alignment.topLeft,
               child:
-            Text(hastag,
-              style: TextStyle(
-                color: Colors.orange,
-                      fontSize: 16,
-              ),
-            )
+                  Padding(
+                    padding: EdgeInsets.only(left: 15),
+                    child:
+                      Text(hastag,
+                        style: TextStyle(
+                            color: Colors.orange,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500
+                        ),
+                      )
+                  )
+
             ),
             SizedBox(height: 10,),
             SizedBox(
@@ -73,12 +79,19 @@ class HastagVideoList extends StatelessWidget{
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int index) {
                 return
-                    SizedBox(
-                      height:MediaQuery.of(context).size.height/6 ,
-                      width: MediaQuery.of(context).size.height/6,
+                Padding(
+                  padding: EdgeInsets.only(left: 5,bottom: 5),
+                  child:
+                  Container(
                       child:
-                      VideoThumbnail(videoUrl,"100M"),
-                    );
+                      SizedBox(
+                        height:MediaQuery.of(context).size.height/4 ,
+                        width: MediaQuery.of(context).size.height/6,
+                        child:
+                          VideoThumbnail(videoUrl,"100M"),
+                      )
+                  )
+                );
               },
             )
             )

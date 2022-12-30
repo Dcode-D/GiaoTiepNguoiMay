@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doangtnm/pages/FollowingAccountPage.dart';
 import 'package:doangtnm/pages/edit_profile_page.dart';
 import 'package:doangtnm/pages/followeraccountsPage.dart';
+import 'package:doangtnm/pages/switch_account_page.dart';
 import 'package:doangtnm/widgets/tik_tok_icons.dart';
 import 'package:doangtnm/widgets/video_thumbnail.dart';
 import 'package:flutter/cupertino.dart';
@@ -29,7 +30,9 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
+    GlobalKey currentKey = GlobalKey();
     return Scaffold(
+      key: currentKey,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.white,
@@ -38,13 +41,46 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
             color: Colors.black),
           SizedBox(width: 5)
         ],
-        title: Text(
-          "Mr.CatInLove",
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-          ),
-        ),
+        title:
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Mr.CatInLove",
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+                InkWell(
+                  onTap: (){
+                    showGeneralDialog(
+                        barrierLabel: "Close dialog",
+                        barrierColor: Colors.black.withOpacity(0.5),
+                        barrierDismissible: true,
+                        transitionDuration: Duration(milliseconds: 300),
+                        context: currentKey.currentContext!,
+                        pageBuilder: (context,animation,animation2)=>
+                            Container(
+                                margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/10),
+                                child:
+                                switchaccountPage()
+                            ),
+                        transitionBuilder: (context,animation1,animation2,child){
+                          return
+                            SlideTransition(position: Tween(begin: Offset(0, 1), end: Offset(0, 0))
+                                .animate(animation1),
+                              child: child,);
+                        }
+                    );
+                  },
+                  child: const Icon(
+                    Icons.arrow_drop_down,
+                    color: Colors.black,
+                  ),
+                ),
+              ],
+            )
       ),
       body: SafeArea(
         child:

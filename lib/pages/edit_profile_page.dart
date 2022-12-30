@@ -71,7 +71,7 @@ class EditProfilePage extends StatelessWidget{
                   alignment: Alignment.centerLeft,
                   child:
                   Container(
-                      margin: EdgeInsets.only(left: 10, top: 10),
+                      margin: EdgeInsets.only(left: 10, top: 20),
                       child:
                       Text("About you",
                         style: TextStyle(
@@ -83,7 +83,7 @@ class EditProfilePage extends StatelessWidget{
                   )
               ),
 
-              infoItem(title: "Name", info: "Some shit"),
+              infoItem(title: "Name", info: "Mr.CatInLove"),
               infoItem(title: "Username", info: "Heyhey"),
               infoItem(title: "Email", info: "MeowMeow@gmail.com"),
               infoItem(title: "Bio", info: "Add a bio"),
@@ -124,7 +124,7 @@ class EditProfilePage extends StatelessWidget{
                   )
               ),
 
-              SizedBox(height: 15,),
+
               infoItem(title: "Instagram", info: "Add instagram"),
               infoItem(title: "Youtube", info: "Add youtube"),
 

@@ -47,7 +47,7 @@ class _RootAppState extends State<RootApp> {
           ),),
         ),
         Center(
-          child: Text("All Activity",style: TextStyle(
+          child: Text("Live Video",style: TextStyle(
             color: black,
             fontSize: 20,
             fontWeight: FontWeight.bold

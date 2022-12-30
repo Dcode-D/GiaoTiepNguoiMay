@@ -27,23 +27,33 @@ class SearchState extends State<SearchResultPage> with TickerProviderStateMixin{
     Column(children:[
       TabBar(
           controller: _tabController,
+          unselectedLabelColor: Colors.grey,
+          indicator: UnderlineTabIndicator(
+            borderSide: BorderSide(
+                color: Color.fromARGB(255, 242, 113, 33), width: 5),
+            insets: EdgeInsets.fromLTRB(28, 0.0, 28, 0),
+          ),
+          labelColor: Color.fromARGB(255, 242, 113, 33),
           tabs: [
-        Text("Top",style: TextStyle(color: Colors.black,fontSize: 17),),
-        Text("Videos",style: TextStyle(color: Colors.black, fontSize: 17)),
-        Text("Profiles", style: TextStyle(color: Colors.black, fontSize: 17)),
+            Tab(
+              child: Text("Top",style: TextStyle(color: Colors.black,fontSize: 17),),
+            ),
+            Tab(
+              child: Text("Videos",style: TextStyle(color: Colors.black, fontSize: 17)),
+            ),
+            Tab(
+              child: Text("Profiles", style: TextStyle(color: Colors.black, fontSize: 17)),
+            ),
       ]),
       SizedBox(height: 10,),
       Expanded(
-
           child:
       TabBarView(
-
           controller: _tabController,
           children: [
         TopPage(),
             videoPage(),
             ProfilePage(),
-        
       ])
       )
     ]
@@ -66,6 +76,7 @@ class TopPage extends StatelessWidget{
              crossAxisCount: 2,
              childAspectRatio: 1,
              crossAxisSpacing: 2,
+              mainAxisSpacing: 2,
            ),
            itemBuilder: (context, index) {
              return
@@ -73,9 +84,11 @@ class TopPage extends StatelessWidget{
                    children:[
 
                      SizedBox(
-                         height:MediaQuery.of(context).size.height/5,
+                         height:MediaQuery.of(context).size.height/4,
+                         width: MediaQuery.of(context).size.width/2.1,
                          child:
                          VideoThumbnail("assets/images/cat1.jpg", "1.5M")),
+                     SizedBox(height: 2,),
                      Row(
                          children:[
                            Align(

@@ -51,5 +51,4 @@ class VideoThumbnail extends StatelessWidget{
           ,
         );
   }
-
 }

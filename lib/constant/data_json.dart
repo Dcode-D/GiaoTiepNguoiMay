@@ -108,3 +108,14 @@ List listfollowers =[
   {"userName":"dog",
     "imageUrl":"assets/images/cat3.jpg"},
 ];
+
+List AccountList =[
+  {"avatarUrl":"assets/images/cat.jpg",
+  "userName":"Mr.CatInLove",
+  "tag":"@Mr.CatInLove",
+  "logged":true},
+  {"avatarUrl":"assets/images/cat1.jpg",
+    "userName":"Mrs.WhiteCat",
+    "tag":"@Mrs.WhiteCat",
+    "logged":false}
+];

@@ -47,7 +47,7 @@ class ProfileImgState extends State<ProfileImage>{
             width: 50,
             height: 50,
             decoration: BoxDecoration(
-                border: Border.all(color: white),
+                border: Border.all(color: Color.fromARGB(255, 242, 113, 33)),
                 shape: BoxShape.circle,
                 image: DecorationImage(
                     image: NetworkImage(
@@ -57,7 +57,7 @@ class ProfileImgState extends State<ProfileImage>{
           ),
           Positioned(
               bottom: 3,
-              left: 18,
+              left : 16,
               child:
               InkWell(
               onTap: (){setState(() {
@@ -74,7 +74,7 @@ class ProfileImgState extends State<ProfileImage>{
                 width: 20,
                 height: 20,
                 decoration:
-                BoxDecoration(shape: BoxShape.circle, color: primary),
+                BoxDecoration(shape: BoxShape.circle, color: Color.fromARGB(255, 242, 113, 33)),
                 child: Center(
                     child: Icon(
                       Icons.add,
@@ -90,7 +90,7 @@ class ProfileImgState extends State<ProfileImage>{
                 child: Center(
                     child: Icon(
                       Icons.check,
-                      color: Colors.red,
+                      color: Color.fromARGB(255, 242, 113, 33),
                       size: 15,
                     )),
               )

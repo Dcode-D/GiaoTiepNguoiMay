@@ -36,11 +36,7 @@ class headerstate extends State<HeaderHomePage>{
           ,
         )),
         SizedBox(
-          width: 8,
-        ),
-
-        SizedBox(
-          width: 8,
+          width: 16,
         ),
         InkWell(
             onTap: (){
@@ -57,7 +53,16 @@ class headerstate extends State<HeaderHomePage>{
             color: white.withOpacity(0.7),
             fontSize: 20,
           ),
-        ))
+        )),
+            /*InkWell(
+                onTap: (){
+                  setState(() {
+
+                  });
+                },
+                child:
+                Icon(Icons.search ,color: white.withOpacity(0.7),size: 30,)
+            )*/
       ],
     );
   }
