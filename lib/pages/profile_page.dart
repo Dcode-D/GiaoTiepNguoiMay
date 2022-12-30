@@ -62,13 +62,13 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                         context: currentKey.currentContext!,
                         pageBuilder: (context,animation,animation2)=>
                             Container(
-                                margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/10),
+
                                 child:
                                 switchaccountPage()
                             ),
                         transitionBuilder: (context,animation1,animation2,child){
                           return
-                            SlideTransition(position: Tween(begin: Offset(0, 1), end: Offset(0, 0))
+                            SlideTransition(position: Tween(begin: Offset(0, 1), end: Offset(0, 0.61))
                                 .animate(animation1),
                               child: child,);
                         }
