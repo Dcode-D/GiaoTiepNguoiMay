@@ -40,10 +40,8 @@ class DiscoveryPage extends StatelessWidget{
                 itemCount: listvideotag.length,
                 shrinkWrap: true,
           ),
-
         );
   }
-
 }
 
 class HastagVideoList extends StatelessWidget{
