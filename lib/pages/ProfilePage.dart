@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:doangtnm/pages/FollowingAccountPage.dart';
-import 'package:doangtnm/pages/edit_profile_page.dart';
-import 'package:doangtnm/pages/followeraccountsPage.dart';
-import 'package:doangtnm/pages/switch_account_page.dart';
+import 'package:doangtnm/pages/EditProfilePage.dart';
+import 'package:doangtnm/pages/FollowerAccountsPage.dart';
+import 'package:doangtnm/pages/SwitchAccountPage.dart';
 import 'package:doangtnm/widgets/tik_tok_icons.dart';
 import 'package:doangtnm/widgets/video_thumbnail.dart';
 import 'package:flutter/cupertino.dart';

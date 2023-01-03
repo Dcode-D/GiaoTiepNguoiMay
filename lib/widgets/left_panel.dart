@@ -1,10 +1,10 @@
-import 'package:doangtnm/events/remote_showmore_event.dart';
-import 'package:doangtnm/events/showmore_event.dart';
+import 'package:doangtnm/events/RemoteShowmoreEvent.dart';
+import 'package:doangtnm/events/ShowmoreEvent.dart';
 import 'package:doangtnm/widgets/customreadmore.dart';
 import 'package:doangtnm/widgets/song_text.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
-import 'package:doangtnm/theme/colors.dart';
+import 'package:doangtnm/theme/Colors.dart';
 
 
 class LeftPanel extends StatelessWidget {

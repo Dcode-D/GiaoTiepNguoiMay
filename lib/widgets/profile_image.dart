@@ -1,8 +1,8 @@
-import 'package:doangtnm/pages/other_profile_page.dart';
+import 'package:doangtnm/pages/OtherProfilePage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../theme/colors.dart';
+import '../theme/Colors.dart';
 
 class ProfileImage extends StatefulWidget{
   String imgurl;
@@ -61,16 +61,16 @@ class ProfileImgState extends State<ProfileImage>{
               child:
               InkWell(
               onTap: (){setState(() {
-    toggled=!toggled;
-    });},
-    child:
+                toggled=!toggled;
+                });},
+              child:
               AnimatedSwitcher(
                   duration: Duration(milliseconds: 500),
                       transitionBuilder: (Widget child, Animation<double> animation) {
                       return ScaleTransition(scale: animation, child: child);},
               child:
-    (!toggled)?
-              Container(
+              (!toggled)?
+                Container(
                 width: 20,
                 height: 20,
                 decoration:

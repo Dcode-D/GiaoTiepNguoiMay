@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../pages/other_profile_page.dart';
+import '../pages/OtherProfilePage.dart';
 
 class FollowingAccountItem extends StatefulWidget{
   String userName;

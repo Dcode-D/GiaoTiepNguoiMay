@@ -1,7 +1,7 @@
 import 'package:doangtnm/widgets/LikeComponent.dart';
 import 'package:flutter/material.dart';
 import 'package:doangtnm/constant/data_json.dart';
-import 'package:doangtnm/theme/colors.dart';
+import 'package:doangtnm/theme/Colors.dart';
 import 'package:doangtnm/widgets/column_social_icon.dart';
 import 'package:doangtnm/widgets/left_panel.dart';
 import 'package:doangtnm/widgets/tik_tok_icons.dart';
@@ -22,7 +22,6 @@ class _HomePageState extends State<HomePage>
   void initState() {
     // TODO: implement initState
     super.initState();
-
     _tabController = TabController(length: videoitems.length, vsync: this);
   }
 
@@ -42,7 +41,7 @@ class _HomePageState extends State<HomePage>
     var size = MediaQuery.of(context).size;
     return
       Stack(
-    children:<Widget>[
+      children:<Widget>[
       RotatedBox(
       quarterTurns: 1,
       child: TabBarView(

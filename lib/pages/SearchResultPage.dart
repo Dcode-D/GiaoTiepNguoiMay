@@ -4,7 +4,7 @@ import 'package:flutter/scheduler.dart';
 
 import '../widgets/profile_image.dart';
 import '../widgets/video_thumbnail.dart';
-import 'other_profile_page.dart';
+import 'OtherProfilePage.dart';
 
 class SearchResultPage extends StatefulWidget {
 

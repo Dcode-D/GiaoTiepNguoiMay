@@ -1,4 +1,4 @@
-import 'package:doangtnm/pages/search_result_page.dart';
+import 'package:doangtnm/pages/SearchResultPage.dart';
 import 'package:flutter/material.dart';
 
 class SearchingDelegate extends SearchDelegate<String>{

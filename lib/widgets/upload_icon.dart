@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:doangtnm/theme/colors.dart';
+import 'package:doangtnm/theme/Colors.dart';
 class UploadIcon extends StatelessWidget {
   const UploadIcon({
     Key? key,

@@ -1,6 +1,6 @@
 import 'package:doangtnm/events/RemoteShowmoreEvent.dart';
 import 'package:doangtnm/events/ShowmoreEvent.dart';
-import 'package:doangtnm/widgets/right_panel.dart';
+import 'package:doangtnm/widgets/right_live_panel.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +9,7 @@ import 'package:video_player/video_player.dart';
 import '../theme/Colors.dart';
 import 'left_panel.dart';
 
-class VideoPlayerItem extends StatefulWidget {
+class LiveVideoItem extends StatefulWidget {
   final String videoUrl;
   final String name;
   final String caption;
@@ -19,7 +19,7 @@ class VideoPlayerItem extends StatefulWidget {
   final String comments;
   final String shares;
   final String albumImg;
-  VideoPlayerItem(
+  LiveVideoItem(
       {Key? key,
         required this.size,
         required this.name,
@@ -36,10 +36,10 @@ class VideoPlayerItem extends StatefulWidget {
   final Size size;
 
   @override
-  _VideoPlayerItemState createState() => _VideoPlayerItemState();
+  _LiveVideoItemState createState() => _LiveVideoItemState();
 }
 
-class _VideoPlayerItemState extends State<VideoPlayerItem> {
+class _LiveVideoItemState extends State<LiveVideoItem> {
   VideoPlayerController? _videoController;
   bool isShowPlaying = false;
   late EventBus eventbus;
@@ -107,17 +107,17 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
                         ),
                       ),
                       ishowingmore?
-                  InkWell(
-                      onTap: (){
-                        eventbus.fire(new RemoteShowMoreEvent(true));
-                      },
-                      child:
-                      Container(
-                        width: double.infinity,
-                        height: double.infinity,
-                        color: Colors.black.withOpacity(0.5),
-                      )
-                  ):
+                      InkWell(
+                          onTap: (){
+                            eventbus.fire(new RemoteShowMoreEvent(true));
+                          },
+                          child:
+                          Container(
+                            width: double.infinity,
+                            height: double.infinity,
+                            color: Colors.black.withOpacity(0.5),
+                          )
+                      ):
                       Container()
                     ],
                   ),
@@ -143,7 +143,7 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
                                     songName: "${widget.songName}",
                                     eventBus: eventbus,
                                   ),
-                                  RightPanel(
+                                  RightLivePanel(
                                     size: widget.size,
                                     likes: "${widget.likes}",
                                     comments: "${widget.comments}",

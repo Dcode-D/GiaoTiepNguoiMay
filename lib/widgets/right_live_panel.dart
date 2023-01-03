@@ -1,5 +1,5 @@
 import 'package:doangtnm/pages/CommentPage.dart';
-import 'package:doangtnm/widgets/profile_image.dart';
+import 'package:doangtnm/widgets/profileliveimage.dart';
 import 'package:doangtnm/widgets/tik_tok_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,13 +9,13 @@ import 'package:share_plus/share_plus.dart';
 import 'LikeComponent.dart';
 import 'column_social_icon.dart';
 
-class RightPanel extends StatelessWidget {
+class RightLivePanel extends StatelessWidget {
   final String likes;
   final String comments;
   final String shares;
   final String profileImg;
   final String albumImg;
-  const RightPanel({
+  const RightLivePanel({
     Key? key,
     required this.size,
     required this.likes,
@@ -43,7 +43,7 @@ class RightPanel extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    ProfileImage(imgurl: profileImg),
+                    ProfileLiveImage(imgurl: profileImg),
                     LikeComponent(likes: likes),
                     InkWell(
                         onTap: (){
@@ -68,33 +68,33 @@ class RightPanel extends StatelessWidget {
                           // );
 
                           showGeneralDialog(
-                            barrierLabel: "Close dialog",
-                            barrierColor: Colors.black.withOpacity(0.5),
-                            barrierDismissible: true,
+                              barrierLabel: "Close dialog",
+                              barrierColor: Colors.black.withOpacity(0.5),
+                              barrierDismissible: true,
                               transitionDuration: Duration(milliseconds: 300),
                               context: currentKey.currentContext!,
                               pageBuilder: (context,animation,animation2)=>
-                              Container(
-                                  margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/10),
-                                  child:
-                              commentPage()
-                              ),
-                          transitionBuilder: (context,animation1,animation2,child){
-                            return
-                              SlideTransition(position: Tween(begin: Offset(0, 1), end: Offset(0, 0))
+                                  Container(
+                                      margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/10),
+                                      child:
+                                      commentPage()
+                                  ),
+                              transitionBuilder: (context,animation1,animation2,child){
+                                return
+                                  SlideTransition(position: Tween(begin: Offset(0, 1), end: Offset(0, 0))
                                       .animate(animation1),
-                              child: child,);
-                          }
+                                    child: child,);
+                              }
                           );
                         },
                         child:
-                    getIcons(Icons.chat_outlined, comments, 30.0)),
+                        getIcons(Icons.chat_outlined, comments, 30.0)),
                     InkWell(
                         onTap: (){
                           Share.share("something");
                         },
                         child:
-                          getIcons(TikTokIcons.reply, shares, 25.0)),
+                        getIcons(TikTokIcons.reply, shares, 25.0)),
                     getAlbum(albumImg)
                   ],
                 ))

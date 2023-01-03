@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
 import 'package:timeago/timeago.dart' as tago;
 
-import '../pages/other_profile_page.dart';
+import '../pages/OtherProfilePage.dart';
 
 class accountItem extends StatefulWidget{
 

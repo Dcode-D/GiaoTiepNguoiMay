@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'FollowingAccountPage.dart';
-import 'followeraccountsPage.dart';
+import 'FollowerAccountsPage.dart';
 
 class OtherProfileScreen extends StatefulWidget {
   const OtherProfileScreen({

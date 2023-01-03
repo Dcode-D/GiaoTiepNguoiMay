@@ -1,14 +1,15 @@
 import 'package:doangtnm/pages/FollowingAccountPage.dart';
-import 'package:doangtnm/pages/commentpage.dart';
-import 'package:doangtnm/pages/discovery_page.dart';
-import 'package:doangtnm/pages/followeraccountsPage.dart';
-import 'package:doangtnm/pages/profile_page.dart';
+import 'package:doangtnm/pages/CommentPage.dart';
+import 'package:doangtnm/pages/DiscoveryPage.dart';
+import 'package:doangtnm/pages/FollowerAccountsPage.dart';
+import 'package:doangtnm/pages/ProfilePage.dart';
 import 'package:doangtnm/widgets/followaccount.dart';
 import 'package:doangtnm/widgets/header_home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:doangtnm/pages/home_page.dart';
-import 'package:doangtnm/theme/colors.dart';
+import 'package:doangtnm/pages/HomePage.dart';
+import 'package:doangtnm/pages/LivePage.dart';
+import 'package:doangtnm/theme/Colors.dart';
 import 'package:doangtnm/widgets/upload_icon.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
@@ -46,13 +47,14 @@ class _RootAppState extends State<RootApp> {
             fontWeight: FontWeight.bold
           ),),
         ),
-        Center(
+        /*Center(
           child: Text("Live Video",style: TextStyle(
             color: black,
             fontSize: 20,
             fontWeight: FontWeight.bold
           ),),
-        ),
+        )*/
+        LivePage(),
         ProfileScreen()
       ],
     ),
