@@ -1,3 +1,4 @@
+import 'package:doangtnm/pages/LoginPage.dart';
 import 'package:doangtnm/widgets/accountitem.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,9 +10,8 @@ class switchaccountPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    Key currentKey = new GlobalKey();
+    GlobalKey currentKey = new GlobalKey();
     return
-
       Scaffold(
       backgroundColor: Colors.black.withOpacity(0),
       resizeToAvoidBottomInset: true,
@@ -109,31 +109,54 @@ class switchaccountPage extends StatelessWidget{
                                         Align(
                                             alignment: Alignment.bottomLeft,
                                             child:
-                                            Padding(
-                                                padding: EdgeInsets.only(top: 10),
-                                                child: Row(
-                                                    children:[
-                                                      SizedBox(width: 15,),
-                                                      SizedBox(
-                                                        width: 40,
-                                                        height: 40,
-                                                        child:
+                                            InkWell(
+                                              onTap: (){
+                                                showGeneralDialog(
+                                                    barrierLabel: "Close dialog",
+                                                    barrierColor: Colors.black.withOpacity(0.5),
+                                                    barrierDismissible: true,
+                                                    transitionDuration: Duration(milliseconds: 300),
+                                                    context: currentKey.currentContext!,
+                                                    pageBuilder: (context,animation,animation2)=>
                                                         Container(
-                                                          decoration: BoxDecoration(
-                                                              color: Color.fromARGB(255, 234, 234, 234),
-                                                              borderRadius: BorderRadius.circular(20)
-                                                          ),
-                                                          child:
-                                                          Icon(Icons.add, color: Colors.black,),
+
+                                                            child:
+                                                            LoginPage()
                                                         ),
-                                                      ),
-                                                      SizedBox(width: 18,),
-                                                      Text("Add Account",style: TextStyle(
-                                                          color: Colors.black,
-                                                          fontSize: 15,
-                                                          fontWeight: FontWeight.w500
-                                                      ),),
-                                                    ])
+                                                    transitionBuilder: (context,animation1,animation2,child){
+                                                      return
+                                                        SlideTransition(position: Tween(begin: Offset(0, 1), end: Offset(0, 0.2))
+                                                            .animate(animation1),
+                                                          child: child,);
+                                                    }
+                                                );
+                                              },
+                                              child: Padding(
+                                                  padding: EdgeInsets.only(top: 10),
+                                                  child: Row(
+                                                      children:[
+                                                        SizedBox(width: 15,),
+                                                        SizedBox(
+                                                          width: 40,
+                                                          height: 40,
+                                                          child:
+                                                          Container(
+                                                            decoration: BoxDecoration(
+                                                                color: Color.fromARGB(255, 234, 234, 234),
+                                                                borderRadius: BorderRadius.circular(20)
+                                                            ),
+                                                            child:
+                                                            Icon(Icons.add, color: Colors.black,),
+                                                          ),
+                                                        ),
+                                                        SizedBox(width: 18,),
+                                                        Text("Add Account",style: TextStyle(
+                                                            color: Colors.black,
+                                                            fontSize: 15,
+                                                            fontWeight: FontWeight.w500
+                                                        ),),
+                                                      ])
+                                              ),
                                             )
                                         );
                                       }

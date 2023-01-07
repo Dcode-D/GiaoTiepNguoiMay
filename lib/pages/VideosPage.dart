@@ -38,9 +38,9 @@ class _VideoPageState extends State<VideoPage>
     Scaffold(
 
     body:
-        // MaterialApp(
-        //   builder: FlutterSmartDialog.init(),
-        // home:
+/*        MaterialApp(
+          *//*builder: FlutterSmartDialog.init(),*//*
+        home:*/
       Stack(
           children:<Widget>[
             RotatedBox(
@@ -79,7 +79,7 @@ class _VideoPageState extends State<VideoPage>
             )
           ]
     )
-        // )
+       /* )*/
     );
   }
 }
