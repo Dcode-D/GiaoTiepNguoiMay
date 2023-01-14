@@ -17,7 +17,6 @@ class SearchState extends State<SearchResultPage> with TickerProviderStateMixin{
   late TabController _tabController;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _tabController = new TabController(length: 3, vsync: this);
   }
@@ -84,7 +83,7 @@ class TopPage extends StatelessWidget{
                    children:[
 
                      SizedBox(
-                         height:MediaQuery.of(context).size.height/4,
+                         height:MediaQuery.of(context).size.height/5,
                          width: MediaQuery.of(context).size.width/2.1,
                          child:
                          VideoThumbnail("assets/images/cat1.jpg", "1.5M")),
@@ -195,8 +194,9 @@ class videoPage extends StatelessWidget{
 
                       SizedBox(
                           height:MediaQuery.of(context).size.height/5,
+                          width: MediaQuery.of(context).size.width/2.1,
                           child:
-                          VideoThumbnail("assets/images/cat1.jpg", "1.5M")),
+                          VideoThumbnail("assets/images/cat5.jpg", "1.5M")),
                       Row(
                           children:[
                             Align(

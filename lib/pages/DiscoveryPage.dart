@@ -40,10 +40,8 @@ class DiscoveryPage extends StatelessWidget{
                 itemCount: listvideotag.length,
                 shrinkWrap: true,
           ),
-
         );
   }
-
 }
 
 class HastagVideoList extends StatelessWidget{
@@ -76,6 +74,7 @@ class HastagVideoList extends StatelessWidget{
                 height: MediaQuery.of(context).size.height/6,
                 child:
             ListView.builder(
+              itemCount: 10,
               scrollDirection: Axis.horizontal,
               itemBuilder: (BuildContext context, int index) {
                 return
