@@ -18,7 +18,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> with TickerProviderStateMixin{
-
+  int _selectedIndex = 0;
   late TabController tabController;
   late ScrollController _scrollController;
   @override
