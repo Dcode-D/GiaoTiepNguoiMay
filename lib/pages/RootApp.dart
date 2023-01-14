@@ -55,7 +55,7 @@ class _RootAppState extends State<RootApp> {
           ),),
         )*/
         LivePage(),
-        ProfileScreen()
+        ProfilePage()
       ],
     ),
           ]
