@@ -42,7 +42,7 @@ class _RootAppState extends State<RootApp> {
           primaryColor: Colors.white,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: DetailVideoScreen(),
+        home: ProfileScreen(),
       /*Stack( children:
           <Widget>[
       IndexedStack(

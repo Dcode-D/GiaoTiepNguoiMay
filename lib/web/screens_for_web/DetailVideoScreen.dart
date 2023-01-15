@@ -17,10 +17,6 @@ class _DetailVideoScreenState extends State<DetailVideoScreen>{
     return Row(
       children: [
         Container(
-          width: size.width*0.6,
-          color: Colors.white,
-        ),
-        Container(
           padding: EdgeInsets.only(left: 15,right: 14,top: 14,bottom: 15),
             width: size.width*0.4,
             color: Colors.blue,
@@ -212,5 +208,4 @@ class _DetailVideoScreenState extends State<DetailVideoScreen>{
       ],
     );
   }
-
 }

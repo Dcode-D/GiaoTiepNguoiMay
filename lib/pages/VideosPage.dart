@@ -1,3 +1,4 @@
+import 'package:doangtnm/web/screens_for_web/DetailVideoScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
@@ -95,9 +96,10 @@ class _VideoPageState extends State<VideoPage>
         Flexible(
             flex: 1,
             child:
-          Container(
-            decoration: BoxDecoration(color: Colors.white),
-          )
+                Center(
+                    child:
+          DetailVideoScreen()
+                )
         )
        ]
        /* )*/
