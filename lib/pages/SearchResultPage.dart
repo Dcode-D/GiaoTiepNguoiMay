@@ -82,7 +82,6 @@ class TopPage extends StatelessWidget{
              return
                Column(
                    children:[
-
                      SizedBox(
                          height:MediaQuery.of(context).size.height/4,
                          width: MediaQuery.of(context).size.width/2.1,

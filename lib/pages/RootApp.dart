@@ -3,6 +3,10 @@ import 'package:doangtnm/pages/CommentPage.dart';
 import 'package:doangtnm/pages/DiscoveryPage.dart';
 import 'package:doangtnm/pages/FollowerAccountsPage.dart';
 import 'package:doangtnm/pages/ProfilePage.dart';
+import 'package:doangtnm/web/screens_for_web/AccountScreen.dart';
+import 'package:doangtnm/web/screens_for_web/HomeScreen.dart';
+import 'package:doangtnm/web/screens_for_web/ProfileScreen.dart';
+import 'package:doangtnm/web/screens_for_web/TagNameScreen.dart';
 import 'package:doangtnm/widgets/followaccount.dart';
 import 'package:doangtnm/widgets/header_home_page.dart';
 import 'package:flutter/cupertino.dart';
@@ -23,17 +27,22 @@ class _RootAppState extends State<RootApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       resizeToAvoidBottomInset: false,
-      body: getBody(),
-      bottomNavigationBar: getFooter(),
+      body: getBody()
     );
   }
   Widget getBody(){
     return
     MaterialApp(
+        debugShowCheckedModeBanner: false,
         builder: FlutterSmartDialog.init(),
-        home:
-      Stack( children:
+        theme: ThemeData(
+          primaryColor: Colors.white,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: HomeScreen(),
+      /*Stack( children:
           <Widget>[
       IndexedStack(
       index: pageIndex,
@@ -47,23 +56,23 @@ class _RootAppState extends State<RootApp> {
             fontWeight: FontWeight.bold
           ),),
         ),
-        /*Center(
+        *//*Center(
           child: Text("Live Video",style: TextStyle(
             color: black,
             fontSize: 20,
             fontWeight: FontWeight.bold
           ),),
-        )*/
+        )*//*
         LivePage(),
         ProfileScreen()
       ],
     ),
           ]
-      )
+      )*/
     );
   }
 
-  Widget getFooter() {
+  /*Widget getFooter() {
     List bottomItems = [
       {"icon":Icons.home_outlined, "label": "Home", "isIcon": true},
       {"icon":Icons.language_outlined, "label": "Discovery", "isIcon": true},
@@ -119,7 +128,7 @@ class _RootAppState extends State<RootApp> {
       pageIndex = index;
       if(pageIndex!=0){}
     });
-  }
+  }*/
 }
 
 

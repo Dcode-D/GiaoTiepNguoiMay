@@ -12,7 +12,6 @@ class VideoThumbnail extends StatelessWidget{
           child:
               InkWell(
                 onTap: (){
-
                   Navigator.of(context, rootNavigator: true).push( PageRouteBuilder(
                     pageBuilder: (context, animation, secondaryAnimation) => VideoPage(),
                     transitionsBuilder: (context, animation, secondaryAnimation, child) {
@@ -35,20 +34,28 @@ class VideoThumbnail extends StatelessWidget{
                 Positioned.fill(child:
                 Image.asset(imgUrl,fit: BoxFit.fill,height: double.infinity,width: double.infinity,)
                 ),
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child:
-                Row(
-                  children: [
-                    Icon(Icons.play_arrow_outlined,color: Colors.white,size: 25,),
-                    Text(views,style: TextStyle(color: Colors.white),)
-                  ],
-                )
-                )
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child:
+                  Row(
+                    children: [
+                      Icon(Icons.play_arrow_rounded,color: Colors.black,size: 30,),
+                      Text(views,style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w700,
+                      ))
+                    ],
+                  )
+                  ),
+                ),
               ],
             )
-              )
-          ,
+
+              ),
         );
   }
 }

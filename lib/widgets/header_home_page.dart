@@ -14,16 +14,18 @@ class HeaderHomePage extends StatefulWidget {
 }
 
 class headerstate extends State<HeaderHomePage>{
-  int tab=1;
+  int tab=0;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         InkWell(
-          onTap: (){setState(() {
+          onTap: (){
+            setState(() {
             tab=0;
-          });},
+          }
+          );},
             child:
         Text(
           "For You",
