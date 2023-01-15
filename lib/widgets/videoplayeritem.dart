@@ -95,7 +95,7 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
                   Container(
                     height: widget.size.height,
                     width: widget.size.width,
-                    decoration: BoxDecoration(color: black),
+                    decoration: BoxDecoration(color: Colors.white),
                     child: Stack(
                       children: <Widget>[
                         VideoPlayer(_videoController!),

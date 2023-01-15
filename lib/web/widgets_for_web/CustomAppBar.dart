@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 
+import '../../pages/SwitchAccountPage.dart';
 import '../../theme/Colors.dart';
 
-class CustomAppBar extends StatelessWidget {
+class CustomAppBar extends StatefulWidget {
+  const CustomAppBar({
+    Key? key,
+  }) : super(key: key);
 
   @override
+  State<CustomAppBar> createState() => _CustomAppBarState();
+}
+
+class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMixin {
+  @override
   Widget build(BuildContext context){
+    GlobalKey currentKey = GlobalKey();
     Size size = MediaQuery.of(context).size;
     return Container(
       padding: EdgeInsets.only(top: 15,left: 50,right: 50, bottom: 15),
@@ -61,7 +71,24 @@ class CustomAppBar extends StatelessWidget {
                   SizedBox(width: 30,),
                   InkWell(
                     onTap: (){
-
+                      /*showGeneralDialog(
+                          barrierLabel: "Close dialog",
+                          barrierColor: Colors.black.withOpacity(0.5),
+                          barrierDismissible: true,
+                          transitionDuration: Duration(milliseconds: 300),
+                          context: currentKey.currentContext!,
+                          pageBuilder: (context,animation,animation2)=>
+                              Container(
+                                  child:
+                                  switchaccountPage()
+                              ),
+                          transitionBuilder: (context,animation1,animation2,child){
+                            return
+                              SlideTransition(position: Tween(begin: Offset(0, 1), end: Offset(0, 0.61))
+                                  .animate(animation1),
+                                child: child,);
+                          }
+                      );*/
                     },
                     child: Container(
                       height: 45,

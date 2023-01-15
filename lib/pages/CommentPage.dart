@@ -46,7 +46,6 @@ class commentPage extends StatelessWidget{
                   )),
 
               Expanded(
-
                 child:
                 Container(
                     decoration: BoxDecoration(color: Colors.white),

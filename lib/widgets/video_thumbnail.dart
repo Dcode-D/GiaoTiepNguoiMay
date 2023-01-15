@@ -1,4 +1,4 @@
-import 'package:doangtnm/pages/VideosPage.dart';
+import 'package:doangtnm/web/screens_for_web/VideosPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

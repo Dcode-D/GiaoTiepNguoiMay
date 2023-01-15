@@ -32,12 +32,6 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: <Widget>[
             CustomAppBar(),
-            /*SizedBox(height: 5,),
-            Container(
-              width: size.width,
-              height: 1.5,
-              color: Color.fromARGB(255, 161, 161, 161),
-            ),*/
             Row(
               children: [
                 Container(

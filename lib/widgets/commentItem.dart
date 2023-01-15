@@ -26,11 +26,11 @@ class commnetitemstate extends State<commentItem>{
     return
     Container(
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: Colors.transparent,
           border: Border(
         bottom: BorderSide(
           width: 1,
-          color: Colors.grey
+          color: Colors.transparent
         )
       )),
         child:
@@ -115,7 +115,24 @@ class commnetitemstate extends State<commentItem>{
                 fontSize: 12,
                 color: Colors.black,
               ),
-            )
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            InkWell(
+              onTap: (){
+
+              },
+              child:Text(
+                'Reply',
+                style: TextStyle(
+                  fontSize: 12,
+                  fontFamily: 'Inter',
+                  fontWeight: FontWeight.w500,
+                  color: Color.fromARGB(255, 102, 102, 102),
+                ),
+                )
+              )
           ],
         ),
         trailing: InkWell(

@@ -62,7 +62,6 @@ class _ProfilePageState extends State<ProfilePage> with TickerProviderStateMixin
                         context: currentKey.currentContext!,
                         pageBuilder: (context,animation,animation2)=>
                             Container(
-
                                 child:
                                 switchaccountPage()
                             ),
