@@ -4,6 +4,7 @@ import 'package:doangtnm/pages/DiscoveryPage.dart';
 import 'package:doangtnm/pages/FollowerAccountsPage.dart';
 import 'package:doangtnm/pages/ProfilePage.dart';
 import 'package:doangtnm/web/screens_for_web/AccountScreen.dart';
+import 'package:doangtnm/web/screens_for_web/DetailVideoScreen.dart';
 import 'package:doangtnm/web/screens_for_web/HomeScreen.dart';
 import 'package:doangtnm/web/screens_for_web/ProfileScreen.dart';
 import 'package:doangtnm/web/screens_for_web/TagNameScreen.dart';
@@ -41,7 +42,7 @@ class _RootAppState extends State<RootApp> {
           primaryColor: Colors.white,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: TagNameScreen(),
+        home: DetailVideoScreen(),
       /*Stack( children:
           <Widget>[
       IndexedStack(
