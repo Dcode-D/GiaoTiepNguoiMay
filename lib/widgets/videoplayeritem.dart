@@ -43,17 +43,12 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
   VideoPlayerController? _videoController;
   bool isShowPlaying = false;
   late EventBus eventbus;
-  bool ishowingmore = false;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     eventbus = new EventBus();
-    eventbus.on<ShowmoreEvent>().listen((event) {setState(() {
-      ishowingmore= event.isshowingmore;
-    });});
-
     _videoController = VideoPlayerController.asset(widget.videoUrl)
       ..initialize().then((value) {
         _videoController!.play();
@@ -81,85 +76,40 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        print("Triggered inkwell");
         setState(() {
           _videoController!.value.isPlaying
               ? _videoController!.pause()
               : _videoController!.play();
         });
       },
-      child: RotatedBox(
-        quarterTurns: -1,
-        child: Container(
-            height: widget.size.height,
-            width: widget.size.width,
-            child: Stack(
-              children: <Widget>[
-                Container(
-                  height: widget.size.height,
-                  width: widget.size.width,
-                  decoration: BoxDecoration(color: black),
-                  child: Stack(
-                    children: <Widget>[
-                      VideoPlayer(_videoController!),
-                      Center(
-                        child: Container(
-                          child: isPlaying(),
+      child:
+      IgnorePointer(
+        child: RotatedBox(
+          quarterTurns: -1,
+          child: Container(
+              height: widget.size.height,
+              width: widget.size.width,
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    height: widget.size.height,
+                    width: widget.size.width,
+                    decoration: BoxDecoration(color: black),
+                    child: Stack(
+                      children: <Widget>[
+                        VideoPlayer(_videoController!),
+                        Center(
+                          child: Container(
+                            child: isPlaying(),
+                          ),
                         ),
-                      ),
-                      ishowingmore?
-                  InkWell(
-                      onTap: (){
-                        eventbus.fire(new RemoteShowMoreEvent(true));
-                      },
-                      child:
-                      Container(
-                        width: double.infinity,
-                        height: double.infinity,
-                        color: Colors.black.withOpacity(0.5),
-                      )
-                  ):
-                      Container()
-                    ],
-                  ),
-                ),
-                Container(
-                  height: widget.size.height,
-                  width: widget.size.width,
-                  child: Padding(
-                    padding:
-                    const EdgeInsets.only(left: 15, top: 20, bottom: 10),
-                    child: SafeArea(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Expanded(
-                              child: Row(
-                                children: <Widget>[
-
-                                  LeftPanel(
-                                    size: widget.size,
-                                    name: "${widget.name}",
-                                    caption: "${widget.caption}",
-                                    songName: "${widget.songName}",
-                                    eventBus: eventbus,
-                                  ),
-                                  RightPanel(
-                                    size: widget.size,
-                                    likes: "${widget.likes}",
-                                    comments: "${widget.comments}",
-                                    shares: "${widget.shares}",
-                                    profileImg: "${widget.profileImg}",
-                                    albumImg: "${widget.albumImg}",
-                                  )
-                                ],
-                              ))
-                        ],
-                      ),
+                      ],
                     ),
                   ),
-                )
-              ],
-            )),
+                ],
+              )),
+        ),
       ),
     );
   }

@@ -36,50 +36,72 @@ class _VideoPageState extends State<VideoPage>
     var size = MediaQuery.of(context).size;
     return
     Scaffold(
-
     body:
-/*        MaterialApp(
-          *//*builder: FlutterSmartDialog.init(),*//*
-        home:*/
-      Stack(
-          children:<Widget>[
-            RotatedBox(
-              quarterTurns: 1,
-              child: TabBarView(
-                controller: _tabController,
-                children: List.generate(videoitems.length, (index) {
-                  return VideoPlayerItem(
-                    videoUrl: videoitems[index]['videoUrl'],
-                    size: size,
-                    name: videoitems[index]['name'],
-                    caption: videoitems[index]['caption'],
-                    songName: videoitems[index]['songName'],
-                    profileImg: videoitems[index]['profileImg'],
-                    likes: videoitems[index]['likes'],
-                    comments: videoitems[index]['comments'],
-                    shares: videoitems[index]['shares'],
-                    albumImg: videoitems[index]['albumImg'],
-                  );
-                }),
+        Row(
+          children:[
+            Flexible(
+              flex:2,
+              child:
+              Stack(
+                alignment: Alignment.center,
+                children:[
+              RotatedBox(
+                quarterTurns: 1,
+                child: TabBarView(
+                  controller: _tabController,
+                  children: List.generate(videoitems.length, (index) {
+                    return VideoPlayerItem(
+                      videoUrl: videoitems[index]['videoUrl'],
+                      size: size,
+                      name: videoitems[index]['name'],
+                      caption: videoitems[index]['caption'],
+                      songName: videoitems[index]['songName'],
+                      profileImg: videoitems[index]['profileImg'],
+                      likes: videoitems[index]['likes'],
+                      comments: videoitems[index]['comments'],
+                      shares: videoitems[index]['shares'],
+                      albumImg: videoitems[index]['albumImg'],
+                    );
+                  }),
+                ),
               ),
-            ),
-            Container(
-                padding: EdgeInsets.only(top: 30),
-                child:
-                Align(
-                    alignment: Alignment.topLeft,
-                    child:
-                        InkWell(
-                          onTap: (){
-                            Navigator.of(context).pop();
-                          },
-                          child:
-                    Icon(Icons.arrow_back_ios_new,size: 25,color: Colors.white,))
+                Positioned(
+                  right: 0,
+                  child:
+                Column(children: [
+                    IconButton(onPressed: (){
+                      int index = _tabController!.index-1;
+                      if(index>=0)
+                        _tabController!.animateTo(index);
+                    }, icon: Icon(Icons.arrow_upward, size: 25, color: Colors.white,),
+                      style: IconButton.styleFrom(
+                        shape: CircleBorder(),
+                      ),
+                    ),
+                    IconButton(onPressed: (){
+                      int index = _tabController!.index+1;
+                      if(index<_tabController!.length)
+                        _tabController!.animateTo(index);
+                    }, icon: Icon(Icons.arrow_downward, size: 25, color: Colors.white,),
+                      style: IconButton.styleFrom(
+                        shape: CircleBorder(),
+                      ),
+                    )
+                  ],),
                 )
+                ]
             )
-          ]
-    )
+            ),
+        Flexible(
+            flex: 1,
+            child:
+          Container(
+            decoration: BoxDecoration(color: Colors.white),
+          )
+        )
+       ]
        /* )*/
+    )
     );
   }
 }
