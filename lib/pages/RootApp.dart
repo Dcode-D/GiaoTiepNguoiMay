@@ -41,7 +41,7 @@ class _RootAppState extends State<RootApp> {
           primaryColor: Colors.white,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: HomeScreen(),
+        home: TagNameScreen(),
       /*Stack( children:
           <Widget>[
       IndexedStack(

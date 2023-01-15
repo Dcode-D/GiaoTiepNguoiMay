@@ -537,7 +537,23 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                                       mainAxisSpacing: 20,
                                     ),
                                     itemBuilder: (context, index) {
-                                      return VideoThumbnail("assets/images/cat5.jpg", "1.3M");
+                                      return Column(
+                                        children: [
+                                          SizedBox(
+                                              height:MediaQuery.of(context).size.height/4,
+                                              width: MediaQuery.of(context).size.width/2.1,
+                                              child: VideoThumbnail("assets/images/cat5.jpg", "1.3M")),
+                                          SizedBox(height: 2,),
+                                          Flexible(
+                                              child: Text(
+                                            "How i met your mother and something came at us!",
+                                            style: TextStyle(fontSize: 12,
+                                                color: Colors.black,
+                                                fontFamily: 'Poppins',
+                                                fontWeight: FontWeight.w500),
+                                            overflow: TextOverflow.ellipsis,)),
+                                        ],
+                                      );
                                     },
                                   )
 

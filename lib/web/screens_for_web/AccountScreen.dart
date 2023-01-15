@@ -4,6 +4,8 @@ import 'package:doangtnm/web/widgets_for_web/MusicTagItem.dart';
 import 'package:doangtnm/web/widgets_for_web/TagItem.dart';
 import 'package:flutter/material.dart';
 
+import '../../widgets/video_thumbnail.dart';
+
 class AccountScreen extends StatefulWidget {
   @override
   const AccountScreen({
@@ -17,8 +19,16 @@ class AccountScreen extends StatefulWidget {
   }
 }
 
-class _AccountScreenState extends State<AccountScreen> {
+class _AccountScreenState extends State<AccountScreen> with TickerProviderStateMixin {
+  late TabController tabController;
+  late ScrollController _scrollController;
   int tab = 0;
+  @override
+  void initState() {
+    super.initState();
+    tabController = TabController(length: 2, vsync: this, initialIndex: 0);
+    _scrollController = ScrollController();
+  }
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -440,12 +450,117 @@ class _AccountScreenState extends State<AccountScreen> {
                             )
                         ),
                         SizedBox(
-                          height: 20,
+                          height: 15,
+                        ),
+                        Container(
+                          height: 50,
+                          width: 400,
+                          child: TabBar(
+                              controller: tabController,
+                              unselectedLabelColor: Colors.grey,
+                              indicator: UnderlineTabIndicator(
+                                borderSide: BorderSide(
+                                    color: Color.fromARGB(255, 242, 113, 33), width: 3.0),
+                                insets: EdgeInsets.fromLTRB(0, 0.0, 0, 0),
+                              ),
+                              labelColor: Color.fromARGB(255, 242, 113, 33),
+                              tabs: [
+                                Tab(
+                                  icon: Icon(Icons.reorder),
+                                ),
+                                Tab(
+                                    icon: Icon(Icons.lock_outline)
+                                )
+                              ]),
                         ),
                         Container(
                           height: 1.5,
                           width: size.width * 0.8,
                           color: Colors.black.withOpacity(0.1),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Container(
+                          height: size.height - 398,
+                          width: size.width * 0.8,
+                          color: Colors.transparent,
+                          child: SafeArea(
+                              child: NestedScrollView(
+                                controller: _scrollController, headerSliverBuilder: (context, value) {
+                                return <Widget>[];
+                              }, body: TabBarView(
+                                  physics: NeverScrollableScrollPhysics(),
+                                  controller: tabController,
+                                  children:[
+                                    GridView.builder(
+                                      physics: BouncingScrollPhysics(),
+                                      shrinkWrap: true,
+                                      itemCount: 15,
+                                      gridDelegate:
+                                      const SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 5,
+                                        childAspectRatio: 1,
+                                        crossAxisSpacing: 35,
+                                        mainAxisSpacing: 20,
+                                      ),
+
+                                      itemBuilder: (context, index) {
+                                        return
+                                          Column(
+                                            children: [
+                                              SizedBox(
+                                                  height:MediaQuery.of(context).size.height/4,
+                                                  width: MediaQuery.of(context).size.width/2.1,
+                                                  child: VideoThumbnail("assets/images/cat1.jpg", "1.5M")),
+                                              SizedBox(height: 2,),
+                                              Flexible(child:
+                                              Text("How i met your mother and something came at us!",
+                                                style: TextStyle(fontSize: 12,
+                                                    color: Colors.black,
+                                                    fontFamily: 'Poppins',
+                                                    fontWeight: FontWeight.w500),
+                                                overflow: TextOverflow.ellipsis,)),
+                                            ],
+                                          );
+                                      },
+                                    ),
+                                    GridView.builder(
+                                      physics: BouncingScrollPhysics(),
+                                      shrinkWrap: true,
+                                      itemCount: 3,
+                                      gridDelegate:
+                                      const SliverGridDelegateWithFixedCrossAxisCount(
+                                        crossAxisCount: 5,
+                                        childAspectRatio: 1,
+                                        crossAxisSpacing: 35,
+                                        mainAxisSpacing: 20,
+                                      ),
+                                      itemBuilder: (context, index) {
+                                        return Column(
+                                          children: [
+                                            SizedBox(
+                                                height:MediaQuery.of(context).size.height/4,
+                                                width: MediaQuery.of(context).size.width/2.1,
+                                                child: VideoThumbnail("assets/images/cat5.jpg", "1.3M")),
+                                            SizedBox(height: 2,),
+                                            Flexible(
+                                                child: Text("How i met your mother and something came at us!",
+                                              style: TextStyle(fontSize: 12,
+                                                  color: Colors.black,
+                                                  fontFamily: 'Poppins',
+                                                  fontWeight: FontWeight.w500),
+                                              overflow: TextOverflow.ellipsis,)),
+                                          ],
+                                        );
+                                      },
+                                    )
+
+                                  ]
+                              ),
+
+                              )
+                          ),
                         )
                       ],
                     ),
