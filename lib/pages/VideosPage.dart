@@ -70,22 +70,25 @@ class _VideoPageState extends State<VideoPage>
                   right: 0,
                   child:
                 Column(children: [
-                    IconButton(onPressed: (){
+                    ElevatedButton(onPressed: (){
                       int index = _tabController!.index-1;
                       if(index>=0)
                         _tabController!.animateTo(index);
-                    }, icon: Icon(Icons.arrow_upward, size: 25, color: Colors.white,),
-                      style: IconButton.styleFrom(
+                    }, child: Icon(Icons.arrow_upward, size: 35, color: Colors.white,),
+                      style: ElevatedButton.styleFrom(
                         shape: CircleBorder(),
+                        backgroundColor: Colors.white.withOpacity(0.5)
                       ),
                     ),
-                    IconButton(onPressed: (){
+                    SizedBox(height: 10,),
+                    ElevatedButton(onPressed: (){
                       int index = _tabController!.index+1;
                       if(index<_tabController!.length)
                         _tabController!.animateTo(index);
-                    }, icon: Icon(Icons.arrow_downward, size: 25, color: Colors.white,),
-                      style: IconButton.styleFrom(
+                    }, child: Icon(Icons.arrow_downward, size: 35, color: Colors.white,),
+                      style: ElevatedButton.styleFrom(
                         shape: CircleBorder(),
+                        backgroundColor: Colors.white.withOpacity(0.5)
                       ),
                     )
                   ],),

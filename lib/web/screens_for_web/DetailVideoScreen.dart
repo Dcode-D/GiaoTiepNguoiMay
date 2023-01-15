@@ -3,6 +3,8 @@ import 'package:doangtnm/widgets/LikeComponent.dart';
 import 'package:doangtnm/web/screens_for_web//HomeScreen.dart';
 import 'package:doangtnm/widgets/profile_image.dart';
 
+import '../../pages/CommentPage.dart';
+
 class DetailVideoScreen extends StatefulWidget {
   @override
   _DetailVideoScreenState createState() => _DetailVideoScreenState();
@@ -14,12 +16,11 @@ class _DetailVideoScreenState extends State<DetailVideoScreen>{
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Row(
-      children: [
+    return
         Container(
           padding: EdgeInsets.only(left: 15,right: 14,top: 14,bottom: 15),
             width: size.width*0.4,
-            color: Colors.blue,
+            color: Colors.orange,
           child: Container(
             padding: EdgeInsets.only(left: 30,right: 30,top: 20),
             width: size.width*0.4,
@@ -81,19 +82,21 @@ class _DetailVideoScreenState extends State<DetailVideoScreen>{
                           ],
                         ),
                         Spacer(),
-                        InkWell(
-                          onTap: (){
-                            setState(() {
-                              isFollow = !isFollow;
-                            });
-                          },
-                          child:Text(
-                            isFollow ? 'Following' : 'Follow',
-                            style: TextStyle(
-                                color: Color.fromARGB(255,242,113,33),
-                                fontSize: 18,
-                                fontFamily: "Popins",
-                                fontWeight: FontWeight.w700
+                        Flexible(
+                          child: InkWell(
+                            onTap: (){
+                              setState(() {
+                                isFollow = !isFollow;
+                              });
+                            },
+                            child:Text(
+                              isFollow ? 'Following' : 'Follow',
+                              style: TextStyle(
+                                  color: Color.fromARGB(255,242,113,33),
+                                  fontSize: 18,
+                                  fontFamily: "Popins",
+                                  fontWeight: FontWeight.w700
+                              ),
                             ),
                           ),
                         )
@@ -199,13 +202,19 @@ class _DetailVideoScreenState extends State<DetailVideoScreen>{
                       height: 1.5,
                       color: Colors.black.withOpacity(0.2),
                     ),
+
+                    SizedBox(
+                        width: size.width,
+                          height: size.height/1.7,
+                          child:
+                        commentPage()
+                      ),
+
                   ],
                 )
               ],
             ),
           ),
-        ),
-      ],
-    );
+        );
   }
 }
