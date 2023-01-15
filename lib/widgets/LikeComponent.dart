@@ -39,7 +39,7 @@ class LikeState extends State<LikeComponent> with SingleTickerProviderStateMixin
       InkWell(
       onTap: (){setState(() {
         isliked = !isliked;
-        ischanging = true;
+        ischanging = !ischanging;
       });
       animationController.forward();
         },
@@ -48,17 +48,17 @@ class LikeState extends State<LikeComponent> with SingleTickerProviderStateMixin
           scale: animation.value,
           child:
       Container(
-        child: Column(
+        child: Row(
           children: [
-            Icon(TikTokIcons.heart,
-              color: (isliked)?Color.fromARGB(255, 242, 113, 33):Colors.white,
+            Icon(Icons.favorite_border,
+              color: (isliked)?Color.fromARGB(255, 242, 113, 33):Colors.black,
               size: 30.0,
             ),
             SizedBox(height: 5),
             Text(
               widget.likes.toString(),
               style: TextStyle(
-                  color: Colors.white, fontSize: 12, fontWeight: FontWeight.w700),
+                  color: Colors.black, fontSize: 12,fontFamily: 'Inter', fontWeight: FontWeight.w500),
             )
           ],
         ),
@@ -69,8 +69,8 @@ class LikeState extends State<LikeComponent> with SingleTickerProviderStateMixin
           Container(
             child: Column(
               children: [
-                Icon(TikTokIcons.heart,
-                  color: (isliked)?Colors.red:Colors.white,
+                Icon(Icons.favorite,
+                  color: (isliked)?Colors.red:Colors.black,
                   size: 30.0,
                 ),
                 SizedBox(height: 5),
