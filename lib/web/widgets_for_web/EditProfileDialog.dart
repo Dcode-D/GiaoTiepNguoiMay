@@ -11,11 +11,7 @@ class EditProfileDialog extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.black.withOpacity(0),
         resizeToAvoidBottomInset: true,
-        body:Dismissible(
-            key: currentKey,
-            direction: DismissDirection.down,
-            onDismissed: (_)=>Navigator.of(context).pop(),
-            child:
+        body:
             GestureDetector(
               onTap: (){FocusScope.of(context).requestFocus(new FocusNode());},
               child:
@@ -84,7 +80,6 @@ class EditProfileDialog extends StatelessWidget {
                     ],
                   ),
                 ),
-              )
             )));
   }
 

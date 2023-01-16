@@ -92,7 +92,7 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
                               ),
                           transitionBuilder: (context,animation1,animation2,child){
                             return
-                              SlideTransition(position: Tween(begin: Offset(0,1), end: Offset(0, 0.2))
+                              SlideTransition(position: Tween(begin: Offset(0,1), end: Offset(0.2, 0.2))
                                   .animate(animation1),
                                 child: child,);
                           }
