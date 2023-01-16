@@ -83,18 +83,27 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
                           barrierLabel: "Close dialog",
                           barrierColor: Colors.black.withOpacity(0.5),
                           barrierDismissible: true,
-                          transitionDuration: Duration(milliseconds: 300),
+                          transitionDuration: Duration(milliseconds: 200),
                           context: currentKey.currentContext!,
                           pageBuilder: (context,animation,animation2)=>
-                              Container(
-                                  child:
-                                  EditProfileDialog()
+                                        Dialog(
+                                          alignment: Alignment.center,
+                                              child: Container(
+                                                width: size.width/2,
+                                                height: size.height/2,
+                                                child: EditProfileDialog(),
+                                              ),
                               ),
                           transitionBuilder: (context,animation1,animation2,child){
                             return
-                              SlideTransition(position: Tween(begin: Offset(0,1), end: Offset(0.2, 0.2))
-                                  .animate(animation1),
-                                child: child,);
+                              // SlideTransition(position: Tween(begin: Offset(0.2,1), end: Offset(0.2, 0.2))
+                              //     .animate(animation1),
+                              //   child: child,);
+                            ScaleTransition(scale: animation1,
+                              child: child,
+                              //animation start point
+                              alignment: Alignment.topRight,
+                            );
                           }
                       );
                     },
