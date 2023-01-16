@@ -1,4 +1,7 @@
+import 'package:doangtnm/web/widgets_for_web/EditProfileDialog.dart';
+import 'package:doangtnm/web/widgets_for_web/LoginDialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 import '../../pages/SwitchAccountPage.dart';
 import '../../theme/Colors.dart';
@@ -18,6 +21,7 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
     GlobalKey currentKey = GlobalKey();
     Size size = MediaQuery.of(context).size;
     return Container(
+      key: currentKey,
       padding: EdgeInsets.only(top: 15,left: 50,right: 50, bottom: 15),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -71,7 +75,11 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
                   SizedBox(width: 30,),
                   InkWell(
                     onTap: (){
-                      /*showGeneralDialog(
+                      /*SmartDialog.show(
+                        builder: (context) => LoginDialog(),
+                        alignment: Alignment.center,
+                      );*/
+                      showGeneralDialog(
                           barrierLabel: "Close dialog",
                           barrierColor: Colors.black.withOpacity(0.5),
                           barrierDismissible: true,
@@ -80,15 +88,15 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
                           pageBuilder: (context,animation,animation2)=>
                               Container(
                                   child:
-                                  switchaccountPage()
+                                  EditProfileDialog()
                               ),
                           transitionBuilder: (context,animation1,animation2,child){
                             return
-                              SlideTransition(position: Tween(begin: Offset(0, 1), end: Offset(0, 0.61))
+                              SlideTransition(position: Tween(begin: Offset(0,1), end: Offset(0, 0.2))
                                   .animate(animation1),
                                 child: child,);
                           }
-                      );*/
+                      );
                     },
                     child: Container(
                       height: 45,

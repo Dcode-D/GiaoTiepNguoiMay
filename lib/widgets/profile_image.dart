@@ -44,8 +44,8 @@ class ProfileImgState extends State<ProfileImage>{
               },
               child:
           Container(
-            width: 50,
-            height: 50,
+            width: 130,
+            height: 130,
             decoration: BoxDecoration(
                 border: Border.all(color: Color.fromARGB(255, 242, 113, 33)),
                 shape: BoxShape.circle,

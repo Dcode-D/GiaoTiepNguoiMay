@@ -28,7 +28,6 @@ class switchaccountPage extends StatelessWidget{
           children: [
             Stack(
                 children:[
-                  
                   SizedBox(
                         width: size.width,
                         height: size.height/2.5,
