@@ -10,10 +10,10 @@ import '../../theme/Colors.dart';
 
 class RightPanelComments extends StatefulWidget {
   @override
-  _RightPanelCommentsState createState() => _RightPanelCommentsState();
+  _DetailVideoScreenState createState() => _DetailVideoScreenState();
 }
 
-class _RightPanelCommentsState extends State<RightPanelComments>{
+class _DetailVideoScreenState extends State<RightPanelComments>{
   bool isFollow = false;
   bool isLiked = false;
   @override
@@ -27,9 +27,10 @@ class _RightPanelCommentsState extends State<RightPanelComments>{
             color: Colors.white,
           child: Container(
             padding: EdgeInsets.only(left: 30,right: 30,top: 20),
+            width: size.width*0.4,
             decoration: BoxDecoration(
               /*color: Colors.blue,*/
-              color: Color.fromARGB(255, 240, 240, 240),
+              color: Color.fromARGB(255, 248, 248, 248),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Column(
@@ -85,19 +86,21 @@ class _RightPanelCommentsState extends State<RightPanelComments>{
                           ],
                         ),
                         Spacer(),
-                        InkWell(
-                          onTap: (){
-                            setState(() {
-                              isFollow = !isFollow;
-                            });
-                          },
-                          child:Text(
-                            isFollow ? 'Following' : 'Follow',
-                            style: TextStyle(
-                                color: Color.fromARGB(255,242,113,33),
-                                fontSize: 18,
-                                fontFamily: "Popins",
-                                fontWeight: FontWeight.w700
+                        Flexible(
+                          child: InkWell(
+                            onTap: (){
+                              setState(() {
+                                isFollow = !isFollow;
+                              });
+                            },
+                            child:Text(
+                              isFollow ? 'Following' : 'Follow',
+                              style: TextStyle(
+                                  color: Color.fromARGB(255,242,113,33),
+                                  fontSize: 18,
+                                  fontFamily: "Popins",
+                                  fontWeight: FontWeight.w700
+                              ),
                             ),
                           ),
                         )
