@@ -1,5 +1,7 @@
 import 'package:doangtnm/web/widgets_for_web/AccountItem.dart';
 import 'package:doangtnm/web/widgets_for_web/CustomAppBar.dart';
+import 'package:doangtnm/web/widgets_for_web/EditProfileDialog.dart';
+import 'package:doangtnm/web/widgets_for_web/LeftPanel.dart';
 import 'package:doangtnm/web/widgets_for_web/MusicTagItem.dart';
 import 'package:doangtnm/web/widgets_for_web/TagItem.dart';
 import 'package:flutter/material.dart';
@@ -31,8 +33,10 @@ class _AccountScreenState extends State<AccountScreen> with TickerProviderStateM
   }
   @override
   Widget build(BuildContext context) {
+    GlobalKey currentKey = GlobalKey();
     Size size = MediaQuery.of(context).size;
     return SingleChildScrollView(
+      key: currentKey,
       child: Container(
           height: size.height,
           width: size.width,
@@ -44,232 +48,7 @@ class _AccountScreenState extends State<AccountScreen> with TickerProviderStateM
               CustomAppBar(),
               Row(
                 children: [
-                  Container(
-                      padding: EdgeInsets.only(left: 50, right: 50, top: 30),
-                      height: size.height-80,
-                      width: size.width * 0.2,
-                      color: Colors.transparent,
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            InkWell(
-                                onTap: (){
-                                  setState(() {
-                                    tab=0;
-                                  });},
-                                child:
-                                Row(
-                                  children: [
-                                    Icon(
-                                        Icons.home_outlined,
-                                        color: (tab==0)? Color.fromARGB(255, 242, 113, 33) : Colors.black.withOpacity(0.7),
-                                        size: (tab==0)? 37: 35
-                                    ),
-                                    SizedBox(width: 17,),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 5),
-                                      child: Text(
-                                        "For You",
-                                        style:(tab==0)? TextStyle(
-                                            color: Color.fromARGB(255, 242, 113, 33), fontSize: 22, fontWeight: FontWeight.bold):
-                                        TextStyle(
-                                          color: Colors.black.withOpacity(0.7),
-                                          fontSize: 20,
-                                        )
-                                        ,
-                                      ),
-                                    ),
-                                  ],
-                                )
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            InkWell(
-                                onTap: (){
-                                  setState(() {
-                                    tab=1;
-                                  });},
-                                child:
-                                Row(
-                                  children: [
-                                    Icon(
-                                        Icons.people_outline,
-                                        color: (tab==1)? Color.fromARGB(255, 242, 113, 33) : Colors.black.withOpacity(0.7),
-                                        size: (tab==1)? 37: 35
-                                    ),
-                                    SizedBox(width: 17,),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 5),
-                                      child: Text(
-                                        "Following",
-                                        style:(tab==1)? TextStyle(
-                                            color: Color.fromARGB(255, 242, 113, 33),
-                                            fontSize: 22, fontWeight: FontWeight.bold):
-                                        TextStyle(
-                                          color: Colors.black.withOpacity(0.7),
-                                          fontSize: 20,
-                                        )
-                                        ,
-                                      ),
-                                    ),
-                                  ],
-                                )
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            InkWell(
-                                onTap: (){
-                                  setState(() {
-                                    tab=2;
-                                  });},
-                                child:
-                                Row(
-                                  children: [
-                                    Icon(
-                                        Icons.cast_outlined,
-                                        color: (tab==2)? Color.fromARGB(255, 242, 113, 33) : Colors.black.withOpacity(0.7),
-                                        size: (tab==2)? 37: 35
-                                    ),
-                                    SizedBox(width: 17,),
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 5),
-                                      child: Text(
-                                        "Live",
-                                        style:(tab==2)? TextStyle(
-                                            color: Color.fromARGB(255, 242, 113, 33), fontSize: 22, fontWeight: FontWeight.bold):
-                                        TextStyle(
-                                          color: Colors.black.withOpacity(0.7),
-                                          fontSize: 20,
-                                        )
-                                        ,
-                                      ),
-                                    ),
-                                  ],
-                                )
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            // Line
-                            Container(
-                              height: 1.5,
-                              width: size.width * 0.2,
-                              color: Colors.black.withOpacity(0.2),
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Text(
-                              "Suggested accounts",
-                              style: TextStyle(
-                                color: Color.fromARGB(255, 103, 103, 103),
-                                fontSize: 14,
-                                fontFamily: "Poppins",
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            AccountItem(
-                              avataUrl: "assets/images/cat.jpg",
-                              name: "Cat",
-                              tag: "Ms.Cat",),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            AccountItem(
-                              avataUrl: "assets/images/cat1.jpg",
-                              name: "White Cat",
-                              tag: "Ms.Cat",),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            AccountItem(
-                              avataUrl: "assets/images/cat2.jpg",
-                              name: "Cat in love",
-                              tag: "Ms.Cat",),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Text(
-                              "See all",
-                              style: TextStyle(
-                                color: Color.fromARGB(255, 242, 113, 33),
-                                fontSize: 14,
-                                fontFamily: "Poppins",
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Container(
-                              height: 1.5,
-                              width: size.width * 0.2,
-                              color: Colors.black.withOpacity(0.2),
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Text(
-                              "Discover",
-                              style: TextStyle(
-                                color: Color.fromARGB(255, 103, 103, 103),
-                                fontSize: 14,
-                                fontFamily: "Poppins",
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            SizedBox(
-                              height: 15,
-                            ),
-                            Row(
-                                children: [
-                                  TagItem(
-                                    tag: "Cat",
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  TagItem(
-                                    tag: "Monster",
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  TagItem(
-                                    tag: "Doja Cat",
-                                  ),
-                                ]
-                            ),
-                            SizedBox(
-                              height: 5,
-                            ),
-                            Column(
-                              children: [
-                                MusicTagItem(
-                                  name: "Yêu Đơn Phương Là Gì (MEE...",
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                MusicTagItem(
-                                  name: "Về Nghe Mẹ Ru - NSND Bach...",
-                                ),
-                                SizedBox(
-                                  height: 5,
-                                ),
-                                MusicTagItem(
-                                  name: "Yêu Đơn Phương...",
-                                ),
-                              ],
-                            )
-                          ]
-                      )
-                  ),
+                  LeftPanel(),
                   Container(
                     padding: EdgeInsets.only(left: 18, right: 18,top: 20),
                     height: size.height-80,
@@ -331,7 +110,33 @@ class _AccountScreenState extends State<AccountScreen> with TickerProviderStateM
                                     ),
                                     InkWell(
                                       onTap: () {
-
+                                        showGeneralDialog(
+                                            barrierLabel: "Close dialog",
+                                            barrierColor: Colors.black.withOpacity(0.5),
+                                            barrierDismissible: true,
+                                            transitionDuration: Duration(milliseconds: 200),
+                                            context: currentKey.currentContext!,
+                                            pageBuilder: (context,animation,animation2)=>
+                                                Dialog(
+                                                  alignment: Alignment.center,
+                                                  child: Container(
+                                                    width: size.width/2,
+                                                    height: size.height*0.6+27,
+                                                    child: EditProfileDialog(),
+                                                  ),
+                                                ),
+                                            transitionBuilder: (context,animation1,animation2,child){
+                                              return
+                                                // SlideTransition(position: Tween(begin: Offset(0.2,1), end: Offset(0.2, 0.2))
+                                                //     .animate(animation1),
+                                                //   child: child,);
+                                                ScaleTransition(scale: animation1,
+                                                  child: child,
+                                                  //animation start point
+                                                  alignment: Alignment.center,
+                                                );
+                                            }
+                                        );
                                       },
                                       child: Container(
                                         width: 130,

@@ -75,10 +75,6 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
                   SizedBox(width: 30,),
                   InkWell(
                     onTap: (){
-                      /*SmartDialog.show(
-                        builder: (context) => LoginDialog(),
-                        alignment: Alignment.center,
-                      );*/
                       showGeneralDialog(
                           barrierLabel: "Close dialog",
                           barrierColor: Colors.black.withOpacity(0.5),
@@ -91,7 +87,7 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
                                               child: Container(
                                                 width: size.width/2,
                                                 height: size.height/2,
-                                                child: EditProfileDialog(),
+                                                child: LoginDialog(),
                                               ),
                               ),
                           transitionBuilder: (context,animation1,animation2,child){

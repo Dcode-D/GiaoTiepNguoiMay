@@ -51,7 +51,7 @@ class SearchState extends State<SearchResultPage> with TickerProviderStateMixin{
       TabBarView(
           controller: _tabController,
           children: [
-        TopPage(),
+            TopPage(),
             videoPage(),
             ProfilePage(),
       ])

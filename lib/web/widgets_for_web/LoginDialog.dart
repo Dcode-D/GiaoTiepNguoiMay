@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:doangtnm/theme/Colors.dart';
+import 'package:doangtnm/pages/RootApp.dart';
 
-class LoginDialog extends StatelessWidget {
+class LoginDialog extends StatefulWidget {
+  @override
+  _LoginDialogState createState() => _LoginDialogState();
+}
+
+class _LoginDialogState extends State<LoginDialog> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -9,16 +15,13 @@ class LoginDialog extends StatelessWidget {
     return Scaffold(
         backgroundColor: Colors.black.withOpacity(0),
         resizeToAvoidBottomInset: true,
-        body:Dismissible(
-        key: currentKey,
-        direction: DismissDirection.down,
-        onDismissed: (_)=>Navigator.of(context).pop(),
-        child:
-        GestureDetector(
+        body:GestureDetector(
         onTap: (){FocusScope.of(context).requestFocus(new FocusNode());},
         child:
         Container(
-         height: size.height*0.5,
+        height: size.height*0.5,
+        width: size.width*0.5,
+        alignment: Alignment.center,
         padding: EdgeInsets.only(top: 15,left: 20,right: 20, bottom: 15),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -26,9 +29,16 @@ class LoginDialog extends StatelessWidget {
         ),
         child:
           Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children:[
             SizedBox(height: 10,),
-            Image.asset("assets/images/logo.jpg",width: 140,height: 40,),
+            InkWell(
+              onTap: (){
+                setState(() {
+                  /*isLogged = !isLogged;*/
+                });
+              },
+              child: Image.asset("assets/images/logo.jpg",width: 140,height: 40,)),
             SizedBox(height: 20,),
             Container(
               width: 500,
@@ -143,7 +153,7 @@ class LoginDialog extends StatelessWidget {
             )
           ]),
       ),
-    )));
+    ));
   }
 
 }
