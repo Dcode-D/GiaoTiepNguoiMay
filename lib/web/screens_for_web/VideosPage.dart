@@ -76,7 +76,7 @@ class _VideoPageState extends State<VideoPage>
                         int index = _tabController!.index-1;
                         if(index>=0)
                           _tabController!.animateTo(index);
-                      }, icon: Icon(Icons.arrow_upward, size: 25, color: Colors.white,),
+                      }, icon: Icon(Icons.arrow_upward, size: 25, color: Colors.black,),
                         style: IconButton.styleFrom(
                           shape: CircleBorder(),
                         ),
@@ -85,7 +85,7 @@ class _VideoPageState extends State<VideoPage>
                         int index = _tabController!.index+1;
                         if(index<_tabController!.length)
                           _tabController!.animateTo(index);
-                      }, icon: Icon(Icons.arrow_downward, size: 25, color: Colors.white,),
+                      }, icon: Icon(Icons.arrow_downward, size: 25, color: Colors.black,),
                         style: IconButton.styleFrom(
                           shape: CircleBorder(),
                         ),

@@ -74,10 +74,10 @@ class _VideoPageState extends State<VideoPage>
                       int index = _tabController!.index-1;
                       if(index>=0)
                         _tabController!.animateTo(index);
-                    }, child: Icon(Icons.arrow_upward, size: 35, color: Colors.white,),
+                    }, child: Icon(Icons.arrow_upward, size: 35, color: Colors.black,),
                       style: ElevatedButton.styleFrom(
                         shape: CircleBorder(),
-                        backgroundColor: Colors.white.withOpacity(0.5)
+                        backgroundColor: Colors.black.withOpacity(0.5)
                       ),
                     ),
                     SizedBox(height: 10,),
@@ -85,10 +85,10 @@ class _VideoPageState extends State<VideoPage>
                       int index = _tabController!.index+1;
                       if(index<_tabController!.length)
                         _tabController!.animateTo(index);
-                    }, child: Icon(Icons.arrow_downward, size: 35, color: Colors.white,),
+                    }, child: Icon(Icons.arrow_downward, size: 35, color: Colors.black,),
                       style: ElevatedButton.styleFrom(
                         shape: CircleBorder(),
-                        backgroundColor: Colors.white.withOpacity(0.5)
+                        backgroundColor: Colors.black.withOpacity(0.5)
                       ),
                     )
                   ],),
