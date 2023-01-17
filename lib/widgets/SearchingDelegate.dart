@@ -1,4 +1,5 @@
 import 'package:doangtnm/pages/SearchResultPage.dart';
+import 'package:doangtnm/web/screens_for_web/VideoResultScreen.dart';
 import 'package:flutter/material.dart';
 
 class SearchingDelegate extends SearchDelegate<String>{
@@ -20,7 +21,7 @@ class SearchingDelegate extends SearchDelegate<String>{
 
   @override
   Widget buildResults(BuildContext context) {
-    return SearchResultPage();
+    return Flexible(child: VideoResultScreen());
   }
 
   @override

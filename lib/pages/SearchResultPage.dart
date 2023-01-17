@@ -101,27 +101,39 @@ class TopPage extends StatelessWidget{
              return
                Column(
                    children:[
-                     SizedBox(
-                         height:MediaQuery.of(context).size.height/4,
-                         width: MediaQuery.of(context).size.width/2.1,
-                         child:
-                         VideoThumbnail("assets/images/cat1.jpg", "1.5M")),
+
+                     Flexible(
+                       flex:4,
+                       child: SizedBox(
+                           height:MediaQuery.of(context).size.height/4,
+                           width: MediaQuery.of(context).size.width/2.1,
+                           child:
+                           VideoThumbnail("assets/images/cat1.jpg", "1.5M")),
+                     ),
                      SizedBox(height: 2,),
-                     Row(
-                         children:[
-                           Align(
-                               alignment:Alignment.centerLeft,
-                               child:
-                               SizedBox(
-                                 width: 30,
-                                 height:30,
+                     Flexible(
+                       flex: 1,
+                       child: Row(
+                           children:[
+                             Flexible(
+                               flex:1,
+                               child: Align(
+                                   alignment:Alignment.centerLeft,
+                                   child:
+                                   SizedBox(
+                                     width: 30,
+                                     height:30,
+                                     child:
+                                     profileAvt("assets/images/cat5.jpg"),
+                                   )
+                               ),
+                             ),
+                             Flexible(
+                                 flex:5,
                                  child:
-                                 profileAvt("assets/images/cat5.jpg"),
-                               )
-                           ),
-                           Flexible(child:
-                           Text("How i met your mother and something came at us!", style: TextStyle(fontSize: 12,color: Colors.grey),overflow: TextOverflow.ellipsis,)),
-                         ]
+                             Text("How i met your mother and something came at us!", style: TextStyle(fontSize: 12,color: Colors.grey),overflow: TextOverflow.ellipsis,)),
+                           ]
+                       ),
                      )
                    ]);
            },

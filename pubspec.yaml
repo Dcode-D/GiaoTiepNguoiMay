@@ -45,6 +45,7 @@ dependencies:
   event_bus: ^2.0.0
   marquee: ^2.2.3
   font_awesome_flutter: ^10.3.0
+  searchfield: ^0.7.3
 
 dev_dependencies:
   flutter_test:

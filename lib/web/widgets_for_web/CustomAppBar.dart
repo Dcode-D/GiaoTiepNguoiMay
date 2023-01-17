@@ -2,9 +2,11 @@ import 'package:doangtnm/web/widgets_for_web/EditProfileDialog.dart';
 import 'package:doangtnm/web/widgets_for_web/LoginDialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
+import 'package:searchfield/searchfield.dart';
 
 import '../../pages/SwitchAccountPage.dart';
 import '../../theme/Colors.dart';
+import '../screens_for_web/VideoResultScreen.dart';
 
 class CustomAppBar extends StatefulWidget {
   const CustomAppBar({
@@ -22,7 +24,7 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
     Size size = MediaQuery.of(context).size;
     return Container(
       key: currentKey,
-      padding: EdgeInsets.only(top: 15,left: 50,right: 50, bottom: 15),
+      padding: EdgeInsets.only(top: 10,left: 50,right: 50, bottom: 10),
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -40,9 +42,8 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
               Image.asset("assets/images/logo.jpg",height: 45,),
               Spacer(),
               Container(
-                width: 500,
-                height: 50,
-                padding: EdgeInsets.only(left: 30,right: 30),
+                width: size.width/3,
+                height: size.height/15+5,
                 decoration: BoxDecoration(
                   color: searchbar,
                   borderRadius: BorderRadius.circular(10),
@@ -50,19 +51,37 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
                 ),
                 child: Row(
                   children: <Widget>[
-                    Expanded(
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: "Search",
-                          hintStyle: TextStyle(color: Color.fromARGB(255, 120, 120, 120),
-                          fontFamily: "Poppins",),
-                          border: InputBorder.none
+                        Flexible(
+                          flex: 10,
+                          child: SearchField(
+                            searchInputDecoration: InputDecoration(
+                                hintText: "Search",
+                                hintStyle: TextStyle(color: Color.fromARGB(255, 120, 120, 120),
+                                fontFamily: "Poppins",),
+                                border: InputBorder.none
+                              ),
+                            onSuggestionTap: (listitem){
+                              Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_,a1,a2)=>VideoResultScreen()));
+                            },
+                            onSubmit: (input){
+                              Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_,a1,a2)=>VideoResultScreen()));
+                            },
+                            suggestions: suggestlist.map((e) =>
+                            SearchFieldListItem(e)
+                          ).toList(),
+                            // decoration: InputDecoration(
+                            //   hintText: "Search",
+                            //   hintStyle: TextStyle(color: Color.fromARGB(255, 120, 120, 120),
+                            //   fontFamily: "Poppins",),
+                            //   border: InputBorder.none
+                            // ),
+                          ),
                         ),
-                      ),
-                    ),
-                    Spacer(),
-                    Icon(Icons.search,
-                      color:Color.fromARGB(255, 120, 120, 120),)
+                    Flexible(
+                      flex: 1,
+                      child: Icon(Icons.search,
+                        color:Color.fromARGB(255, 120, 120, 120),),
+                    )
                   ],
                 ),
               ),
@@ -135,3 +154,5 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
     );
   }
 }
+
+List suggestlist = ["Phim hay","Vl conheo","Giap cham thoi","Ghe dit bu","Iem la bad girl","Meo rot duoi","ko choi 420 dau"];
