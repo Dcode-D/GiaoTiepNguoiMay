@@ -64,51 +64,82 @@ class TopPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
    return
-     Row(
-       children: [
          Expanded(child:
-         GridView.builder(
-           shrinkWrap: true,
-           itemCount: 10,
-           gridDelegate:
-           const SliverGridDelegateWithFixedCrossAxisCount(
-             crossAxisCount: 2,
-             childAspectRatio: 1,
-             crossAxisSpacing: 2,
-              mainAxisSpacing: 2,
-           ),
-           itemBuilder: (context, index) {
-             return
-               Column(
-                   children:[
 
-                     SizedBox(
-                         height:MediaQuery.of(context).size.height/5,
-                         width: MediaQuery.of(context).size.width/2.1,
-                         child:
-                         VideoThumbnail("assets/images/cat1.jpg", "1.5M")),
-                     SizedBox(height: 2,),
-                     Row(
+         SingleChildScrollView(
+           child:
+           Column(
+             children: [
+               Container(
+                 decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey))),
+                   child:
+                    Column(
+                      children: [
+                        Align(
+                            child: Text("Profiles", style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 17
+                            ),),
+                          alignment: Alignment.topLeft,
+
+                        ),
+                        profiletile(),
+                        profiletile(),
+                      ],
+                    )
+               ),
+               Align(
+                 child: Text("Videos", style: TextStyle(
+                     fontWeight: FontWeight.w500,
+                     fontSize: 17
+                 ),),
+                 alignment: Alignment.topLeft,
+
+               ),
+               GridView.builder(
+                 physics: NeverScrollableScrollPhysics(),
+                 shrinkWrap: true,
+                 itemCount: 10,
+                 gridDelegate:
+                 const SliverGridDelegateWithFixedCrossAxisCount(
+                   crossAxisCount: 2,
+                   childAspectRatio: 1,
+                   crossAxisSpacing: 2,
+                    mainAxisSpacing: 2,
+                 ),
+                 itemBuilder: (context, index) {
+                   return
+                     Column(
                          children:[
-                           Align(
-                               alignment:Alignment.centerLeft,
+
+                           SizedBox(
+                               height:MediaQuery.of(context).size.height/5,
+                               width: MediaQuery.of(context).size.width/2.1,
                                child:
-                               SizedBox(
-                                 width: 30,
-                                 height:30,
-                                 child:
-                                 profileAvt("assets/images/cat5.jpg"),
-                               )
-                           ),
-                           Flexible(child:
-                           Text("How i met your mother and something came at us!", style: TextStyle(fontSize: 12,color: Colors.grey),overflow: TextOverflow.ellipsis,)),
-                         ]
-                     )
-                   ]);
-           },
+                               VideoThumbnail("assets/images/cat1.jpg", "1.5M")),
+                           SizedBox(height: 2,),
+                           Row(
+                               children:[
+                                 Align(
+                                     alignment:Alignment.centerLeft,
+                                     child:
+                                     SizedBox(
+                                       width: 30,
+                                       height:30,
+                                       child:
+                                       profileAvt("assets/images/cat5.jpg"),
+                                     )
+                                 ),
+                                 Flexible(child:
+                                 Text("How i met your mother and something came at us!", style: TextStyle(fontSize: 12,color: Colors.grey),overflow: TextOverflow.ellipsis,)),
+                               ]
+                           )
+                         ]);
+                 },
+               ),
+             ],
+           ),
          )
-         )
-       ],
      );
   }
 }
@@ -168,6 +199,59 @@ class ProfilePage extends StatelessWidget{
             )
             )
         );
+  }
+}
+
+class profiletile extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    return
+      Container(
+          decoration: BoxDecoration(border:
+          Border(bottom: BorderSide(width: 0.7,color: Colors.grey)
+          )
+          ),
+          child:
+          ListTile(
+            minLeadingWidth: 0,
+            horizontalTitleGap: 20,
+            leading:
+            SizedBox(
+                height: size.height/4,
+                width: size.width/4,
+                child:
+                InkWell(
+                    onTap: (){
+                      Navigator.push(context, PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) => OtherProfileScreen(),
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                          const begin = Offset(1.0, 0.0);
+                          const end = Offset.zero;
+                          const curve = Curves.ease;
+
+                          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+                          return SlideTransition(
+                            position: animation.drive(tween),
+                            child: child,
+                          );
+                        },
+                      ));
+                    },
+                    child:
+                    CircleAvatar(
+                      backgroundImage: Image.asset("assets/images/cat3.jpg").image,
+                    )
+                )
+            ),
+            title: Text("User Cat",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 16),),
+            subtitle: Text("2.5M followers", style:  TextStyle(color: Colors.grey),),
+            trailing: TextButton(child: Text("Follow",style: TextStyle(color: Colors.white,fontSize: 16),),
+              style: TextButton.styleFrom(backgroundColor: Colors.orange),
+              onPressed: (){},),
+          )
+      );
   }
 }
 
