@@ -18,6 +18,7 @@ class CustomAppBar extends StatefulWidget {
 }
 
 class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMixin {
+
   @override
   Widget build(BuildContext context){
     GlobalKey currentKey = GlobalKey();
@@ -67,7 +68,13 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
                               Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_,a1,a2)=>VideoResultScreen()));
                             },
                             suggestions: suggestlist.map((e) =>
-                            SearchFieldListItem(e)
+                            SearchFieldListItem(e,
+                                child: ListTile(
+                                  leading: Icon(Icons.search),
+                                  title: Text(e),
+                                  trailing: Icon(Icons.clear),
+                                )
+                            )
                           ).toList(),
                             // decoration: InputDecoration(
                             //   hintText: "Search",
