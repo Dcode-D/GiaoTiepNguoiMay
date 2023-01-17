@@ -28,7 +28,13 @@ class _VideoResultScreenState extends State<VideoResultScreen> {
           Row(
             children: [
                 LeftPanel(),
-                SearchResultPage()
+                Container(
+                  padding: EdgeInsets.only(left: 18, right: 18,top: 20),
+                  height: size.height-80,
+                  width: size.width * 0.8,
+                  color: Colors.transparent,
+                  child: SearchResultPage()
+                )
               ]
             )
           ],

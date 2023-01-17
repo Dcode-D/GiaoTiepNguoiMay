@@ -36,7 +36,9 @@ class _DetailVideoScreenState extends State<RightPanelComments>{
                   children: [
                     Flexible(
                       flex:4,
-                      child: Column( children:[
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children:[
                       Row(
                         children: [
                           ClipOval(
@@ -85,19 +87,22 @@ class _DetailVideoScreenState extends State<RightPanelComments>{
                           ),
                           Spacer(),
                           Flexible(
-                            child: InkWell(
-                              onTap: (){
-                                setState(() {
-                                  isFollow = !isFollow;
-                                });
-                              },
-                              child:Text(
-                                isFollow ? 'Following' : 'Follow',
-                                style: TextStyle(
-                                    color: Color.fromARGB(255,242,113,33),
-                                    fontSize: 18,
-                                    fontFamily: "Popins",
-                                    fontWeight: FontWeight.w700
+                            child: Align(
+                              alignment: Alignment.topRight,
+                              child: InkWell(
+                                onTap: (){
+                                  setState(() {
+                                    isFollow = !isFollow;
+                                  });
+                                },
+                                child:Text(
+                                  isFollow ? 'Following' : 'Follow',
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255,242,113,33),
+                                      fontSize: 18,
+                                      fontFamily: "Popins",
+                                      fontWeight: FontWeight.w700
+                                  ),
                                 ),
                               ),
                             ),
@@ -241,7 +246,6 @@ class _DetailVideoScreenState extends State<RightPanelComments>{
                     ),
                     Flexible(child: SizedBox(height: 15,)),
                     Expanded(
-
                       child: Align(
                         alignment: Alignment.bottomCenter,
                         child: Container(

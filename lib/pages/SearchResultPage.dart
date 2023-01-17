@@ -1,3 +1,4 @@
+import 'package:doangtnm/web/screens_for_web/AccountScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -7,8 +8,6 @@ import '../widgets/video_thumbnail.dart';
 import 'OtherProfilePage.dart';
 
 class SearchResultPage extends StatefulWidget {
-
-
   @override
   State<StatefulWidget> createState()=> SearchState();
 }
@@ -20,32 +19,52 @@ class SearchState extends State<SearchResultPage> with TickerProviderStateMixin{
     // TODO: implement initState
     super.initState();
     _tabController = new TabController(length: 3, vsync: this);
+    _tabController.addListener(_handleTabSelection);
+  }
+  void _handleTabSelection() {
+    setState(() {
+    });
   }
   @override
   Widget build(BuildContext context) {
     return
-    Column(children:[
-      TabBar(
-          controller: _tabController,
-          unselectedLabelColor: Colors.grey,
-          indicator: UnderlineTabIndicator(
-            borderSide: BorderSide(
-                color: Color.fromARGB(255, 242, 113, 33), width: 5),
-            insets: EdgeInsets.fromLTRB(28, 0.0, 28, 0),
-          ),
-          labelColor: Color.fromARGB(255, 242, 113, 33),
-          tabs: [
-            Tab(
-              child: Text("Top",style: TextStyle(color: Colors.black,fontSize: 17),),
+    Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+        children:[
+        Container(
+      height: 50,
+      width: 400,
+        child: TabBar(
+            controller: _tabController,
+            unselectedLabelColor: Colors.grey,
+            indicator: UnderlineTabIndicator(
+              borderSide: BorderSide(
+                  color: Color.fromARGB(255, 242, 113, 33), width: 3),
+              insets: EdgeInsets.fromLTRB(28, 0.0, 28, 0),
             ),
-            Tab(
-              child: Text("Videos",style: TextStyle(color: Colors.black, fontSize: 17)),
-            ),
-            Tab(
-              child: Text("Profiles", style: TextStyle(color: Colors.black, fontSize: 17)),
-            ),
-      ]),
-      SizedBox(height: 10,),
+            labelColor: Color.fromARGB(255, 242, 113, 33),
+            tabs: [
+              Tab(
+                child: Text("Top",style: TextStyle(
+                    color: _tabController.index == 0 ? Color.fromARGB(255, 242, 113, 33) : Colors.grey,
+                    fontSize: 17,
+                    fontFamily: 'Poppins'),),
+              ),
+              Tab(
+                child: Text("Videos",style: TextStyle(
+                    color: _tabController.index == 1 ? Color.fromARGB(255, 242, 113, 33) : Colors.grey,
+                    fontSize: 17,
+                    fontFamily: 'Poppins')),
+              ),
+              Tab(
+                child: Text("Profiles", style: TextStyle(
+                    color: _tabController.index == 2 ? Color.fromARGB(255, 242, 113, 33) : Colors.grey,
+                    fontSize: 17,
+                    fontFamily: 'Poppins')),
+              ),
+        ]),
+      ),
+      SizedBox(height: 20,),
       Expanded(
           child:
       TabBarView(
@@ -70,13 +89,13 @@ class TopPage extends StatelessWidget{
          Expanded(child:
          GridView.builder(
            shrinkWrap: true,
-           itemCount: 10,
+           itemCount: 30,
            gridDelegate:
            const SliverGridDelegateWithFixedCrossAxisCount(
-             crossAxisCount: 2,
+             crossAxisCount: 5,
              childAspectRatio: 1,
-             crossAxisSpacing: 2,
-              mainAxisSpacing: 2,
+             crossAxisSpacing: 5,
+              mainAxisSpacing: 5,
            ),
            itemBuilder: (context, index) {
              return
@@ -112,20 +131,24 @@ class TopPage extends StatelessWidget{
      );
   }
 }
+class ProfilePage extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState()=> _stateProfilePage();
+}
 
-class ProfilePage extends StatelessWidget{
-
+class _stateProfilePage extends State<ProfilePage>{
+  bool isFollowed = false;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return
         ListView.builder(
-            itemCount: 10,
+            itemCount: 30,
             itemBuilder: (context,index)=>
             Container(
                 decoration: BoxDecoration(border:
-                  Border(bottom: BorderSide(width: 0.7,color: Colors.grey),
-                        top: BorderSide(width: 0.7,color: Colors.grey)
+                  Border(
+                        top: BorderSide(width: 0.7,color: Colors.black.withOpacity(0.5))
                   )
                 ),
                 child:
@@ -134,12 +157,12 @@ class ProfilePage extends StatelessWidget{
             leading:
               SizedBox(
                   height: size.height/4,
-                  width: size.width/4,
+                  width: size.width/15,
                   child:
                       InkWell(
                           onTap: (){
                             Navigator.push(context, PageRouteBuilder(
-                              pageBuilder: (context, animation, secondaryAnimation) => OtherProfileScreen(),
+                              pageBuilder: (context, animation, secondaryAnimation) => AccountScreen(),
                               transitionsBuilder: (context, animation, secondaryAnimation, child) {
                                 const begin = Offset(1.0, 0.0);
                                 const end = Offset.zero;
@@ -162,9 +185,13 @@ class ProfilePage extends StatelessWidget{
               ),
             title: Text("User Cat",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 16),),
             subtitle: Text("2.5M followers", style:  TextStyle(color: Colors.grey),),
-            trailing: TextButton(child: Text("Follow",style: TextStyle(color: Colors.white,fontSize: 16),),
+            trailing: TextButton(child: Text(isFollowed? "Follow" : "Following",style: TextStyle(color:Colors.white,fontSize: 16),),
               style: TextButton.styleFrom(backgroundColor: Colors.orange),
-            onPressed: (){},),
+            onPressed: (){
+              setState(() {
+                isFollowed = !isFollowed;
+              });
+            },),
             )
             )
         );
@@ -180,20 +207,21 @@ class videoPage extends StatelessWidget{
           Expanded(child:
           GridView.builder(
             shrinkWrap: true,
-            itemCount: 10,
+            itemCount: 30,
             gridDelegate:
             const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
+              crossAxisCount: 5,
               childAspectRatio: 1,
-              crossAxisSpacing: 2,
+              crossAxisSpacing: 5,
+              mainAxisSpacing: 5,
             ),
             itemBuilder: (context, index) {
               return
                 Column(
                     children:[
-
                       SizedBox(
-                          height:MediaQuery.of(context).size.height/5,
+                         height:MediaQuery.of(context).size.height/4,
+                         width: MediaQuery.of(context).size.width/2.1,
                           child:
                           VideoThumbnail("assets/images/cat1.jpg", "1.5M")),
                       Row(
@@ -208,7 +236,8 @@ class videoPage extends StatelessWidget{
                                   profileAvt("assets/images/cat5.jpg"),
                                 )
                             ),
-                            Flexible(child:
+                            Flexible(
+                                child:
                             Text("How i met your mother and something came at us!", style: TextStyle(fontSize: 12,color: Colors.grey),overflow: TextOverflow.ellipsis,)),
                           ]
                       )
