@@ -9,6 +9,7 @@ class VideoThumbnail extends StatelessWidget{
   Widget build(BuildContext context) {
     return
         Container(
+          color: Colors.transparent,
           child:
               InkWell(
                 onTap: (){
@@ -32,10 +33,10 @@ class VideoThumbnail extends StatelessWidget{
             Stack(
               children: [
                 Positioned.fill(child:
-                Image.asset(imgUrl,fit: BoxFit.fill,height: double.infinity,width: double.infinity,)
+                Image.asset(imgUrl,fit: BoxFit.fitHeight,height: double.infinity,width: double.infinity,)
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(10),
                   child: Align(
                     alignment: Alignment.topLeft,
                     child:

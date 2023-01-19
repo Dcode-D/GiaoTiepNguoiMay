@@ -93,24 +93,22 @@ class TopPage extends StatelessWidget{
            gridDelegate:
            const SliverGridDelegateWithFixedCrossAxisCount(
              crossAxisCount: 5,
-             childAspectRatio: 1,
-             crossAxisSpacing: 5,
+             childAspectRatio: 0.8,
+             crossAxisSpacing: 10,
               mainAxisSpacing: 5,
            ),
            itemBuilder: (context, index) {
              return
                Column(
                    children:[
-
                      Flexible(
-                       flex:4,
+                       flex:7,
                        child: SizedBox(
-                           height:MediaQuery.of(context).size.height/4,
+                           height:MediaQuery.of(context).size.height/3,
                            width: MediaQuery.of(context).size.width/2.1,
                            child:
                            VideoThumbnail("assets/images/cat1.jpg", "1.5M")),
                      ),
-                     SizedBox(height: 2,),
                      Flexible(
                        flex: 1,
                        child: Row(
@@ -169,7 +167,7 @@ class _stateProfilePage extends State<ProfilePage>{
             leading:
               SizedBox(
                   height: size.height/4,
-                  width: size.width/15,
+                  width: size.width/30,
                   child:
                       InkWell(
                           onTap: (){
@@ -197,7 +195,7 @@ class _stateProfilePage extends State<ProfilePage>{
               ),
             title: Text("User Cat",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 16),),
             subtitle: Text("2.5M followers", style:  TextStyle(color: Colors.grey),),
-            trailing: TextButton(child: Text(isFollowed? "Follow" : "Following",style: TextStyle(color:Colors.white,fontSize: 16),),
+            trailing: TextButton(child: Text(isFollowed? "Following" : "Follow",style: TextStyle(color:Colors.white,fontSize: 16),),
               style: TextButton.styleFrom(backgroundColor: Colors.orange),
             onPressed: (){
               setState(() {
@@ -223,35 +221,46 @@ class videoPage extends StatelessWidget{
             gridDelegate:
             const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 5,
-              childAspectRatio: 1,
-              crossAxisSpacing: 5,
+              childAspectRatio: 0.8,
+              crossAxisSpacing: 10,
               mainAxisSpacing: 5,
             ),
             itemBuilder: (context, index) {
               return
                 Column(
                     children:[
-                      SizedBox(
-                         height:MediaQuery.of(context).size.height/4,
-                         width: MediaQuery.of(context).size.width/2.1,
-                          child:
-                          VideoThumbnail("assets/images/cat1.jpg", "1.5M")),
-                      Row(
-                          children:[
-                            Align(
-                                alignment:Alignment.centerLeft,
-                                child:
-                                SizedBox(
-                                  width: 30,
-                                  height:30,
+                      Flexible(
+                        flex: 7,
+                        child: SizedBox(
+                           height:MediaQuery.of(context).size.height/3,
+                           width: MediaQuery.of(context).size.width/2.1,
+                            child:
+                            VideoThumbnail("assets/images/cat1.jpg", "1.5M")),
+                      ),
+                      SizedBox(height: 2,),
+                      Flexible(
+                        flex: 1,
+                        child: Row(
+                            children:[
+                              Flexible(
+                                flex:1,
+                                child: Align(
+                                    alignment:Alignment.centerLeft,
+                                    child:
+                                    SizedBox(
+                                      width: 30,
+                                      height:30,
+                                      child:
+                                      profileAvt("assets/images/cat5.jpg"),
+                                    )
+                                ),
+                              ),
+                              Flexible(
+                                flex: 5,
                                   child:
-                                  profileAvt("assets/images/cat5.jpg"),
-                                )
-                            ),
-                            Flexible(
-                                child:
-                            Text("How i met your mother and something came at us!", style: TextStyle(fontSize: 12,color: Colors.grey),overflow: TextOverflow.ellipsis,)),
-                          ]
+                              Text("How i met your mother and something came at us!", style: TextStyle(fontSize: 12,color: Colors.grey),overflow: TextOverflow.ellipsis,)),
+                            ]
+                        ),
                       )
                     ]);
             },

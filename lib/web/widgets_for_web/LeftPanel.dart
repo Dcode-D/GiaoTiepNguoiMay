@@ -38,23 +38,31 @@ class _LeftPanelState extends State<LeftPanel> with TickerProviderStateMixin{
                       child:
                       Row(
                         children: [
-                          Icon(
-                              Icons.home_outlined,
-                              color: (tab==0)? Color.fromARGB(255, 242, 113, 33) : Colors.black.withOpacity(0.7),
-                              size: (tab==0)? 37: 35
+                          Flexible(
+                            flex: 2,
+                            child: Icon(
+                                Icons.home_outlined,
+                                color: (tab==0)? Color.fromARGB(255, 242, 113, 33) : Colors.black.withOpacity(0.7),
+                                size: (tab==0)? 37: 35
+                            ),
                           ),
-                          SizedBox(width: 17,),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 5),
-                            child: Text(
-                              "For You",
-                              style:(tab==0)? TextStyle(
-                                  color: Color.fromARGB(255, 242, 113, 33), fontSize: 22, fontWeight: FontWeight.bold):
-                              TextStyle(
-                                color: Colors.black.withOpacity(0.7),
-                                fontSize: 20,
-                              )
-                              ,
+                          Flexible(
+                            flex: 1,
+                              child: SizedBox(width: 17,)),
+                          Flexible(
+                            flex: 3,
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 5),
+                              child: Text(
+                                "For You",
+                                style:(tab==0)? TextStyle(
+                                    color: Color.fromARGB(255, 242, 113, 33), fontSize: 22, fontWeight: FontWeight.bold):
+                                TextStyle(
+                                  color: Colors.black.withOpacity(0.7),
+                                  fontSize: 20,
+                                )
+                                ,
+                              ),
                             ),
                           ),
                         ],
@@ -71,24 +79,32 @@ class _LeftPanelState extends State<LeftPanel> with TickerProviderStateMixin{
                       child:
                       Row(
                         children: [
-                          Icon(
-                              Icons.people_outline,
-                              color: (tab==1)? Color.fromARGB(255, 242, 113, 33) : Colors.black.withOpacity(0.7),
-                              size: (tab==1)? 37: 35
+                          Flexible(
+                            flex: 2,
+                            child: Icon(
+                                Icons.people_outline,
+                                color: (tab==1)? Color.fromARGB(255, 242, 113, 33) : Colors.black.withOpacity(0.7),
+                                size: (tab==1)? 37: 35
+                            ),
                           ),
-                          SizedBox(width: 17,),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 5),
-                            child: Text(
-                              "Following",
-                              style:(tab==1)? TextStyle(
-                                  color: Color.fromARGB(255, 242, 113, 33),
-                                  fontSize: 22, fontWeight: FontWeight.bold):
-                              TextStyle(
-                                color: Colors.black.withOpacity(0.7),
-                                fontSize: 20,
-                              )
-                              ,
+                          Flexible(
+                              flex: 1,
+                              child: SizedBox(width: 17,)),
+                          Flexible(
+                            flex: 3,
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 5),
+                              child: Text(
+                                "Following",
+                                style:(tab==1)? TextStyle(
+                                    color: Color.fromARGB(255, 242, 113, 33),
+                                    fontSize: 22, fontWeight: FontWeight.bold):
+                                TextStyle(
+                                  color: Colors.black.withOpacity(0.7),
+                                  fontSize: 20,
+                                )
+                                ,
+                              ),
                             ),
                           ),
                         ],
@@ -105,23 +121,31 @@ class _LeftPanelState extends State<LeftPanel> with TickerProviderStateMixin{
                       child:
                       Row(
                         children: [
-                          Icon(
-                              Icons.cast_outlined,
-                              color: (tab==2)? Color.fromARGB(255, 242, 113, 33) : Colors.black.withOpacity(0.7),
-                              size: (tab==2)? 37: 35
+                          Flexible(
+                            flex: 2,
+                            child: Icon(
+                                Icons.cast_outlined,
+                                color: (tab==2)? Color.fromARGB(255, 242, 113, 33) : Colors.black.withOpacity(0.7),
+                                size: (tab==2)? 37: 35
+                            ),
                           ),
-                          SizedBox(width: 17,),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 5),
-                            child: Text(
-                              "Live",
-                              style:(tab==2)? TextStyle(
-                                  color: Color.fromARGB(255, 242, 113, 33), fontSize: 22, fontWeight: FontWeight.bold):
-                              TextStyle(
-                                color: Colors.black.withOpacity(0.7),
-                                fontSize: 20,
-                              )
-                              ,
+                          Flexible(
+                              flex: 1,
+                              child: SizedBox(width: 17,)),
+                          Flexible(
+                            flex: 3,
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 5),
+                              child: Text(
+                                "Live",
+                                style:(tab==2)? TextStyle(
+                                    color: Color.fromARGB(255, 242, 113, 33), fontSize: 22, fontWeight: FontWeight.bold):
+                                TextStyle(
+                                  color: Colors.black.withOpacity(0.7),
+                                  fontSize: 20,
+                                )
+                                ,
+                              ),
                             ),
                           ),
                         ],
@@ -148,42 +172,78 @@ class _LeftPanelState extends State<LeftPanel> with TickerProviderStateMixin{
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  AccountItem(
-                    avataUrl: "assets/images/cat.jpg",
-                    name: "Cat",
-                    tag: "Ms.Cat",),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  AccountItem(
-                    avataUrl: "assets/images/cat1.jpg",
-                    name: "White Cat",
-                    tag: "Ms.Cat",),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  AccountItem(
-                    avataUrl: "assets/images/cat2.jpg",
-                    name: "Cat in love",
-                    tag: "Ms.Cat",),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  Text(
-                    "See all",
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 242, 113, 33),
-                      fontSize: 14,
-                      fontFamily: "Poppins",
-                      fontWeight: FontWeight.w500,
+                  //TODO: cần chỉnh lại flex account item
+                  Container(
+                    height: 250,
+                    width: size.width * 0.2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Flexible(
+                          flex: 2,
+                          child: SizedBox(
+                          height: 15,
+                          ),
+                        ),
+                        Flexible(
+                          flex: 6,
+                          fit: FlexFit.tight,
+                          child: AccountItem(
+                            avataUrl: "assets/images/cat.jpg",
+                            name: "Cat",
+                            tag: "Ms.Cat",),
+                        ),
+                        Flexible(
+                          flex: 2,
+                          child: SizedBox(
+                            height: 15,
+                          ),
+                        ),
+                        Flexible(
+                          flex: 6,
+                          fit: FlexFit.tight,
+                          child: AccountItem(
+                            avataUrl: "assets/images/cat1.jpg",
+                            name: "White Cat",
+                            tag: "Ms.Cat",),
+                        ),
+                        Flexible(
+                          flex: 2,
+                          child: SizedBox(
+                            height: 15,
+                          ),
+                        ),
+                        Flexible(
+                          flex: 6,
+                          fit: FlexFit.tight,
+                          child: AccountItem(
+                            avataUrl: "assets/images/cat2.jpg",
+                            name: "Cat in love",
+                            tag: "Ms.Cat",),
+                        ),
+                        Flexible(
+                          flex: 2,
+                          child: SizedBox(
+                            height: 15,
+                          ),
+                        ),
+                        Flexible(
+                          flex: 5,
+                          fit: FlexFit.tight,
+                          child: Text(
+                            "See all",
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 242, 113, 33),
+                              fontSize: 14,
+                              fontFamily: "Poppins",
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  SizedBox(
-                    height: 15,
-                  ),
+
                   Container(
                     height: 1.5,
                     width: size.width * 0.2,
@@ -204,46 +264,90 @@ class _LeftPanelState extends State<LeftPanel> with TickerProviderStateMixin{
                   SizedBox(
                     height: 15,
                   ),
-                  Row(
-                      children: [
-                        TagItem(
-                          tag: "Cat",
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        TagItem(
-                          tag: "Monster",
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        TagItem(
-                          tag: "Doja Cat",
-                        ),
-                      ]
+                  Container(
+                    height: 30,
+                    width: size.width * 0.2,
+                    child: Row(
+                        children: [
+                          Flexible(
+                            flex: 0,
+                            fit: FlexFit.loose,
+                            child: TagItem(
+                              tag: "Cat",
+                            ),
+                          ),
+                          Flexible(
+                            flex: 1,
+                            child: SizedBox(
+                              width: 10,
+                            ),
+                          ),
+                          Flexible(
+                            flex: 0,
+                            fit: FlexFit.loose,
+                            child: TagItem(
+                              tag: "Monster",
+                            ),
+                          ),
+                          Flexible(
+                            flex: 1,
+                            child: SizedBox(
+                              width: 10,
+                            ),
+                          ),
+                          Flexible(
+                            flex: 0,
+                            fit: FlexFit.loose,
+                            child: TagItem(
+                              tag: "Doja Cat",
+                            ),
+                          ),
+                        ]
+                    ),
                   ),
                   SizedBox(
                     height: 5,
                   ),
-                  Column(
-                    children: [
-                      MusicTagItem(
-                        name: "Yêu Đơn Phương Là Gì (MEE...",
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      MusicTagItem(
-                        name: "Về Nghe Mẹ Ru - NSND Bach...",
-                      ),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      MusicTagItem(
-                        name: "Yêu Đơn Phương...",
-                      ),
-                    ],
+                  Container(
+                    height: 150,
+                    width: size.width * 0.2,
+                    child: Column(
+                      children: [
+                        Flexible(
+                          flex: 2,
+                          fit: FlexFit.loose,
+                          child: MusicTagItem(
+                            name: "Yêu Đơn Phương Là Gì (MEE...",
+                          ),
+                        ),
+                        Flexible(
+                          flex: 0,
+                          child: SizedBox(
+                            height: 5,
+                          ),
+                        ),
+                        Flexible(
+                          flex: 2,
+                          fit: FlexFit.loose,
+                          child: MusicTagItem(
+                            name: "Về Nghe Mẹ Ru - NSND Bach...",
+                          ),
+                        ),
+                        Flexible(
+                          flex: 0,
+                          child: SizedBox(
+                            height: 5,
+                          ),
+                        ),
+                        Flexible(
+                          flex: 2,
+                          fit: FlexFit.loose,
+                          child: MusicTagItem(
+                            name: "Yêu Đơn Phương...",
+                          ),
+                        ),
+                      ],
+                    ),
                   )
                 ]
             )

@@ -27,13 +27,20 @@ class _VideoResultScreenState extends State<VideoResultScreen> {
             CustomAppBar(),
           Row(
             children: [
-                LeftPanel(),
-                Container(
-                  padding: EdgeInsets.only(left: 18, right: 18,top: 20),
-                  height: size.height-80,
-                  width: size.width * 0.8,
-                  color: Colors.transparent,
-                  child: SearchResultPage()
+                Flexible(
+                  flex: 1,
+                    fit: FlexFit.tight,
+                    child: LeftPanel()),
+                Flexible(
+                  flex: 4,
+                  fit: FlexFit.tight,
+                  child: Container(
+                    padding: EdgeInsets.only(left: 18, right: 18,top: 20),
+                    height: size.height-80,
+                    width: size.width * 0.8,
+                    color: Colors.transparent,
+                    child: SearchResultPage()
+                  ),
                 )
               ]
             )
