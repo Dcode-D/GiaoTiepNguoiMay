@@ -175,20 +175,21 @@ class _LeftPanelState extends State<LeftPanel> with TickerProviderStateMixin{
                     //TODO: cần chỉnh lại flex account item
                     SingleChildScrollView(
                       child: Container(
-                        height: 250,
+                        height: 200,
                         width: size.width * 0.2,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Flexible(
                               flex: 2,
                               child: SizedBox(
-                              height: 15,
+                              height: 5,
                               ),
                             ),
                             Flexible(
                               flex: 6,
-                              fit: FlexFit.tight,
+                              fit: FlexFit.loose,
                               child: AccountItem(
                                 avataUrl: "assets/images/cat.jpg",
                                 name: "Cat",
@@ -202,7 +203,7 @@ class _LeftPanelState extends State<LeftPanel> with TickerProviderStateMixin{
                             ),
                             Flexible(
                               flex: 6,
-                              fit: FlexFit.tight,
+                              fit: FlexFit.loose,
                               child: AccountItem(
                                 avataUrl: "assets/images/cat1.jpg",
                                 name: "White Cat",
@@ -216,28 +217,31 @@ class _LeftPanelState extends State<LeftPanel> with TickerProviderStateMixin{
                             ),
                             Flexible(
                               flex: 6,
-                              fit: FlexFit.tight,
+                              fit: FlexFit.loose,
                               child: AccountItem(
                                 avataUrl: "assets/images/cat2.jpg",
                                 name: "Cat in love",
                                 tag: "Ms.Cat",),
                             ),
                             Flexible(
-                              flex: 2,
+                              flex: 3,
                               child: SizedBox(
                                 height: 15,
                               ),
                             ),
                             Flexible(
-                              flex: 5,
+                              flex: 4,
                               fit: FlexFit.tight,
-                              child: Text(
-                                "See all",
-                                style: TextStyle(
-                                  color: Color.fromARGB(255, 242, 113, 33),
-                                  fontSize: 14,
-                                  fontFamily: "Poppins",
-                                  fontWeight: FontWeight.w500,
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 15, top:10),
+                                child: Text(
+                                  "See all",
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 242, 113, 33),
+                                    fontSize: 14,
+                                    fontFamily: "Poppins",
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                             ),

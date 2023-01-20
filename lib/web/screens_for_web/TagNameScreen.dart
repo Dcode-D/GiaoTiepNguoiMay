@@ -27,7 +27,7 @@ class _TagNameScreenState extends State<TagNameScreen> {
     Size size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Container(
-          height: size.height,
+          height: size.height+86,
           width: size.width,
           decoration: BoxDecoration(
             color: Colors.white,

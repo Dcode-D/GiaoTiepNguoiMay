@@ -231,7 +231,7 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                           height: 15,
                         ),
                         Container(
-                          height: 50,
+                          height: 32,
                             width: 400,
                           child: TabBar(
                               controller: tabController,

@@ -1,3 +1,5 @@
+import 'package:doangtnm/web/screens_for_web/AccountScreen.dart';
+import 'package:doangtnm/web/screens_for_web/ProfileScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:doangtnm/theme/Colors.dart';
 
@@ -21,8 +23,8 @@ class _AccountItemState extends State<AccountItem> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-
-      },
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreen()));
+          },
       child: ListTile(
         leading:
            CircleAvatar(
@@ -30,18 +32,24 @@ class _AccountItemState extends State<AccountItem> {
               backgroundImage: AssetImage(widget.avataUrl),
             ),
         title:
-                Text(widget.name,style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 18,
-                                fontFamily: "Popins",
-                                fontWeight: FontWeight.w700
-                            ),),
+                Row(
+                  children: [
+                    Text(widget.name,style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontFamily: "Popins",
+                                    fontWeight: FontWeight.w700
+                                ),),
+                    SizedBox(width: 5,),
+                    Icon(Icons.check_circle,color: Color.fromARGB(255, 242, 113, 33),
+                      size: 15,),
+                  ],
+                ),
 
-      trailing:
-                        Icon(Icons.check_circle,color: Color.fromARGB(255, 242, 113, 33),
-                            size: 15,),
+        trailing:
+                   SizedBox(),
 
-      subtitle:
+        subtitle:
                 Text(widget.tag,style: TextStyle(
                       color: Color.fromARGB(255, 87, 87, 87),
                       fontSize: 14,

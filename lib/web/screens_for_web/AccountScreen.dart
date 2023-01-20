@@ -38,7 +38,7 @@ class _AccountScreenState extends State<AccountScreen> with TickerProviderStateM
     return SingleChildScrollView(
       key: currentKey,
       child: Container(
-          height: size.height,
+          height: size.height+86,
           width: size.width,
           decoration: BoxDecoration(
             color: Colors.white,

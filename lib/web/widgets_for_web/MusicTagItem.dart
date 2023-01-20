@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:doangtnm/theme/colors.dart';
 
+import '../screens_for_web/TagNameScreen.dart';
+
 class MusicTagItem extends StatefulWidget {
   final String? name;
   MusicTagItem({this.name});
@@ -13,7 +15,7 @@ class _MusicTagItemState extends State<MusicTagItem>{
   Widget build(BuildContext context) {
     return InkWell(
         onTap: (){
-
+          Navigator.push(context, MaterialPageRoute(builder: (context) => TagNameScreen()));
         },
         child: Container(
           padding: EdgeInsets.only(left: 10,right: 10,top: 5,bottom: 5),

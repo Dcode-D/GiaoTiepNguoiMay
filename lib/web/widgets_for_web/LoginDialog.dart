@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:doangtnm/theme/Colors.dart';
 import 'package:doangtnm/pages/RootApp.dart';
+import 'package:doangtnm/web/screens_for_web/HomeScreen.dart';
 
 class LoginDialog extends StatefulWidget {
   @override
@@ -84,7 +85,10 @@ class _LoginDialogState extends State<LoginDialog> {
             ),
             SizedBox(height: 10,),
             InkWell(
-              onTap: (){},
+              onTap: (){
+                LoginClass.isLogged = true;
+                Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+              },
               child: Image.asset('assets/images/loginbtn.jpg',width: 600,height: 60,fit: BoxFit.fill,),
             ),
             SizedBox(height: 10,),

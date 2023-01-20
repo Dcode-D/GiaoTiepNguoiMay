@@ -1,9 +1,11 @@
+import 'package:doangtnm/web/screens_for_web/AccountScreen.dart';
+import 'package:doangtnm/web/screens_for_web/HomeScreen.dart';
 import 'package:doangtnm/web/widgets_for_web/EditProfileDialog.dart';
 import 'package:doangtnm/web/widgets_for_web/LoginDialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:searchfield/searchfield.dart';
-
+import 'package:doangtnm/web/screens_for_web/HomeScreen.dart';
 import '../../pages/SwitchAccountPage.dart';
 import '../../theme/Colors.dart';
 import '../screens_for_web/VideoResultScreen.dart';
@@ -63,7 +65,11 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
         children: [
           Row(
             children: <Widget>[
-              Image.asset("assets/images/logo.jpg",height: 45,),
+              InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                },
+                  child: Image.asset("assets/images/logo.jpg",height: 45,)),
               Spacer(),
               Container(
                 width: size.width/3,
@@ -79,9 +85,9 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
                           flex: 10,
                           fit: FlexFit.tight,
                           child: Padding(
-                            padding: EdgeInsets.only(left: 10),
+                            padding: EdgeInsets.only(left: 20,top: 6),
                             child:
-                          _textEditingController.text.length==0?
+                            _textEditingController.text.length==0?
                             SearchField(
                               key: searchKey,
                               controller: _textEditingController,
@@ -195,7 +201,8 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
                               }
                           );
                         },
-                        child: Container(
+                        child: !LoginClass.isLogged ?
+                        Container(
                           height: 45,
                           width: 130,
                           decoration: BoxDecoration(
@@ -216,6 +223,16 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
                                 ),
                               ),
                             )
+                        ):
+                        InkWell(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => AccountScreen()));
+                          },
+                          child: ClipOval(
+                            child:
+                            Image.asset('assets/images/cat1.jpg',
+                                width: 50, height: 50, fit: BoxFit.cover),
+                          ),
                         ),
                       ),
                     )

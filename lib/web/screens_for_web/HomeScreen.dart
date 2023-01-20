@@ -3,16 +3,14 @@ import 'package:doangtnm/web/widgets_for_web/AccountItem.dart';
 import 'package:doangtnm/web/widgets_for_web/CustomAppBar.dart';
 import 'package:doangtnm/web/widgets_for_web/LeftPanel.dart';
 import 'package:doangtnm/web/widgets_for_web/MusicTagItem.dart';
+import 'package:doangtnm/web/widgets_for_web/RightHomeCommentPanel.dart';
+import 'package:doangtnm/web/widgets_for_web/RightHomeVideoPanel.dart';
 import 'package:doangtnm/web/widgets_for_web/TagItem.dart';
 import 'package:doangtnm/web/widgets_for_web/VideoRightPanelComments.dart';
 import 'package:doangtnm/widgets/right_panel.dart';
 import 'package:doangtnm/widgets/videoplayeritem.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
-
-
-
-
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -25,6 +23,10 @@ class HomeScreen extends StatefulWidget {
     // TODO: implement createState
     return _HomeScreenState();
   }
+}
+
+class LoginClass{
+  static bool isLogged = false;
 }
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -61,24 +63,28 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Center(
-                                        child: RotatedBox(
-                                          quarterTurns: 1,
-                                          child: VideoPlayerItem(
-                                            videoUrl: videoitems[index]['videoUrl'],
-                                            size: new Size(size.width/2.5, size.height),
-                                            name: videoitems[index]['name'],
-                                            caption: videoitems[index]['caption'],
-                                            songName: videoitems[index]['songName'],
-                                            profileImg: videoitems[index]['profileImg'],
-                                            likes: videoitems[index]['likes'],
-                                            comments: videoitems[index]['comments'],
-                                            shares: videoitems[index]['shares'],
-                                            albumImg: videoitems[index]['albumImg'],
+                                      Padding(
+                                        padding: const EdgeInsets.only(bottom: 100),
+                                        child: Center(
+                                          child: RotatedBox(
+                                            quarterTurns: 1,
+                                            child:
+                                                VideoPlayerItem(
+                                                  videoUrl: videoitems[index]['videoUrl'],
+                                                  size: new Size(size.width/2.5, size.height*0.8),
+                                                  name: videoitems[index]['name'],
+                                                  caption: videoitems[index]['caption'],
+                                                  songName: videoitems[index]['songName'],
+                                                  profileImg: videoitems[index]['profileImg'],
+                                                  likes: videoitems[index]['likes'],
+                                                  comments: videoitems[index]['comments'],
+                                                  shares: videoitems[index]['shares'],
+                                                  albumImg: videoitems[index]['albumImg'],
+                                                ),
                                           ),
                                         ),
                                       ),
-                                      RightPanel(
+                                      RightHomeVideoPanel(
                                           size: size,
                                           likes: "123M",
                                           comments: "46K",
@@ -96,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Container(
                         height: size.height-86.5,
                         width: size.width*0.35,
-                        child: RightPanelComments(),
+                        child: RightHomeCommentPanel(),
                       )
                     ],
                   )

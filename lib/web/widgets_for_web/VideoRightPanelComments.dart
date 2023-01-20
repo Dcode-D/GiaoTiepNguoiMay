@@ -1,3 +1,4 @@
+import 'package:doangtnm/web/screens_for_web/AccountScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:doangtnm/widgets/LikeComponent.dart';
 import 'package:doangtnm/web/screens_for_web//HomeScreen.dart';
@@ -41,10 +42,15 @@ class _DetailVideoScreenState extends State<RightPanelComments>{
                           children:[
                       Row(
                         children: [
-                          ClipOval(
-                            child:
-                              Image.asset('assets/images/cat1.jpg',
-                              width: 50, height: 50, fit: BoxFit.cover),
+                          InkWell(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => AccountScreen()));
+                            },
+                            child: ClipOval(
+                              child:
+                                Image.asset('assets/images/cat1.jpg',
+                                width: 50, height: 50, fit: BoxFit.cover),
+                            ),
                           ),
                           SizedBox(width: 20,),
                           Column(

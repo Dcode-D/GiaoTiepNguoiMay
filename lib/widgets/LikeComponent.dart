@@ -50,15 +50,24 @@ class LikeState extends State<LikeComponent> with SingleTickerProviderStateMixin
       Container(
         child: Row(
           children: [
-            Icon(Icons.favorite_border,
-              color: (isliked)?Color.fromARGB(255, 242, 113, 33):Colors.black,
-              size: 30.0,
+            Container(
+              padding: EdgeInsets.all(10),
+              height: 50,
+              width: 50,
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 234, 234, 234),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Icon(Icons.favorite_border,
+                color: (isliked)?Color.fromARGB(255, 242, 113, 33):Colors.black,
+                size: 30.0,
+              ),
             ),
             SizedBox(height: 5),
             Text(
               widget.likes.toString(),
               style: TextStyle(
-                  color: Colors.black, fontSize: 12,fontFamily: 'Inter', fontWeight: FontWeight.w500),
+                  color: Colors.black, fontSize: 12,fontFamily: 'Inter', fontWeight: FontWeight.w700),
             )
           ],
         ),
@@ -69,15 +78,24 @@ class LikeState extends State<LikeComponent> with SingleTickerProviderStateMixin
           Container(
             child: Column(
               children: [
-                Icon(Icons.favorite,
-                  color: (isliked)?Colors.red:Colors.black,
-                  size: 30.0,
+                Container(
+                  padding: EdgeInsets.all(10),
+                  height: 50,
+                  width: 50,
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 234, 234, 234),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: Icon(Icons.favorite,
+                    color: (isliked)?Colors.red:Colors.black,
+                    size: 30.0,
+                  ),
                 ),
                 SizedBox(height: 5),
                 Text(
                   widget.likes.toString(),
                   style: TextStyle(
-                      color: Colors.white, fontSize: 12, fontWeight: FontWeight.w700),
+                      color: Colors.black, fontSize: 12,fontFamily: 'Inter', fontWeight: FontWeight.w700),
                 )
               ],
             ),
