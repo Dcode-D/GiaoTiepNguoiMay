@@ -34,6 +34,7 @@ class RightPanel extends StatelessWidget {
       key: currentKey,
       child: Container(
         height: size.height,
+        width: size.width/10,
         child: Column(
           children: <Widget>[
             Container(
@@ -41,61 +42,16 @@ class RightPanel extends StatelessWidget {
             ),
             Expanded(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     ProfileImage(imgurl: profileImg),
                     LikeComponent(likes: likes),
-                    InkWell(
-                        onTap: (){
-                          // SmartDialog.show(
-                          //   animationTime: new Duration(milliseconds: 300),
-                          //   animationType: SmartAnimationType.centerScale_otherSlide,
-                          //   animationBuilder: (controller, child, param)=>
-                          //       SlideTransition(
-                          //         position: Tween(begin: Offset(0, 1), end: Offset(0, 0))
-                          //             .animate(CurvedAnimation(parent: controller, curve: Curves.easeIn)),
-                          //         child: child,
-                          //       ),
-                          //   builder: (_){
-                          //   return
-                          //   Container(
-                          //     margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/10),
-                          //       child:
-                          //     commentPage()
-                          //   );
-                          // },
-                          // alignment: Alignment.bottomCenter,
-                          // );
-
-                          showGeneralDialog(
-                            barrierLabel: "Close dialog",
-                            barrierColor: Colors.black.withOpacity(0.5),
-                            barrierDismissible: true,
-                              transitionDuration: Duration(milliseconds: 300),
-                              context: currentKey.currentContext!,
-                              pageBuilder: (context,animation,animation2)=>
-                              Container(
-                                  margin: EdgeInsets.only(top: MediaQuery.of(context).size.height/10),
-                                  child:
-                              commentPage()
-                              ),
-                          transitionBuilder: (context,animation1,animation2,child){
-                            return
-                              SlideTransition(position: Tween(begin: Offset(0, 1), end: Offset(0, 0))
-                                      .animate(animation1),
-                              child: child,);
-                          }
-                          );
-                        },
-                        child:
-                    getIcons(Icons.chat_outlined, comments, 30.0)),
                     InkWell(
                         onTap: (){
                           Share.share("something");
                         },
                         child:
                           getIcons(TikTokIcons.reply, shares, 25.0)),
-                    getAlbum(albumImg)
                   ],
                 ))
           ],

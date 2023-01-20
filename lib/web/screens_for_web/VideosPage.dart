@@ -48,24 +48,26 @@ class _VideoPageState extends State<VideoPage>
                 Stack(
                   alignment: Alignment.center,
                   children:[
-                RotatedBox(
-                  quarterTurns: 1,
-                  child: TabBarView(
-                    controller: _tabController,
-                    children: List.generate(videoitems.length, (index) {
-                      return VideoPlayerItem(
-                        videoUrl: videoitems[index]['videoUrl'],
-                        size: size,
-                        name: videoitems[index]['name'],
-                        caption: videoitems[index]['caption'],
-                        songName: videoitems[index]['songName'],
-                        profileImg: videoitems[index]['profileImg'],
-                        likes: videoitems[index]['likes'],
-                        comments: videoitems[index]['comments'],
-                        shares: videoitems[index]['shares'],
-                        albumImg: videoitems[index]['albumImg'],
-                      );
-                    }),
+                Center(
+                  child: RotatedBox(
+                    quarterTurns: 1,
+                    child: TabBarView(
+                      controller: _tabController,
+                      children: List.generate(videoitems.length, (index) {
+                        return VideoPlayerItem(
+                          videoUrl: videoitems[index]['videoUrl'],
+                          size: size,
+                          name: videoitems[index]['name'],
+                          caption: videoitems[index]['caption'],
+                          songName: videoitems[index]['songName'],
+                          profileImg: videoitems[index]['profileImg'],
+                          likes: videoitems[index]['likes'],
+                          comments: videoitems[index]['comments'],
+                          shares: videoitems[index]['shares'],
+                          albumImg: videoitems[index]['albumImg'],
+                        );
+                      }),
+                    ),
                   ),
                 ),
                   Positioned(

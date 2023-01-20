@@ -18,7 +18,6 @@ class _LeftPanelState extends State<LeftPanel> with TickerProviderStateMixin{
   int tab = 0;
   @override
   Widget build(BuildContext context) {
-    GlobalKey currentKey = GlobalKey();
     Size size = MediaQuery.of(context).size;
     return Row(
       children: [
@@ -173,80 +172,81 @@ class _LeftPanelState extends State<LeftPanel> with TickerProviderStateMixin{
                     ),
                   ),
                   //TODO: cần chỉnh lại flex account item
-                  Container(
-                    height: 250,
-                    width: size.width * 0.2,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Flexible(
-                          flex: 2,
-                          child: SizedBox(
-                          height: 15,
-                          ),
-                        ),
-                        Flexible(
-                          flex: 6,
-                          fit: FlexFit.tight,
-                          child: AccountItem(
-                            avataUrl: "assets/images/cat.jpg",
-                            name: "Cat",
-                            tag: "Ms.Cat",),
-                        ),
-                        Flexible(
-                          flex: 2,
-                          child: SizedBox(
+                  SingleChildScrollView(
+                    child: Container(
+                      height: 250,
+                      width: size.width * 0.2,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Flexible(
+                            flex: 2,
+                            child: SizedBox(
                             height: 15,
-                          ),
-                        ),
-                        Flexible(
-                          flex: 6,
-                          fit: FlexFit.tight,
-                          child: AccountItem(
-                            avataUrl: "assets/images/cat1.jpg",
-                            name: "White Cat",
-                            tag: "Ms.Cat",),
-                        ),
-                        Flexible(
-                          flex: 2,
-                          child: SizedBox(
-                            height: 15,
-                          ),
-                        ),
-                        Flexible(
-                          flex: 6,
-                          fit: FlexFit.tight,
-                          child: AccountItem(
-                            avataUrl: "assets/images/cat2.jpg",
-                            name: "Cat in love",
-                            tag: "Ms.Cat",),
-                        ),
-                        Flexible(
-                          flex: 2,
-                          child: SizedBox(
-                            height: 15,
-                          ),
-                        ),
-                        Flexible(
-                          flex: 5,
-                          fit: FlexFit.tight,
-                          child: Text(
-                            "See all",
-                            style: TextStyle(
-                              color: Color.fromARGB(255, 242, 113, 33),
-                              fontSize: 14,
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.w500,
                             ),
                           ),
-                        ),
-                      ],
+                          Flexible(
+                            flex: 6,
+                            fit: FlexFit.tight,
+                            child: AccountItem(
+                              avataUrl: "assets/images/cat.jpg",
+                              name: "Cat",
+                              tag: "Ms.Cat",),
+                          ),
+                          Flexible(
+                            flex: 2,
+                            child: SizedBox(
+                              height: 15,
+                            ),
+                          ),
+                          Flexible(
+                            flex: 6,
+                            fit: FlexFit.tight,
+                            child: AccountItem(
+                              avataUrl: "assets/images/cat1.jpg",
+                              name: "White Cat",
+                              tag: "Ms.Cat",),
+                          ),
+                          Flexible(
+                            flex: 2,
+                            child: SizedBox(
+                              height: 15,
+                            ),
+                          ),
+                          Flexible(
+                            flex: 6,
+                            fit: FlexFit.tight,
+                            child: AccountItem(
+                              avataUrl: "assets/images/cat2.jpg",
+                              name: "Cat in love",
+                              tag: "Ms.Cat",),
+                          ),
+                          Flexible(
+                            flex: 2,
+                            child: SizedBox(
+                              height: 15,
+                            ),
+                          ),
+                          Flexible(
+                            flex: 5,
+                            fit: FlexFit.tight,
+                            child: Text(
+                              "See all",
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 242, 113, 33),
+                                fontSize: 14,
+                                fontFamily: "Poppins",
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
 
                   Container(
                     height: 1.5,
-                    width: size.width * 0.2,
                     color: Colors.black.withOpacity(0.2),
                   ),
                   SizedBox(

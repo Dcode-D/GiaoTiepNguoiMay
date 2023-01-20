@@ -42,13 +42,10 @@ class VideoPlayerItem extends StatefulWidget {
 class _VideoPlayerItemState extends State<VideoPlayerItem> {
   VideoPlayerController? _videoController;
   bool isShowPlaying = false;
-  late EventBus eventbus;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    eventbus = new EventBus();
     _videoController = VideoPlayerController.asset(widget.videoUrl)
       ..initialize().then((value) {
         _videoController!.play();
@@ -62,7 +59,6 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _videoController!.dispose();
 
@@ -98,7 +94,7 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
                     decoration: BoxDecoration(color: Colors.white),
                     child: Stack(
                       children: <Widget>[
-                        VideoPlayer(_videoController!),
+                        Center(child: VideoPlayer(_videoController!)),
                         Center(
                           child: Container(
                             child: isPlaying(),

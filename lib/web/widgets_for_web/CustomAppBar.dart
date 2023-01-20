@@ -44,7 +44,7 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
               Spacer(),
               Container(
                 width: size.width/3,
-                height: size.height/15-5.3,
+                height: size.height/15,
                 decoration: BoxDecoration(
                   color: searchbar,
                   borderRadius: BorderRadius.circular(10),
@@ -56,7 +56,7 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
                           flex: 10,
                           fit: FlexFit.tight,
                           child: Padding(
-                            padding: EdgeInsets.only(left: 20,top:3),
+                            padding: EdgeInsets.only(left: 10),
                             child: SearchField(
                               searchInputDecoration: InputDecoration(
                                   hintText: "Search",
@@ -80,12 +80,6 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
                                   )
                               )
                             ).toList(),
-                              // decoration: InputDecoration(
-                              //   hintText: "Search",
-                              //   hintStyle: TextStyle(color: Color.fromARGB(255, 120, 120, 120),
-                              //   fontFamily: "Poppins",),
-                              //   border: InputBorder.none
-                              // ),
                             ),
                           ),
                         ),
@@ -94,7 +88,6 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
                       child: Icon(Icons.search,
                         color:Color.fromARGB(255, 120, 120, 120),),
                     ),
-
                   ],
                 ),
               ),
