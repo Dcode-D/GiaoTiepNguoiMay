@@ -75,14 +75,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ),
                                       ),
                                     ),
-                                    // RightPanel(
-                                    //     size: size,
-                                    //     likes: "123M",
-                                    //     comments: "46K",
-                                    //     shares: "4.5K",
-                                    //     profileImg: "assets/images/cat1.jpg",
-                                    //     albumImg: "something",
-                                    //   ),
+                                    RightPanel(
+                                        size: size,
+                                        likes: "123M",
+                                        comments: "46K",
+                                        shares: "4.5K",
+                                        profileImg: "assets/images/cat1.jpg",
+                                        albumImg: "something",
+                                      ),
                                   ],
                                 ),
                               )

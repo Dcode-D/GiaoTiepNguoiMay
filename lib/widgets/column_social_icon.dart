@@ -37,7 +37,7 @@ Widget getAlbum(albumImg) {
     return Container(
       child: Column(
         children: <Widget>[
-          Icon(icon, color: white, size: size),
+          Icon(icon, color: Colors.black, size: size),
           SizedBox(
             height: 5,
           ),
