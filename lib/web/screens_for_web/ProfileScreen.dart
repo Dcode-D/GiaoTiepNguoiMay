@@ -31,16 +31,18 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return SingleChildScrollView(
-      child: Container(
+    return Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(size.height/10),
+          child: CustomAppBar(),
+        ),
+      body: Container(
           height: size.height,
           width: size.width,
           decoration: BoxDecoration(
             color: Colors.white,
           ),
-          child: Column(
-            children: <Widget>[
-              CustomAppBar(),
+          child:
               Row(
                 children: [
                   LeftPanel(),
@@ -349,8 +351,6 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                   ),
                 ],
               )
-            ],
-          )
       ),
     );
   }

@@ -16,15 +16,17 @@ class _VideoResultScreenState extends State<VideoResultScreen> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       key: currentKey,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(size.height/10),
+        child: CustomAppBar(),
+      ),
       body: Container(
         height: size.height,
         width: size.width,
         decoration: BoxDecoration(
           color: Colors.white,
         ),
-        child: Column(
-          children: [
-            CustomAppBar(),
+        child:
           Row(
             children: [
                 Flexible(
@@ -44,8 +46,6 @@ class _VideoResultScreenState extends State<VideoResultScreen> {
                 )
               ]
             )
-          ],
-        )
       ),
     );
   }

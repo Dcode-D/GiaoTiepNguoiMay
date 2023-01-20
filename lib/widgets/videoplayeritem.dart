@@ -1,10 +1,13 @@
+
 import 'package:doangtnm/events/RemoteShowmoreEvent.dart';
 import 'package:doangtnm/events/ShowmoreEvent.dart';
 import 'package:doangtnm/widgets/right_panel.dart';
 import 'package:event_bus/event_bus.dart';
+import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 import '../theme/Colors.dart';
 import 'left_panel.dart';
@@ -42,19 +45,19 @@ class VideoPlayerItem extends StatefulWidget {
 class _VideoPlayerItemState extends State<VideoPlayerItem> {
   VideoPlayerController? _videoController;
   bool isShowPlaying = false;
+  bool manualstop = false;
+  ValueNotifier<bool> _notifier = ValueNotifier(false);
 
   @override
   void initState() {
     super.initState();
     _videoController = VideoPlayerController.asset(widget.videoUrl)
       ..initialize().then((value) {
-        _videoController!.play();
+        _videoController!.pause();
         setState(() {
           isShowPlaying = false;
         });
       });
-
-
   }
 
   @override
@@ -70,41 +73,63 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        print("Triggered inkwell");
-        setState(() {
-          _videoController!.value.isPlaying
-              ? _videoController!.pause()
-              : _videoController!.play();
-        });
+    return VisibilityDetector(
+      key: GlobalKey(),
+      onVisibilityChanged: (visi){
+        if(visi.visibleFraction<0.5)
+          {
+            _notifier.value = !_notifier.value;
+            manualstop = false;
+            _videoController!.pause();
+          }
+        if(visi.visibleFraction>=0.5 && !manualstop)
+          {
+            _notifier.value = !_notifier.value;
+            _videoController!.play();
+          }
       },
-      child:
-      IgnorePointer(
-        child: RotatedBox(
-          quarterTurns: -1,
-          child: Container(
-              height: widget.size.height,
-              width: widget.size.width,
-              child: Stack(
-                children: <Widget>[
-                  Container(
-                    height: widget.size.height,
-                    width: widget.size.width,
-                    decoration: BoxDecoration(color: Colors.white),
-                    child: Stack(
-                      children: <Widget>[
-                        Center(child: VideoPlayer(_videoController!)),
-                        Center(
-                          child: Container(
-                            child: isPlaying(),
+      child: InkWell(
+        splashFactory: NoSplash.splashFactory,
+        onTap: () {
+          _notifier.value=!_notifier.value;
+            if(_videoController!.value.isPlaying)
+                { _videoController!.pause();
+                  manualstop = true;
+                }
+                else{ _videoController!.play();
+                      manualstop = false;
+                }
+        },
+        child:
+        IgnorePointer(
+          child: RotatedBox(
+            quarterTurns: -1,
+            child: Container(
+                height: widget.size.height,
+                width: widget.size.width,
+                child: Stack(
+                  children: <Widget>[
+                    Container(
+                      height: widget.size.height,
+                      width: widget.size.width,
+                      decoration: BoxDecoration(color: Colors.white),
+                      child: Stack(
+                        children: <Widget>[
+                          Center(child: VideoPlayer(_videoController!)),
+                          Center(
+                            child: ValueListenableBuilder(
+                              valueListenable: _notifier,
+                              builder:(context,value,_)=> Container(
+                                child: isPlaying(),
+                              ),
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
-              )),
+                  ],
+                )),
+          ),
         ),
       ),
     );

@@ -33,75 +33,78 @@ class _HomeScreenState extends State<HomeScreen> {
     Size size = MediaQuery.of(context).size;
     return MaterialApp(
       builder: FlutterSmartDialog.init(),
-      home: SingleChildScrollView(
-        child: Container(
-          height: size.height,
-          width: size.width,
-          decoration: BoxDecoration(
-            color: Colors.white,
-          ),
-          child: Column(
-            children: <Widget>[
-              Flexible(flex: 1, child: CustomAppBar()),
-              Flexible(flex: 9, child:
-                Row(
-                  children: [
-                    LeftPanel(),
-                    Container(
-                      width: size.width*0.45,
-                      height: size.height-86.5,
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: List.generate(3, (index) =>
-                              Container(
-                                margin: EdgeInsets.only(bottom: 10),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Center(
-                                      child: RotatedBox(
-                                        quarterTurns: 1,
-                                        child: VideoPlayerItem(
-                                          videoUrl: videoitems[index]['videoUrl'],
-                                          size: new Size(size.width/2.5, size.height),
-                                          name: videoitems[index]['name'],
-                                          caption: videoitems[index]['caption'],
-                                          songName: videoitems[index]['songName'],
-                                          profileImg: videoitems[index]['profileImg'],
-                                          likes: videoitems[index]['likes'],
-                                          comments: videoitems[index]['comments'],
-                                          shares: videoitems[index]['shares'],
-                                          albumImg: videoitems[index]['albumImg'],
+      home: Scaffold(
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(size.height/10),
+          child: CustomAppBar(),
+        ),
+        body: Container(
+            height: size.height,
+            width: size.width,
+            decoration: BoxDecoration(
+              color: Colors.white,
+            ),
+            child: Column(
+              children: <Widget>[
+                Flexible(child:
+                  Row(
+                    children: [
+                      LeftPanel(),
+                      Container(
+                        width: size.width*0.45,
+                        height: size.height-86.5,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: List.generate(3, (index) =>
+                                Container(
+                                  margin: EdgeInsets.only(bottom: 10),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Center(
+                                        child: RotatedBox(
+                                          quarterTurns: 1,
+                                          child: VideoPlayerItem(
+                                            videoUrl: videoitems[index]['videoUrl'],
+                                            size: new Size(size.width/2.5, size.height),
+                                            name: videoitems[index]['name'],
+                                            caption: videoitems[index]['caption'],
+                                            songName: videoitems[index]['songName'],
+                                            profileImg: videoitems[index]['profileImg'],
+                                            likes: videoitems[index]['likes'],
+                                            comments: videoitems[index]['comments'],
+                                            shares: videoitems[index]['shares'],
+                                            albumImg: videoitems[index]['albumImg'],
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    RightPanel(
-                                        size: size,
-                                        likes: "123M",
-                                        comments: "46K",
-                                        shares: "4.5K",
-                                        profileImg: "assets/images/cat1.jpg",
-                                        albumImg: "something",
-                                      ),
-                                  ],
-                                ),
-                              )
+                                      RightPanel(
+                                          size: size,
+                                          likes: "123M",
+                                          comments: "46K",
+                                          shares: "4.5K",
+                                          profileImg: "assets/images/cat1.jpg",
+                                          albumImg: "something",
+                                        ),
+                                    ],
+                                  ),
+                                )
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Container(
-                      height: size.height-86.5,
-                      width: size.width*0.35,
-                      child: RightPanelComments(),
-                    )
-                  ],
+                      Container(
+                        height: size.height-86.5,
+                        width: size.width*0.35,
+                        child: RightPanelComments(),
+                      )
+                    ],
+                  )
                 )
-              )
-            ],
-          )
+              ],
+            )
+          ),
         ),
-      ),
     );
   }
 }
