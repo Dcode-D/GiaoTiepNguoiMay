@@ -18,7 +18,30 @@ class CustomAppBar extends StatefulWidget {
 }
 
 class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMixin {
+  late TextEditingController _textEditingController;
+  late Key searchKey;
 
+  @override
+  void initState() {
+    print("innit controller");
+    searchKey = GlobalKey();
+    _textEditingController = TextEditingController();
+    if(!_textEditingController.hasListeners){
+      _textEditingController.addListener(() {
+        setState(() {
+          // _textEditingController.value = _textEditingController.value.copyWith(text: _textEditingController.text,
+          //   selection: TextSelection.collapsed(offset: _textEditingController.text.length)
+          // );
+        });
+      });
+    }
+    super.initState();
+  }
+  @override
+  void dispose() {
+    _textEditingController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context){
     GlobalKey currentKey = GlobalKey();
@@ -57,7 +80,11 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
                           fit: FlexFit.tight,
                           child: Padding(
                             padding: EdgeInsets.only(left: 10),
-                            child: SearchField(
+                            child:
+                          _textEditingController.text.length==0?
+                            SearchField(
+                              key: searchKey,
+                              controller: _textEditingController,
                               searchInputDecoration: InputDecoration(
                                   hintText: "Search",
                                   hintStyle: TextStyle(color: Color.fromARGB(255, 120, 120, 120),
@@ -71,16 +98,43 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
                               onSubmit: (input){
                                 Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_,a1,a2)=>VideoResultScreen()));
                               },
-                              suggestions: suggestlist.map((e) =>
+                              suggestions: historyList.map((e) =>
                               SearchFieldListItem(e,
                                   child: ListTile(
-                                    leading: Icon(Icons.search),
+                                    leading: Icon(Icons.history),
                                     title: Text(e),
                                     trailing: Icon(Icons.clear),
                                   )
                               )
                             ).toList(),
+                            )
+                            :
+                          SearchField(
+                            key: searchKey,
+                            controller: _textEditingController,
+                            searchInputDecoration: InputDecoration(
+                                hintText: "Search",
+                                hintStyle: TextStyle(color: Color.fromARGB(255, 120, 120, 120),
+                                  fontSize: 18,
+                                  fontFamily: "Poppins",),
+                                border: InputBorder.none
                             ),
+                            onSuggestionTap: (listitem){
+                              Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_,a1,a2)=>VideoResultScreen()));
+                            },
+                            onSubmit: (input){
+                              Navigator.of(context).push(PageRouteBuilder(pageBuilder: (_,a1,a2)=>VideoResultScreen()));
+                            },
+                            suggestions: suggestlist.map((e) =>
+                                SearchFieldListItem(e,
+                                    child: ListTile(
+                                      leading: Icon(Icons.search),
+                                      title: Text(e),
+                                    )
+                                )
+                            ).toList(),
+                          )
+                            ,
                           ),
                         ),
                     Flexible(
@@ -176,4 +230,5 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
   }
 }
 
+List historyList = ["Naruto iu sasuke","con cho nha hang xom","Hieu bach tuoc", "Thoi anh choi luon","Choay pho", "con gai co hang xom","Ba cu lang ben"];
 List suggestlist = ["Phim hay","Vl conheo","Rap cham thoi","Ghe dit bu","Em la bad girl","Meo rot duoi","anh ko choi dau"];

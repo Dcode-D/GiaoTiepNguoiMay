@@ -3,7 +3,6 @@ import 'package:doangtnm/events/RemoteShowmoreEvent.dart';
 import 'package:doangtnm/events/ShowmoreEvent.dart';
 import 'package:doangtnm/widgets/right_panel.dart';
 import 'package:event_bus/event_bus.dart';
-import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
