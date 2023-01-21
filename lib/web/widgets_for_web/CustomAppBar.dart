@@ -25,7 +25,6 @@ class _CustomAppBarState extends State<CustomAppBar> with TickerProviderStateMix
 
   @override
   void initState() {
-    print("innit controller");
     searchKey = GlobalKey();
     _textEditingController = TextEditingController();
     if(!_textEditingController.hasListeners){

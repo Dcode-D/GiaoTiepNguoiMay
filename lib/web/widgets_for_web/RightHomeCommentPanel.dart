@@ -205,6 +205,63 @@ class _DetailVideoScreenState extends State<RightHomeCommentPanel>{
                     ),
                   ),
                 ),
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      width: 520,
+                      height: 60,
+                      padding: EdgeInsets.only(left: 20),
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 220, 220, 220),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  hintText: "Comment...",
+                                  hintStyle: TextStyle(color: Color.fromARGB(255, 120, 120, 120),
+                                    fontFamily: "Inter",),
+                                  border: InputBorder.none
+                              ),
+                            ),
+                          ),
+                          Spacer(),
+                          Icon(Icons.emoji_emotions_outlined,
+                            color: Colors.black,
+                            size: 30,),
+                          SizedBox(width: 10,),
+                          InkWell(
+                            onTap: (){
+                            },
+                            child: Container(
+                              height: 60,
+                              width: 80,
+                              decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 172, 172, 172),
+                                  borderRadius: BorderRadius.only(
+                                      topRight: Radius.circular(20),
+                                      bottomRight: Radius.circular(20)
+                                  )
+                              ),
+                              child: Center(
+                                  child: Text('Post',
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 16,
+                                        fontFamily: "Inter",
+                                        fontWeight: FontWeight.w600
+                                    ),)
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ])
         ),
       );

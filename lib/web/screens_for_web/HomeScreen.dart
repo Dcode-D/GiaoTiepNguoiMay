@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       Container(
-                        height: size.height-86.5,
+                        height: size.height,
                         width: size.width*0.35,
                         child: RightHomeCommentPanel(),
                       )
