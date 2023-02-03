@@ -107,3 +107,6 @@ flutter:
     - family: TikTokIcons
       fonts:
         - asset: assets/fonts/TikTokIcons.ttf
+    - family: CustomFlutterIcons
+      fonts:
+        - asset: assets/fonts/CustomFlutterIcons.ttf

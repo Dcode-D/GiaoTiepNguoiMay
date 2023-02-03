@@ -75,26 +75,32 @@ class TopPage extends StatelessWidget{
                    child:
                     Column(
                       children: [
-                        Align(
-                            child: Text("Profiles", style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 17
-                            ),),
-                          alignment: Alignment.topLeft,
+                        Container(
+                          margin: EdgeInsets.only(left: 3),
+                          child: Align(
+                              child: Text("Profiles", style: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 17
+                              ),),
+                            alignment: Alignment.topLeft,
 
+                          ),
                         ),
                         profiletile(),
                         profiletile(),
                       ],
                     )
                ),
-               Align(
-                 child: Text("Videos", style: TextStyle(
-                     fontWeight: FontWeight.w500,
-                     fontSize: 17
-                 ),),
-                 alignment: Alignment.topLeft,
+               Container(
+                 margin: EdgeInsets.only(left: 3),
+                 child: Align(
+                   child: Text("Videos", style: TextStyle(
+                       fontWeight: FontWeight.w500,
+                       fontSize: 17
+                   ),),
+                   alignment: Alignment.topLeft,
 
+                 ),
                ),
                SizedBox(height: 5,),
                GridView.builder(
@@ -112,28 +118,33 @@ class TopPage extends StatelessWidget{
                    return
                      Column(
                          children:[
-
-                           SizedBox(
-                               height:MediaQuery.of(context).size.height/5,
-                               width: MediaQuery.of(context).size.width/2.1,
-                               child:
-                               VideoThumbnail("assets/images/cat1.jpg", "1.5M")),
+                           Flexible(
+                             flex:12,
+                             child: SizedBox(
+                                 height:MediaQuery.of(context).size.height/4,
+                                 width: MediaQuery.of(context).size.width/2.1,
+                                 child:
+                                 VideoThumbnail("assets/images/cat1.jpg", "1.5M")),
+                           ),
                            SizedBox(height: 2,),
-                           Row(
-                               children:[
-                                 Align(
-                                     alignment:Alignment.centerLeft,
-                                     child:
-                                     SizedBox(
-                                       width: 30,
-                                       height:30,
+                           Flexible(
+                             flex: 2,
+                             child: Row(
+                                 children:[
+                                   Align(
+                                       alignment:Alignment.centerLeft,
                                        child:
-                                       profileAvt("assets/images/cat5.jpg"),
-                                     )
-                                 ),
-                                 Flexible(child:
-                                 Text("How i met your mother and something came at us!", style: TextStyle(fontSize: 12,color: Colors.grey),overflow: TextOverflow.ellipsis,)),
-                               ]
+                                       SizedBox(
+                                         width: 30,
+                                         height:30,
+                                         child:
+                                         profileAvt("assets/images/cat5.jpg"),
+                                       )
+                                   ),
+                                   Flexible(child:
+                                   Text("How i met your mother and something came at us!", style: TextStyle(fontSize: 12,color: Colors.grey),overflow: TextOverflow.ellipsis,)),
+                                 ]
+                             ),
                            )
                          ]);
                  },
@@ -155,11 +166,7 @@ class ProfilePage extends StatelessWidget{
             itemCount: 10,
             itemBuilder: (context,index)=>
             Container(
-                decoration: BoxDecoration(border:
-                  Border(bottom: BorderSide(width: 0.7,color: Colors.grey),
-                        top: BorderSide(width: 0.7,color: Colors.grey)
-                  )
-                ),
+
                 child:
           ListTile(
             horizontalTitleGap: 20,
@@ -240,10 +247,6 @@ class profiletile extends StatelessWidget{
     };
     return
       Container(
-          decoration: BoxDecoration(border:
-          Border(bottom: BorderSide(width: 0.7,color: Colors.grey)
-          )
-          ),
           child:
           ListTile(
             minLeadingWidth: 0,
@@ -307,27 +310,32 @@ class videoPage extends StatelessWidget{
               return
                 Column(
                     children:[
-
-                      SizedBox(
-                          height:MediaQuery.of(context).size.height/5,
-                          width: MediaQuery.of(context).size.width/2.1,
-                          child:
-                          VideoThumbnail("assets/images/cat5.jpg", "1.5M")),
-                      Row(
-                          children:[
-                            Align(
-                                alignment:Alignment.centerLeft,
-                                child:
-                                SizedBox(
-                                  width: 30,
-                                  height:30,
+                      Flexible(
+                        flex:12,
+                        child: SizedBox(
+                            height:MediaQuery.of(context).size.height/5,
+                            width: MediaQuery.of(context).size.width/2.1,
+                            child:
+                            VideoThumbnail("assets/images/cat5.jpg", "1.5M")),
+                      ),
+                      Flexible(
+                        flex: 2,
+                        child: Row(
+                            children:[
+                              Align(
+                                  alignment:Alignment.centerLeft,
                                   child:
-                                  profileAvt("assets/images/cat5.jpg"),
-                                )
-                            ),
-                            Flexible(child:
-                            Text("How i met your mother and something came at us!", style: TextStyle(fontSize: 12,color: Colors.grey),overflow: TextOverflow.ellipsis,)),
-                          ]
+                                  SizedBox(
+                                    width: 30,
+                                    height:30,
+                                    child:
+                                    profileAvt("assets/images/cat5.jpg"),
+                                  )
+                              ),
+                              Flexible(child:
+                              Text("How i met your mother and something came at us!", style: TextStyle(fontSize: 12,color: Colors.grey),overflow: TextOverflow.ellipsis,)),
+                            ]
+                        ),
                       )
                     ]);
             },

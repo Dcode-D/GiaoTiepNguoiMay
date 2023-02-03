@@ -50,10 +50,16 @@ class LikeState extends State<LikeComponent> with SingleTickerProviderStateMixin
       Container(
         child: Column(
           children: [
-            Icon(TikTokIcons.heart,
-              color: (isliked)?Color.fromARGB(255, 242, 113, 33):Colors.white,
-              size: 30.0,
-            ),
+            !isliked?
+            Icon(TikTokIcons.heart_blank,
+              color: Colors.white,
+              size: 35.0,
+            ):
+            Icon(TikTokIcons.heart_full,
+              color: Color.fromARGB(255, 242, 113, 33),
+              size: 35.0,
+            )
+            ,
             SizedBox(height: 5),
             Text(
               widget.likes.toString(),
@@ -69,9 +75,14 @@ class LikeState extends State<LikeComponent> with SingleTickerProviderStateMixin
           Container(
             child: Column(
               children: [
-                Icon(TikTokIcons.heart,
-                  color: (isliked)?Colors.red:Colors.white,
-                  size: 30.0,
+                !isliked?
+                Icon(TikTokIcons.heart_blank,
+                  color: Colors.white,
+                  size: 35.0,
+                ):
+                Icon(TikTokIcons.heart_full,
+                  color: Color.fromARGB(255, 242, 113, 33),
+                  size: 35.0,
                 ),
                 SizedBox(height: 5),
                 Text(

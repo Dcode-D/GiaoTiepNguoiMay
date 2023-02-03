@@ -69,23 +69,29 @@ class SearchingDelegate extends SearchDelegate<String>{
                 Align(
                   alignment: Alignment.centerLeft,
     child:
-                Text("You may also like",
-                  style: TextStyle(fontWeight: FontWeight.w700,fontSize: 17),
+                Container(
+                  margin: EdgeInsets.only(left: 5,bottom: 3),
+                  child: Text("You may also like",
+                    style: TextStyle(fontWeight: FontWeight.w700,fontSize: 17),
+                  ),
                 )
                 )
                 ),
                 Flexible(child:
                 ListView.builder(
+                  physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemBuilder: (context,index)=>
                   Container(
                     margin: EdgeInsets.only(top:5),
     child:
                         ListTile(
+                          minVerticalPadding: 0,
                           onTap: (){
                             showResults(context);
                           },
-                          leading: Icon(Icons.circle,color: Colors.black,size: 10,),
+
+                          leading: Icon(Icons.circle,color: Colors.black,size: 12,),
                           title: Text(maylikeList[index]),
                         )
                     ),

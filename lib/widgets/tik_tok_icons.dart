@@ -13,4 +13,11 @@ class TikTokIcons{
   static const IconData profile = const IconData(0xe80d, fontFamily: _fontFamily);
   static const IconData reply = const IconData(0xe80e, fontFamily: _fontFamily);
   static const IconData search = const IconData(0xe80f, fontFamily: _fontFamily);
+
+  static const _kFontFam = 'CustomFlutterIcons';
+  static const String? _kFontPkg = null;
+
+  static const IconData paper_plane = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData heart_blank = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData heart_full = IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

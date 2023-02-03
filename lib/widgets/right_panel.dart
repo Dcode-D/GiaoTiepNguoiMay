@@ -94,7 +94,7 @@ class RightPanel extends StatelessWidget {
                           Share.share("something");
                         },
                         child:
-                          getIcons(TikTokIcons.reply, shares, 25.0)),
+                          getIcons(TikTokIcons.paper_plane, shares, 25.0)),
                     getAlbum(albumImg)
                   ],
                 ))
