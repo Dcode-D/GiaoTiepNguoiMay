@@ -6,6 +6,8 @@ import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:doangtnm/theme/Colors.dart';
 
+import '../pages/OtherProfilePage.dart';
+
 
 class LeftPanel extends StatelessWidget {
   final String name;
@@ -48,10 +50,29 @@ class LeftPanel extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            name,
-            style: TextStyle(
-                color: white, fontWeight: FontWeight.bold, fontSize: 16),
+          InkWell(
+            onTap: (){
+              Navigator.push(context, PageRouteBuilder(
+                pageBuilder: (context, animation, secondaryAnimation) => OtherProfileScreen(),
+                transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                  const begin = Offset(1.0, 0.0);
+                  const end = Offset.zero;
+                  const curve = Curves.ease;
+
+                  var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+                  return SlideTransition(
+                    position: animation.drive(tween),
+                    child: child,
+                  );
+                },
+              ));
+            },
+            child: Text(
+              name,
+              style: TextStyle(
+                  color: white, fontWeight: FontWeight.bold, fontSize: 16),
+            ),
           ),
           SizedBox(
             height: 10,

@@ -43,12 +43,31 @@ class FollowingAccountState extends State<FollowingAccountItem>{
             )
         ),
         title:
-        Text(
-          widget.userName,
-          style: const TextStyle(
-            fontSize: 17,
-            color: Colors.black,
-            fontWeight: FontWeight.w500,
+        InkWell(
+          onTap: (){
+            Navigator.push(context, PageRouteBuilder(
+              pageBuilder: (context, animation, secondaryAnimation) => OtherProfileScreen(),
+              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                const begin = Offset(1.0, 0.0);
+                const end = Offset.zero;
+                const curve = Curves.ease;
+
+                var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+                return SlideTransition(
+                  position: animation.drive(tween),
+                  child: child,
+                );
+              },
+            ));
+          },
+          child: Text(
+            widget.userName,
+            style: const TextStyle(
+              fontSize: 17,
+              color: Colors.black,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ),
         trailing:
@@ -59,7 +78,7 @@ class FollowingAccountState extends State<FollowingAccountItem>{
           Text("Unfollow",style: TextStyle(color: Colors.black),)
             :
         Text("Follow",style: TextStyle(color: Colors.white),),
-          style: TextButton.styleFrom(backgroundColor:isfollowing? Colors.grey:Colors.blue)
+          style: TextButton.styleFrom(backgroundColor:isfollowing? Colors.grey:Colors.orange)
           ,
         ),
       );

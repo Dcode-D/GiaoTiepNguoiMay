@@ -71,7 +71,7 @@ class TopPage extends StatelessWidget{
            Column(
              children: [
                Container(
-                 decoration: BoxDecoration(border: Border(bottom: BorderSide(color: Colors.grey))),
+                 margin: EdgeInsets.only(bottom: 5),
                    child:
                     Column(
                       children: [
@@ -96,6 +96,7 @@ class TopPage extends StatelessWidget{
                  alignment: Alignment.topLeft,
 
                ),
+               SizedBox(height: 5,),
                GridView.builder(
                  physics: NeverScrollableScrollPhysics(),
                  shrinkWrap: true,
@@ -163,35 +164,49 @@ class ProfilePage extends StatelessWidget{
           ListTile(
             horizontalTitleGap: 20,
             leading:
-              SizedBox(
-                  height: size.height/4,
-                  width: size.width/4,
-                  child:
-                      InkWell(
-                          onTap: (){
-                            Navigator.push(context, PageRouteBuilder(
-                              pageBuilder: (context, animation, secondaryAnimation) => OtherProfileScreen(),
-                              transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                                const begin = Offset(1.0, 0.0);
-                                const end = Offset.zero;
-                                const curve = Curves.ease;
+              InkWell(
+                  onTap: (){
+                    Navigator.push(context, PageRouteBuilder(
+                      pageBuilder: (context, animation, secondaryAnimation) => OtherProfileScreen(),
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                        const begin = Offset(1.0, 0.0);
+                        const end = Offset.zero;
+                        const curve = Curves.ease;
 
-                                var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
-                                return SlideTransition(
-                                  position: animation.drive(tween),
-                                  child: child,
-                                );
-                              },
-                            ));
-                          },
-                        child:
+                        return SlideTransition(
+                          position: animation.drive(tween),
+                          child: child,
+                        );
+                      },
+                    ));
+                  },
+                child:
               CircleAvatar(
+                radius: size.width/12,
                 backgroundImage: Image.asset("assets/images/cat3.jpg").image,
               )
-              )
               ),
-            title: Text("User Cat",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 16),),
+            title: InkWell(
+                onTap: (){
+                  Navigator.push(context, PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => OtherProfileScreen(),
+                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                      const begin = Offset(1.0, 0.0);
+                      const end = Offset.zero;
+                      const curve = Curves.ease;
+
+                      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+                      return SlideTransition(
+                        position: animation.drive(tween),
+                        child: child,
+                      );
+                    },
+                  ));
+                },
+                child: Text("User Cat",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 16),)),
             subtitle: Text("2.5M followers", style:  TextStyle(color: Colors.grey),),
             trailing: TextButton(child: Text("Follow",style: TextStyle(color: Colors.white,fontSize: 16),),
               style: TextButton.styleFrom(backgroundColor: Colors.orange),
@@ -206,6 +221,23 @@ class profiletile extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    Function toprofile = (){
+      Navigator.push(context, PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) => OtherProfileScreen(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.ease;
+
+          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+          return SlideTransition(
+            position: animation.drive(tween),
+            child: child,
+          );
+        },
+      ));
+    };
     return
       Container(
           decoration: BoxDecoration(border:
@@ -215,37 +247,37 @@ class profiletile extends StatelessWidget{
           child:
           ListTile(
             minLeadingWidth: 0,
-            horizontalTitleGap: 20,
+            horizontalTitleGap: 10,
             leading:
-            SizedBox(
-                height: size.height/4,
-                width: size.width/4,
-                child:
-                InkWell(
-                    onTap: (){
-                      Navigator.push(context, PageRouteBuilder(
-                        pageBuilder: (context, animation, secondaryAnimation) => OtherProfileScreen(),
-                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                          const begin = Offset(1.0, 0.0);
-                          const end = Offset.zero;
-                          const curve = Curves.ease;
+            InkWell(
+                onTap: (){
+                  Navigator.push(context, PageRouteBuilder(
+                    pageBuilder: (context, animation, secondaryAnimation) => OtherProfileScreen(),
+                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                      const begin = Offset(1.0, 0.0);
+                      const end = Offset.zero;
+                      const curve = Curves.ease;
 
-                          var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
-                          return SlideTransition(
-                            position: animation.drive(tween),
-                            child: child,
-                          );
-                        },
-                      ));
+                      return SlideTransition(
+                        position: animation.drive(tween),
+                        child: child,
+                      );
                     },
-                    child:
-                    CircleAvatar(
-                      backgroundImage: Image.asset("assets/images/cat3.jpg").image,
-                    )
+                  ));
+                },
+                child:
+                CircleAvatar(
+                  radius: size.width/12,
+                  backgroundImage: Image.asset("assets/images/cat3.jpg").image,
                 )
             ),
-            title: Text("User Cat",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 16),),
+            title: InkWell(
+                onTap: (){
+                  toprofile();
+                },
+                child: Text("User Cat",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 16),)),
             subtitle: Text("2.5M followers", style:  TextStyle(color: Colors.grey),),
             trailing: TextButton(child: Text("Follow",style: TextStyle(color: Colors.white,fontSize: 16),),
               style: TextButton.styleFrom(backgroundColor: Colors.orange),
