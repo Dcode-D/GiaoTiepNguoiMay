@@ -165,7 +165,7 @@ class _DetailVideoScreenState extends State<RightPanelComments>{
                         ],
                       ),
                       SizedBox(height: 20,),
-                      Row(
+/*                      Row(
                         children: [
                             InkWell(
                               onTap: (){
@@ -208,7 +208,7 @@ class _DetailVideoScreenState extends State<RightPanelComments>{
                             color: Color.fromARGB(255, 242, 113, 33),
                             size: 30,),
                         ]
-                      ),]
+                      ),*/]
                       ),
                     ),
 

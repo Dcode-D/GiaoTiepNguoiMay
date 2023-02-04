@@ -1,4 +1,5 @@
 import 'package:doangtnm/constant/data_json.dart';
+import 'package:doangtnm/web/screens_for_web/VideosPage.dart';
 import 'package:doangtnm/web/widgets_for_web/AccountItem.dart';
 import 'package:doangtnm/web/widgets_for_web/CustomAppBar.dart';
 import 'package:doangtnm/web/widgets_for_web/LeftPanel.dart';
@@ -29,6 +30,10 @@ class LoginClass{
   static bool isLogged = false;
 }
 
+class CommentBoxClass{
+  static bool isShow = false;
+}
+
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
@@ -53,8 +58,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       LeftPanel(),
                       Container(
-                        width: size.width*0.45,
-                        height: size.height-86.5,
+                        width: size.width*0.3,
+                        height: size.height-87.5,
+                        margin: EdgeInsets.only(left: 120,top: 10),
                         child: SingleChildScrollView(
                           child: Column(
                             children: List.generate(3, (index) =>
@@ -71,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             child:
                                                 VideoPlayerItem(
                                                   videoUrl: videoitems[index]['videoUrl'],
-                                                  size: new Size(size.width/2.5, size.height*0.8),
+                                                  size: new Size(size.width/4.2, size.height*0.84),
                                                   name: videoitems[index]['name'],
                                                   caption: videoitems[index]['caption'],
                                                   songName: videoitems[index]['songName'],
@@ -99,8 +105,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                       ),
+                      Spacer(),
                       Container(
-                        height: size.height,
+                        height: size.height*0.85,
                         width: size.width*0.35,
                         child: RightHomeCommentPanel(),
                       )

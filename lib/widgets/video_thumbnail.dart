@@ -36,7 +36,7 @@ class VideoThumbnail extends StatelessWidget{
                 Image.asset(imgUrl,fit: BoxFit.fitHeight,height: double.infinity,width: double.infinity,)
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding: const EdgeInsets.only(top:10,left: 20),
                   child: Align(
                     alignment: Alignment.topLeft,
                     child:

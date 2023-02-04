@@ -9,6 +9,7 @@ import 'package:share_plus/share_plus.dart';
 import 'package:doangtnm/widgets/LikeComponent.dart';
 import 'package:doangtnm/widgets/column_social_icon.dart';
 
+
 class RightHomeVideoPanel extends StatelessWidget {
   final String likes;
   final String comments;
@@ -38,7 +39,7 @@ class RightHomeVideoPanel extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Container(
-              height: size.height * 0.3,
+              height: size.height * 0.31,
             ),
             Expanded(
                 child: Column(
@@ -46,20 +47,20 @@ class RightHomeVideoPanel extends StatelessWidget {
                   children: <Widget>[
                     LikeComponent(likes: likes),
                     SizedBox(height: 10,),
-                    Container(
-                      padding: EdgeInsets.all(10),
-                      height: 50,
-                      width: 50,
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 234, 234, 234),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      child: InkWell(
-                          onTap: (){
+                    InkWell(
+                      onTap: (){
 
-                          },
-                          child:
-                            Icon(Icons.chat_bubble_outline,size: 30.0)),
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(10),
+                        height: 50,
+                        width: 50,
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 234, 234, 234),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Icon(Icons.chat_bubble_outline,size: 30.0),
+                      ),
                     ),
                     SizedBox(height: 5),
                     Text('100',style: TextStyle(
@@ -79,8 +80,10 @@ class RightHomeVideoPanel extends StatelessWidget {
                           },
                           child:
                           Icon(Icons.near_me_outlined, size:30.0)),
-
                     ),
+                    SizedBox(height: 5),
+                    Text('100',style: TextStyle(
+                        color: Colors.black, fontSize: 12,fontFamily: 'Inter', fontWeight: FontWeight.w700),),
                   ],
                 ))
           ],

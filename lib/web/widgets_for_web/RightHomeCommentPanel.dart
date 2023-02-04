@@ -211,6 +211,7 @@ class _DetailVideoScreenState extends State<RightHomeCommentPanel>{
                     child: Container(
                       width: 520,
                       height: 60,
+                      margin: EdgeInsets.only(bottom: 20),
                       padding: EdgeInsets.only(left: 20),
                       decoration: BoxDecoration(
                         color: Color.fromARGB(255, 220, 220, 220),

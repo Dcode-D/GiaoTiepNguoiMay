@@ -1,6 +1,7 @@
 
 import 'package:doangtnm/events/RemoteShowmoreEvent.dart';
 import 'package:doangtnm/events/ShowmoreEvent.dart';
+import 'package:doangtnm/web/screens_for_web/VideosPage.dart';
 import 'package:doangtnm/widgets/right_panel.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/cupertino.dart';
@@ -99,6 +100,9 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
                       manualstop = false;
                 }
         },
+        onDoubleTap: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => VideoPage()));
+        },
         child:
         IgnorePointer(
           child: RotatedBox(
@@ -111,7 +115,7 @@ class _VideoPlayerItemState extends State<VideoPlayerItem> {
                     Container(
                       height: widget.size.height,
                       width: widget.size.width,
-                      decoration: BoxDecoration(color: Colors.white),
+                      decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(10)),
                       child: Stack(
                         children: <Widget>[
                           Center(child: VideoPlayer(_videoController!)),
