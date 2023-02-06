@@ -1,4 +1,5 @@
 import 'package:doangtnm/web/screens_for_web/AccountScreen.dart';
+import 'package:doangtnm/web/screens_for_web/ProfileScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:doangtnm/widgets/LikeComponent.dart';
 import 'package:doangtnm/web/screens_for_web//HomeScreen.dart';
@@ -40,80 +41,80 @@ class _DetailVideoScreenState extends State<RightPanelComments>{
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children:[
-                      Row(
-                        children: [
-                          InkWell(
-                            onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => AccountScreen()));
-                            },
-                            child: ClipOval(
+                      InkWell(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreen()));
+                        },
+                        child: Row(
+                          children: [
+                            ClipOval(
                               child:
                                 Image.asset('assets/images/cat1.jpg',
                                 width: 50, height: 50, fit: BoxFit.cover),
                             ),
-                          ),
-                          SizedBox(width: 20,),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('Mr Cat',style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                  fontFamily: "Popins",
-                                  fontWeight: FontWeight.w600
-                              ),),
-                              SizedBox(height: 5,),
-                              Row(
-                                children: [
-                                  Text('White Cat',
-                                    style: TextStyle(
+                            SizedBox(width: 20,),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('Mr Cat',style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontFamily: "Popins",
+                                    fontWeight: FontWeight.w600
+                                ),),
+                                SizedBox(height: 5,),
+                                Row(
+                                  children: [
+                                    Text('White Cat',
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 14,
+                                          fontFamily: "Popins",
+                                          fontWeight: FontWeight.w500
+                                      ),),
+                                    SizedBox(width: 5,),
+                                    Text('*',style: TextStyle(
                                         color: Colors.black,
-                                        fontSize: 14,
+                                        fontSize: 18,
                                         fontFamily: "Popins",
                                         fontWeight: FontWeight.w500
                                     ),),
-                                  SizedBox(width: 5,),
-                                  Text('*',style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 18,
-                                      fontFamily: "Popins",
-                                      fontWeight: FontWeight.w500
-                                  ),),
-                                  SizedBox(width: 5,),
-                                  Text('1 days ago',
+                                    SizedBox(width: 5,),
+                                    Text('1 days ago',
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 14,
+                                          fontFamily: "Popins",
+                                          fontWeight: FontWeight.w500
+                                      ),),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            Spacer(),
+                            Flexible(
+                              child: Align(
+                                alignment: Alignment.topRight,
+                                child: InkWell(
+                                  onTap: (){
+                                    setState(() {
+                                      isFollow = !isFollow;
+                                    });
+                                  },
+                                  child:Text(
+                                    isFollow ? 'Following' : 'Follow',
                                     style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 14,
+                                        color: Color.fromARGB(255,242,113,33),
+                                        fontSize: 18,
                                         fontFamily: "Popins",
-                                        fontWeight: FontWeight.w500
-                                    ),),
-                                ],
-                              ),
-                            ],
-                          ),
-                          Spacer(),
-                          Flexible(
-                            child: Align(
-                              alignment: Alignment.topRight,
-                              child: InkWell(
-                                onTap: (){
-                                  setState(() {
-                                    isFollow = !isFollow;
-                                  });
-                                },
-                                child:Text(
-                                  isFollow ? 'Following' : 'Follow',
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255,242,113,33),
-                                      fontSize: 18,
-                                      fontFamily: "Popins",
-                                      fontWeight: FontWeight.w700
+                                        fontWeight: FontWeight.w700
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
                       SizedBox(height: 18,),
                       Text('Something you should know',

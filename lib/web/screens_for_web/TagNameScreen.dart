@@ -21,9 +21,9 @@ class TagNameScreen extends StatefulWidget {
 }
 
 class _TagNameScreenState extends State<TagNameScreen> {
-  int tab = 0;
   @override
   Widget build(BuildContext context) {
+    GlobalKey key = GlobalKey();
     Size size = MediaQuery.of(context).size;
     return SingleChildScrollView(
       child: Container(
@@ -38,12 +38,12 @@ class _TagNameScreenState extends State<TagNameScreen> {
               Row(
                 children: [
                   LeftPanel(),
-                  SingleChildScrollView(
-                    child: Container(
-                      padding: EdgeInsets.only(left: 18, right: 18,top: 20),
-                      height: size.height-80,
-                      width: size.width * 0.8,
-                      color: Colors.transparent,
+                  Container(
+                    padding: EdgeInsets.only(left: 18, right: 18,top: 20),
+                    height: size.height-80,
+                    width: size.width * 0.8,
+                    color: Colors.transparent,
+                    child: SingleChildScrollView(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -118,42 +118,35 @@ class _TagNameScreenState extends State<TagNameScreen> {
                           SizedBox(
                             height: 20,
                           ),
-                          Container(
-                              width: size.width * 0.8,
-                              height: size.height - 331,
-                            child: SingleChildScrollView(
-                              child: GridView.builder(
-                                physics: BouncingScrollPhysics(),
-                                shrinkWrap: true,
-                                itemCount: 15,
-                                gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 5,
-                                  childAspectRatio: 1,
-                                  crossAxisSpacing: 35,
-                                  mainAxisSpacing: 20,
-                                ),
-                                itemBuilder: (context, index) {
-                                  return
-                                    Column(
-                                      children: [
-                                        SizedBox(
-                                            height:MediaQuery.of(context).size.height/4,
-                                            width: MediaQuery.of(context).size.width/2.1,
-                                            child: VideoThumbnail("assets/images/cat1.jpg", "1.5M")),
-                                        SizedBox(height: 2,),
-                                        Flexible(child:
-                                        Text("How i met your mother and something came at us!",
-                                          style: TextStyle(fontSize: 12,
-                                              color: Colors.black,
-                                              fontFamily: 'Poppins',
-                                              fontWeight: FontWeight.w500),
-                                          overflow: TextOverflow.ellipsis,)),
-                                      ],
-                                    );
-                                },
-                              ),
+                          GridView.builder(
+                            shrinkWrap: true,
+                            itemCount: 15,
+                            gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 3,
+                              childAspectRatio: 1,
+                              crossAxisSpacing: 20,
+                              mainAxisSpacing: 5,
                             ),
+                            itemBuilder: (context, index) {
+                              return
+                                Column(
+                                  children: [
+                                    SizedBox(
+                                        height:MediaQuery.of(context).size.height/2.1,
+                                        width: MediaQuery.of(context).size.width/1.8,
+                                        child: VideoThumbnail("assets/images/cat6.jpg", "1.5M")),
+                                    SizedBox(height: 2,),
+                                    Flexible(child:
+                                    Text("How i met your mother and something came at us!",
+                                      style: TextStyle(fontSize: 14,
+                                          color: Colors.black,
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w500),
+                                      overflow: TextOverflow.ellipsis,)),
+                                  ],
+                                );
+                            },
                           ),
                         ],
                       ),

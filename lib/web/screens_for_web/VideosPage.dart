@@ -75,9 +75,11 @@ class _VideoPageState extends State<VideoPage>
                   ),
                 ),
                   Positioned(
-                    right: 0,
+                    right: 0.5,
                     child:
-                  Column(children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
                       Container(
                         width: 40,
                         height: 40,
@@ -113,7 +115,7 @@ class _VideoPageState extends State<VideoPage>
                           ),
                         ),
                       ),
-                    SizedBox(height: 15,),
+                    SizedBox(height: 40,),
                     InkWell(
                       onTap: (){
                         setState(() {

@@ -33,7 +33,7 @@ class VideoThumbnail extends StatelessWidget{
             Stack(
               children: [
                 Positioned.fill(child:
-                Image.asset(imgUrl,fit: BoxFit.fitHeight,height: double.infinity,width: double.infinity,)
+                Image.asset(imgUrl,fit: BoxFit.fill,height: double.infinity,width: double.infinity,)
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top:10,left: 20),
@@ -42,7 +42,7 @@ class VideoThumbnail extends StatelessWidget{
                     child:
                   Row(
                     children: [
-                      Icon(Icons.play_arrow_rounded,color: Colors.black,size: 30,),
+                      Icon(Icons.play_arrow_rounded,color: Colors.white,size: 30,),
                       Text(views,style: TextStyle(
                           color: Colors.white,
                           fontSize: 15,

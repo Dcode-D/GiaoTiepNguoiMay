@@ -119,6 +119,61 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                                                     SizedBox(
                                                       height: 15,
                                                     ),
+                                                    InkWell(
+                                                      onTap: (){
+                                                        setState(() {
+                                                          isFollow = !isFollow;
+                                                        });
+                                                      },
+                                                      child: isFollow?
+                                                      Container(
+                                                        width: 130,
+                                                        height: 33,
+                                                        decoration: BoxDecoration(
+                                                            color: Colors.transparent,
+                                                            borderRadius: BorderRadius.circular(5),
+                                                            border: Border.all(
+                                                              color:  Color.fromARGB(255, 242, 113, 33) ,
+                                                              width: 1,
+                                                            )
+                                                        ),
+                                                        child: Center(
+                                                          child: Text(
+                                                            'Following',
+                                                            style: TextStyle(
+                                                              color: Color.fromARGB(255, 242, 113, 33),
+                                                              fontSize: 16,
+                                                              fontFamily: "Poppins",
+                                                              fontWeight: FontWeight.w500,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      )
+                                                            :
+                                                      Container(
+                                                        width: 130,
+                                                        height: 33,
+                                                        decoration: BoxDecoration(
+                                                            color: Color.fromARGB(255, 242, 113, 33) ,
+                                                            borderRadius: BorderRadius.circular(5),
+                                                            border: Border.all(
+                                                              color:  Color.fromARGB(255, 242, 113, 33) ,
+                                                              width: 1,
+                                                            )
+                                                        ),
+                                                        child: Center(
+                                                          child: Text(
+                                                            'Follow',
+                                                            style: TextStyle(
+                                                              color: Colors.white,
+                                                              fontSize: 16,
+                                                              fontFamily: "Poppins",
+                                                              fontWeight: FontWeight.w500,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    )
                                                   ]
                                               )
                                             ]
@@ -273,7 +328,7 @@ class _ProfileScreenState extends State<ProfileScreen> with TickerProviderStateM
                                               child: SizedBox(
                                                   height:MediaQuery.of(context).size.height/2.1,
                                                   width: MediaQuery.of(context).size.width/1.8,
-                                                child: VideoThumbnail("assets/images/cat1.jpg", "1.5M")),
+                                                child: VideoThumbnail("assets/images/cat6.jpg", "1.5M")),
                                             ),
                                             SizedBox(height: 2,),
                                             Flexible(

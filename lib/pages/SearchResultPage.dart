@@ -1,4 +1,5 @@
 import 'package:doangtnm/web/screens_for_web/AccountScreen.dart';
+import 'package:doangtnm/web/screens_for_web/ProfileScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -89,13 +90,13 @@ class TopPage extends StatelessWidget{
          Expanded(child:
          GridView.builder(
            shrinkWrap: true,
-           itemCount: 30,
+           itemCount: 15,
            gridDelegate:
            const SliverGridDelegateWithFixedCrossAxisCount(
-             crossAxisCount: 5,
-             childAspectRatio: 0.8,
+             crossAxisCount: 3,
+             childAspectRatio: 1,
              crossAxisSpacing: 10,
-              mainAxisSpacing: 5,
+              mainAxisSpacing: 15,
            ),
            itemBuilder: (context, index) {
              return
@@ -104,14 +105,15 @@ class TopPage extends StatelessWidget{
                      Flexible(
                        flex:7,
                        child: SizedBox(
-                           height:MediaQuery.of(context).size.height/3,
-                           width: MediaQuery.of(context).size.width/2.1,
+                           height:MediaQuery.of(context).size.height/1.5,
+                           width: MediaQuery.of(context).size.width/1.9,
                            child:
-                           VideoThumbnail("assets/images/cat1.jpg", "1.5M")),
+                           VideoThumbnail("assets/images/cat4.jpg", "1.5M")),
                      ),
                      Flexible(
                        flex: 1,
                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                            children:[
                              Flexible(
                                flex:1,
@@ -119,17 +121,17 @@ class TopPage extends StatelessWidget{
                                    alignment:Alignment.centerLeft,
                                    child:
                                    SizedBox(
-                                     width: 30,
-                                     height:30,
+                                     width: 50,
+                                     height: 50,
                                      child:
                                      profileAvt("assets/images/cat5.jpg"),
                                    )
                                ),
                              ),
                              Flexible(
-                                 flex:5,
+                                 flex:8,
                                  child:
-                             Text("How i met your mother and something came at us!", style: TextStyle(fontSize: 12,color: Colors.grey),overflow: TextOverflow.ellipsis,)),
+                             Text("How i met your mother and something came at us!", style: TextStyle(fontSize: 18,color: Colors.black, fontFamily: 'Inter', fontWeight: FontWeight.w500),overflow: TextOverflow.ellipsis,)),
                            ]
                        ),
                      )
@@ -158,7 +160,7 @@ class _stateProfilePage extends State<ProfilePage>{
             Container(
                 decoration: BoxDecoration(border:
                   Border(
-                        top: BorderSide(width: 0.7,color: Colors.black.withOpacity(0.5))
+                        bottom: BorderSide(width: 0.5,color: Colors.black.withOpacity(0.2))
                   )
                 ),
                 child:
@@ -172,7 +174,7 @@ class _stateProfilePage extends State<ProfilePage>{
                       InkWell(
                           onTap: (){
                             Navigator.push(context, PageRouteBuilder(
-                              pageBuilder: (context, animation, secondaryAnimation) => AccountScreen(),
+                              pageBuilder: (context, animation, secondaryAnimation) => ProfileScreen(),
                               transitionsBuilder: (context, animation, secondaryAnimation, child) {
                                 const begin = Offset(1.0, 0.0);
                                 const end = Offset.zero;
@@ -193,7 +195,7 @@ class _stateProfilePage extends State<ProfilePage>{
               )
               )
               ),
-            title: Text("User Cat",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 16),),
+            title: Text("User Cat",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 20),),
             subtitle: Text("2.5M followers", style:  TextStyle(color: Colors.grey),),
             trailing: TextButton(child: Text(isFollowed? "Following" : "Follow",style: TextStyle(color:Colors.white,fontSize: 16),),
               style: TextButton.styleFrom(backgroundColor: Colors.orange),
@@ -217,13 +219,13 @@ class videoPage extends StatelessWidget{
           Expanded(child:
           GridView.builder(
             shrinkWrap: true,
-            itemCount: 30,
+            itemCount: 15,
             gridDelegate:
             const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 5,
-              childAspectRatio: 0.8,
+              crossAxisCount: 3,
+              childAspectRatio: 1,
               crossAxisSpacing: 10,
-              mainAxisSpacing: 5,
+              mainAxisSpacing: 15,
             ),
             itemBuilder: (context, index) {
               return
@@ -232,10 +234,10 @@ class videoPage extends StatelessWidget{
                       Flexible(
                         flex: 7,
                         child: SizedBox(
-                           height:MediaQuery.of(context).size.height/3,
-                           width: MediaQuery.of(context).size.width/2.1,
+                           height:MediaQuery.of(context).size.height/1.5,
+                           width: MediaQuery.of(context).size.width/1.9,
                             child:
-                            VideoThumbnail("assets/images/cat1.jpg", "1.5M")),
+                            VideoThumbnail("assets/images/cat6.jpg", "1.5M")),
                       ),
                       SizedBox(height: 2,),
                       Flexible(
@@ -248,17 +250,17 @@ class videoPage extends StatelessWidget{
                                     alignment:Alignment.centerLeft,
                                     child:
                                     SizedBox(
-                                      width: 30,
-                                      height:30,
+                                      width: 50,
+                                      height:50,
                                       child:
                                       profileAvt("assets/images/cat5.jpg"),
                                     )
                                 ),
                               ),
                               Flexible(
-                                flex: 5,
+                                flex: 8,
                                   child:
-                              Text("How i met your mother and something came at us!", style: TextStyle(fontSize: 12,color: Colors.grey),overflow: TextOverflow.ellipsis,)),
+                              Text("How i met your mother and something came at us!", style: TextStyle(fontSize: 18,color: Colors.black, fontFamily: 'Inter', fontWeight: FontWeight.w500),overflow: TextOverflow.ellipsis,)),
                             ]
                         ),
                       )
@@ -280,7 +282,7 @@ class profileAvt extends StatelessWidget{
       InkWell(
           onTap: (){
             Navigator.push(context, PageRouteBuilder(
-              pageBuilder: (context, animation, secondaryAnimation) => OtherProfileScreen(),
+              pageBuilder: (context, animation, secondaryAnimation) => ProfileScreen(),
               transitionsBuilder: (context, animation, secondaryAnimation, child) {
                 const begin = Offset(1.0, 0.0);
                 const end = Offset.zero;

@@ -49,350 +49,352 @@ class _AccountScreenState extends State<AccountScreen> with TickerProviderStateM
               Row(
                 children: [
                   LeftPanel(),
-                  Container(
-                    padding: EdgeInsets.only(left: 18, right: 18,top: 0),
-                    width: size.width * 0.8,
-                    color: Colors.transparent,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          height: size.height,
-                          width: size.width * 0.8,
-                          color: Colors.transparent,
-                          child: SafeArea(
-                              child: NestedScrollView(
-                                controller: _scrollController, headerSliverBuilder: (context, value) {
-                                return <Widget>[
-                                  SliverToBoxAdapter(
-                                    child: Container(
+                  SingleChildScrollView(
+                    key: currentKey,
+                    child: Container(
+                      padding: EdgeInsets.only(left: 18, right: 18,top: 0),
+                      width: size.width * 0.8,
+                      color: Colors.transparent,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: size.height,
+                            width: size.width * 0.8,
+                            color: Colors.transparent,
+                            child: SafeArea(
+                                child: NestedScrollView(
+                                  controller: _scrollController, headerSliverBuilder: (context, value) {
+                                  return <Widget>[
+                                    SliverToBoxAdapter(
+                                      child: Container(
 
-                                      color: Colors.transparent,
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(height: 20,),
-                                          Row(
-                                              children:[
-                                                ClipOval(
-                                                  child: Image.asset(
-                                                    "assets/images/cat2.jpg",
-                                                    width: 145 ,
-                                                    height: 145,
-                                                    fit: BoxFit.cover,
+                                        color: Colors.transparent,
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            SizedBox(height: 20,),
+                                            Row(
+                                                children:[
+                                                  ClipOval(
+                                                    child: Image.asset(
+                                                      "assets/images/cat2.jpg",
+                                                      width: 145 ,
+                                                      height: 145,
+                                                      fit: BoxFit.cover,
+                                                    ),
                                                   ),
-                                                ),
-                                                SizedBox(
-                                                  width: 20,
-                                                ),
-                                                Column(
-                                                    mainAxisAlignment: MainAxisAlignment.start,
-                                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                                    children:[
-                                                      Row(
-                                                        children: [
-                                                          Text(
-                                                              "Black Cat",
-                                                              style: TextStyle(
-                                                                  color: Colors.black,
-                                                                  fontSize: 30,
-                                                                  fontFamily: "Poppins",
-                                                                  fontWeight: FontWeight.w700
-                                                              )
-                                                          ),
-                                                          SizedBox(
-                                                            width: 100,
-                                                          ),
-                                                          Icon(Icons.share, color: Color.fromARGB(
-                                                              255, 242, 113, 33),
-                                                            size: 30,)
-                                                        ],
-                                                      ),
-                                                      Align(
-                                                        alignment: Alignment.topLeft,
-                                                        child: Text(
-                                                            "@Mr.Cat",
-                                                            style: TextStyle(
-                                                                color: Colors.black.withOpacity(0.7),
-                                                                fontSize: 18,
-                                                                fontFamily: "Poppins",
-                                                                fontWeight: FontWeight.w500
-                                                            )
+                                                  SizedBox(
+                                                    width: 20,
+                                                  ),
+                                                  Column(
+                                                      mainAxisAlignment: MainAxisAlignment.start,
+                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                      children:[
+                                                        Row(
+                                                          children: [
+                                                            Text(
+                                                                "Black Cat",
+                                                                style: TextStyle(
+                                                                    color: Colors.black,
+                                                                    fontSize: 30,
+                                                                    fontFamily: "Poppins",
+                                                                    fontWeight: FontWeight.w700
+                                                                )
+                                                            ),
+                                                            SizedBox(
+                                                              width: 100,
+                                                            ),
+                                                            Icon(Icons.share, color: Color.fromARGB(
+                                                                255, 242, 113, 33),
+                                                              size: 30,)
+                                                          ],
                                                         ),
-                                                      ),
-                                                      SizedBox(
-                                                        height: 15,
-                                                      ),
-                                                      InkWell(
-                                                        onTap: () {
-                                                          showGeneralDialog(
-                                                              barrierLabel: "Close dialog",
-                                                              barrierColor: Colors.black.withOpacity(0.5),
-                                                              barrierDismissible: true,
-                                                              transitionDuration: Duration(milliseconds: 200),
-                                                              context: currentKey.currentContext!,
-                                                              pageBuilder: (context,animation,animation2)=>
-                                                                  Dialog(
-                                                                    alignment: Alignment.center,
-                                                                    child: Container(
-                                                                      width: size.width/2,
-                                                                      height: size.height*0.6+27,
-                                                                      child: EditProfileDialog(),
-                                                                    ),
-                                                                  ),
-                                                              transitionBuilder: (context,animation1,animation2,child){
-                                                                return
-                                                                  // SlideTransition(position: Tween(begin: Offset(0.2,1), end: Offset(0.2, 0.2))
-                                                                  //     .animate(animation1),
-                                                                  //   child: child,);
-                                                                  ScaleTransition(scale: animation1,
-                                                                    child: child,
-                                                                    //animation start point
-                                                                    alignment: Alignment.center,
-                                                                  );
-                                                              }
-                                                          );
-                                                        },
-                                                        child: Container(
-                                                          width: 130,
-                                                          height: 33,
-                                                          decoration: BoxDecoration(
-                                                              color: Colors.transparent,
-                                                              borderRadius: BorderRadius.circular(5),
-                                                              border: Border.all(
-                                                                color:  Color.fromARGB(255, 242, 113, 33) ,
-                                                                width: 1,
+                                                        Align(
+                                                          alignment: Alignment.topLeft,
+                                                          child: Text(
+                                                              "@Mr.Cat",
+                                                              style: TextStyle(
+                                                                  color: Colors.black.withOpacity(0.7),
+                                                                  fontSize: 18,
+                                                                  fontFamily: "Poppins",
+                                                                  fontWeight: FontWeight.w500
                                                               )
                                                           ),
-                                                          child: Center(
-                                                            child: Text(
-                                                              'Edit profile',
-                                                              style: TextStyle(
-                                                                color: Color.fromARGB(255, 242, 113, 33),
-                                                                fontSize: 16,
-                                                                fontFamily: "Poppins",
-                                                                fontWeight: FontWeight.w500,
+                                                        ),
+                                                        SizedBox(
+                                                          height: 15,
+                                                        ),
+                                                        InkWell(
+                                                          onTap: () {
+                                                            showGeneralDialog(
+                                                                barrierLabel: "Close dialog",
+                                                                barrierColor: Colors.black.withOpacity(0.5),
+                                                                barrierDismissible: true,
+                                                                transitionDuration: Duration(milliseconds: 200),
+                                                                context: currentKey.currentContext!,
+                                                                pageBuilder: (context,animation,animation2)=>
+                                                                    Dialog(
+                                                                      alignment: Alignment.center,
+                                                                      child: Container(
+                                                                        width: size.width/2,
+                                                                        height: size.height*0.6+27,
+                                                                        child: EditProfileDialog(),
+                                                                      ),
+                                                                    ),
+                                                                transitionBuilder: (context,animation1,animation2,child){
+                                                                  return
+                                                                    // SlideTransition(position: Tween(begin: Offset(0.2,1), end: Offset(0.2, 0.2))
+                                                                    //     .animate(animation1),
+                                                                    //   child: child,);
+                                                                    ScaleTransition(scale: animation1,
+                                                                      child: child,
+                                                                      //animation start point
+                                                                      alignment: Alignment.center,
+                                                                    );
+                                                                }
+                                                            );
+                                                          },
+                                                          child: Container(
+                                                            width: 130,
+                                                            height: 33,
+                                                            decoration: BoxDecoration(
+                                                                color: Colors.transparent,
+                                                                borderRadius: BorderRadius.circular(5),
+                                                                border: Border.all(
+                                                                  color:  Color.fromARGB(255, 242, 113, 33) ,
+                                                                  width: 1,
+                                                                )
+                                                            ),
+                                                            child: Center(
+                                                              child: Text(
+                                                                'Edit profile',
+                                                                style: TextStyle(
+                                                                  color: Color.fromARGB(255, 242, 113, 33),
+                                                                  fontSize: 16,
+                                                                  fontFamily: "Poppins",
+                                                                  fontWeight: FontWeight.w500,
+                                                                ),
                                                               ),
                                                             ),
                                                           ),
                                                         ),
-                                                      ),
-                                                    ]
-                                                )
-                                              ]
-                                          ),
-                                          SizedBox(
-                                            height: 20,
-                                          ),
-                                          Row(
-                                            children: [
-                                              Text(
-                                                  "111",
-                                                  style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 18,
-                                                      fontFamily: "Inter",
-                                                      fontWeight: FontWeight.w700
+                                                      ]
                                                   )
-                                              ),
-                                              SizedBox(
-                                                width: 10,
-                                              ),
-                                              Text(
-                                                  "Following",
-                                                  style: TextStyle(
-                                                      color: Colors.black.withOpacity(0.5),
-                                                      fontSize: 16,
-                                                      fontFamily: "Inter",
-                                                      fontWeight: FontWeight.w400
-                                                  )
-                                              ),
-                                              SizedBox(
-                                                width: 20,),
-                                              Text(
-                                                  "111",
-                                                  style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 18,
-                                                      fontFamily: "Inter",
-                                                      fontWeight: FontWeight.w700
-                                                  )
-                                              ),
-                                              SizedBox(
-                                                width: 10,
-                                              ),
-                                              Text(
-                                                  "Follower",
-                                                  style: TextStyle(
-                                                      color: Colors.black.withOpacity(0.5),
-                                                      fontSize: 16,
-                                                      fontFamily: "Inter",
-                                                      fontWeight: FontWeight.w400
-                                                  )
-                                              ),
-                                              SizedBox(
-                                                width: 20,),
-                                              Text(
-                                                  "111",
-                                                  style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 18,
-                                                      fontFamily: "Inter",
-                                                      fontWeight: FontWeight.w700
-                                                  )
-                                              ),
-                                              SizedBox(
-                                                width: 10,
-                                              ),
-                                              Text(
-                                                  "Liked",
-                                                  style: TextStyle(
-                                                      color: Colors.black.withOpacity(0.5),
-                                                      fontSize: 16,
-                                                      fontFamily: "Inter",
-                                                      fontWeight: FontWeight.w400
-                                                  )
-                                              ),
-                                              SizedBox(
-                                                width: 10,),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 20,
-                                          ),
-                                          Text(
-                                              "Some description about the artist",
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 16,
-                                                  fontFamily: "Inter",
-                                                  fontWeight: FontWeight.w400
-                                              )
-                                          ),
-                                          SizedBox(
-                                            height: 15,
-                                          ),
-                                          Container(
-                                            height: 50,
-                                            width: 400,
-                                            child: TabBar(
-                                                controller: tabController,
-                                                unselectedLabelColor: Colors.grey,
-                                                indicator: UnderlineTabIndicator(
-                                                  borderSide: BorderSide(
-                                                      color: Color.fromARGB(255, 242, 113, 33), width: 3.0),
-                                                  insets: EdgeInsets.fromLTRB(0, 0.0, 0, 0),
-                                                ),
-                                                labelColor: Color.fromARGB(255, 242, 113, 33),
-                                                tabs: [
-                                                  Tab(
-                                                    icon: Icon(Icons.reorder),
-                                                  ),
-                                                  Tab(
-                                                      icon: Icon(Icons.lock_outline)
-                                                  )
-                                                ]),
-                                          ),
-                                          Container(
-                                            height: 1.5,
-                                            width: size.width * 0.8,
-                                            color: Colors.black.withOpacity(0.1),
-                                          ),
-                                          SizedBox(
-                                            height: 10,
-                                          ),
-                                        ],
-                                      )
-                                    ),
-                                  ),
-                                ];
-                              }, body: TabBarView(
-                                  physics: NeverScrollableScrollPhysics(),
-                                  controller: tabController,
-                                  children:[
-                                    GridView.builder(
-                                      physics: BouncingScrollPhysics(),
-                                      shrinkWrap: true,
-                                      itemCount: 15,
-                                      gridDelegate:
-                                      const SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 3,
-                                        childAspectRatio: 1,
-                                        crossAxisSpacing: 20,
-                                        mainAxisSpacing: 5,
-                                      ),
-
-                                      itemBuilder: (context, index) {
-                                        return
-                                          Container(
-                                            color: Colors.transparent,
-                                            child: Column(
+                                                ]
+                                            ),
+                                            SizedBox(
+                                              height: 20,
+                                            ),
+                                            Row(
                                               children: [
-                                                Flexible(
-                                                  flex:12,
-                                                  child: SizedBox(
-                                                      height:MediaQuery.of(context).size.height/2.1,
-                                                      width: MediaQuery.of(context).size.width/1.8,
-                                                      child: VideoThumbnail("assets/images/cat1.jpg", "1.5M")),
+                                                Text(
+                                                    "111",
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 18,
+                                                        fontFamily: "Inter",
+                                                        fontWeight: FontWeight.w700
+                                                    )
                                                 ),
-                                                SizedBox(height: 2,),
-                                                Flexible(
-                                                    flex:1,
-                                                    child:
-                                                    Text("How i met your mother and something came at us!",
-                                                      style: TextStyle(fontSize: 12,
-                                                          color: Colors.black,
-                                                          fontFamily: 'Poppins',
-                                                          fontWeight: FontWeight.w700),
-                                                      overflow: TextOverflow.ellipsis,)),
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                Text(
+                                                    "Following",
+                                                    style: TextStyle(
+                                                        color: Colors.black.withOpacity(0.5),
+                                                        fontSize: 16,
+                                                        fontFamily: "Inter",
+                                                        fontWeight: FontWeight.w400
+                                                    )
+                                                ),
+                                                SizedBox(
+                                                  width: 20,),
+                                                Text(
+                                                    "111",
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 18,
+                                                        fontFamily: "Inter",
+                                                        fontWeight: FontWeight.w700
+                                                    )
+                                                ),
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                Text(
+                                                    "Follower",
+                                                    style: TextStyle(
+                                                        color: Colors.black.withOpacity(0.5),
+                                                        fontSize: 16,
+                                                        fontFamily: "Inter",
+                                                        fontWeight: FontWeight.w400
+                                                    )
+                                                ),
+                                                SizedBox(
+                                                  width: 20,),
+                                                Text(
+                                                    "111",
+                                                    style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 18,
+                                                        fontFamily: "Inter",
+                                                        fontWeight: FontWeight.w700
+                                                    )
+                                                ),
+                                                SizedBox(
+                                                  width: 10,
+                                                ),
+                                                Text(
+                                                    "Liked",
+                                                    style: TextStyle(
+                                                        color: Colors.black.withOpacity(0.5),
+                                                        fontSize: 16,
+                                                        fontFamily: "Inter",
+                                                        fontWeight: FontWeight.w400
+                                                    )
+                                                ),
+                                                SizedBox(
+                                                  width: 10,),
                                               ],
                                             ),
-                                          );
-                                      },
-                                    ),
-                                    GridView.builder(
-                                      physics: BouncingScrollPhysics(),
-                                      shrinkWrap: true,
-                                      itemCount: 10,
-                                      gridDelegate:
-                                      const SliverGridDelegateWithFixedCrossAxisCount(
-                                        crossAxisCount: 3,
-                                        childAspectRatio: 1,
-                                        crossAxisSpacing: 20,
-                                        mainAxisSpacing: 5,
-                                      ),
-                                      itemBuilder: (context, index) {
-                                        return Column(
-                                          children: [
-                                            Flexible(
-                                              flex:12,
-                                              child: SizedBox(
-                                                  height:MediaQuery.of(context).size.height/2.1,
-                                                  width: MediaQuery.of(context).size.width/1.8,
-                                                  child: VideoThumbnail("assets/images/cat5.jpg", "1.5M")),
+                                            SizedBox(
+                                              height: 20,
                                             ),
-                                            SizedBox(height: 2,),
-                                            Flexible(
-                                                flex:1,
-                                                child:
-                                                Text("How i met your mother and something came at us!",
-                                                  style: TextStyle(fontSize: 12,
-                                                      color: Colors.black,
-                                                      fontFamily: 'Poppins',
-                                                      fontWeight: FontWeight.w700),
-                                                  overflow: TextOverflow.ellipsis,)),
+                                            Text(
+                                                "Some description about the artist",
+                                                style: TextStyle(
+                                                    color: Colors.black,
+                                                    fontSize: 16,
+                                                    fontFamily: "Inter",
+                                                    fontWeight: FontWeight.w400
+                                                )
+                                            ),
+                                            SizedBox(
+                                              height: 15,
+                                            ),
+                                            Container(
+                                              height: 50,
+                                              width: 400,
+                                              child: TabBar(
+                                                  controller: tabController,
+                                                  unselectedLabelColor: Colors.grey,
+                                                  indicator: UnderlineTabIndicator(
+                                                    borderSide: BorderSide(
+                                                        color: Color.fromARGB(255, 242, 113, 33), width: 3.0),
+                                                    insets: EdgeInsets.fromLTRB(0, 0.0, 0, 0),
+                                                  ),
+                                                  labelColor: Color.fromARGB(255, 242, 113, 33),
+                                                  tabs: [
+                                                    Tab(
+                                                      icon: Icon(Icons.reorder),
+                                                    ),
+                                                    Tab(
+                                                        icon: Icon(Icons.lock_outline)
+                                                    )
+                                                  ]),
+                                            ),
+                                            Container(
+                                              height: 1.5,
+                                              width: size.width * 0.8,
+                                              color: Colors.black.withOpacity(0.1),
+                                            ),
+                                            SizedBox(
+                                              height: 10,
+                                            ),
                                           ],
-                                        );
-                                      },
-                                    )
+                                        )
+                                      ),
+                                    ),
+                                  ];
+                                }, body: TabBarView(
+                                    physics: NeverScrollableScrollPhysics(),
+                                    controller: tabController,
+                                    children:[
+                                      GridView.builder(
+                                        physics: BouncingScrollPhysics(),
+                                        shrinkWrap: true,
+                                        itemCount: 15,
+                                        gridDelegate:
+                                        const SliverGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount: 3,
+                                          childAspectRatio: 1,
+                                          crossAxisSpacing: 20,
+                                          mainAxisSpacing: 5,
+                                        ),
 
-                                  ]
-                              ),
+                                        itemBuilder: (context, index) {
+                                          return
+                                            Container(
+                                              color: Colors.transparent,
+                                              child: Column(
+                                                children: [
+                                                  Flexible(
+                                                    flex:12,
+                                                    child: SizedBox(
+                                                        height:MediaQuery.of(context).size.height/2.1,
+                                                        width: MediaQuery.of(context).size.width/1.8,
+                                                        child: VideoThumbnail("assets/images/cat4.jpg", "1.5M")),
+                                                  ),
+                                                  SizedBox(height: 2,),
+                                                  Flexible(
+                                                      flex:1,
+                                                      child:
+                                                      Text("How i met your mother and something came at us!",
+                                                        style: TextStyle(fontSize: 14,
+                                                            color: Colors.black,
+                                                            fontFamily: 'Poppins',
+                                                            fontWeight: FontWeight.w700),
+                                                        overflow: TextOverflow.ellipsis,)),
+                                                ],
+                                              ),
+                                            );
+                                        },
+                                      ),
+                                      GridView.builder(
+                                        physics: BouncingScrollPhysics(),
+                                        shrinkWrap: true,
+                                        itemCount: 10,
+                                        gridDelegate:
+                                        const SliverGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount: 3,
+                                          childAspectRatio: 1,
+                                          crossAxisSpacing: 20,
+                                          mainAxisSpacing: 5,
+                                        ),
+                                        itemBuilder: (context, index) {
+                                          return Column(
+                                            children: [
+                                              Flexible(
+                                                flex:12,
+                                                child: SizedBox(
+                                                    height:MediaQuery.of(context).size.height/2.1,
+                                                    width: MediaQuery.of(context).size.width/1.8,
+                                                    child: VideoThumbnail("assets/images/cat5.jpg", "1.5M")),
+                                              ),
+                                              SizedBox(height: 2,),
+                                              Flexible(
+                                                  flex:1,
+                                                  child:
+                                                  Text("How i met your mother and something came at us!",
+                                                    style: TextStyle(fontSize: 14,
+                                                        color: Colors.black,
+                                                        fontFamily: 'Poppins',
+                                                        fontWeight: FontWeight.w700),
+                                                    overflow: TextOverflow.ellipsis,)),
+                                            ],
+                                          );
+                                        },
+                                      )
+                                    ]
+                                ),
 
-                              )
-                          ),
-                        )
-                      ],
+                                )
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ],

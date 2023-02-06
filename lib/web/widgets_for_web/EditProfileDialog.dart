@@ -241,7 +241,7 @@ class EditProfileDialog extends StatelessWidget {
                           children: [
                             InkWell(
                               onTap: (){
-
+                                  Navigator.pop(context);
                               },
                               child: Container(
                                 width: 150,
