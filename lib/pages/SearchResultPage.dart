@@ -65,7 +65,6 @@ class TopPage extends StatelessWidget{
   Widget build(BuildContext context) {
    return
          Expanded(child:
-
          SingleChildScrollView(
            child:
            Column(
@@ -142,7 +141,7 @@ class TopPage extends StatelessWidget{
                                        )
                                    ),
                                    Flexible(child:
-                                   Text("How i met your mother and something came at us!", style: TextStyle(fontSize: 12,color: Colors.grey),overflow: TextOverflow.ellipsis,)),
+                                   Text("How i met your mother and something came at us!", style: TextStyle(fontSize: 12,color: Colors.grey, fontWeight: FontWeight.w600),overflow: TextOverflow.ellipsis,)),
                                  ]
                              ),
                            )
@@ -333,7 +332,7 @@ class videoPage extends StatelessWidget{
                                   )
                               ),
                               Flexible(child:
-                              Text("How i met your mother and something came at us!", style: TextStyle(fontSize: 12,color: Colors.grey),overflow: TextOverflow.ellipsis,)),
+                              Text("How i met your mother and something came at us!", style: TextStyle(fontSize: 12,color: Colors.grey, fontWeight: FontWeight.w600),overflow: TextOverflow.ellipsis,)),
                             ]
                         ),
                       )
